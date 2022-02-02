@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">StarXpandSDK</string>
+
+    <string name="discoveryButton">Discovery</string>
+    <string name="printingButton">Printing</string>
+    <string name="monitorButton">Monitor</string>
+    <string name="statusButton">Status</string>
+
+    <string name="interfaceTextView">Interface</string>
+    <string name="lanCheckBox">LAN</string>
+    <string name="bluetoothCheckBox">Bluetooth</string>
+    <string name="usbCheckBox">USB</string>
+    <string name="empty"> </string>
+
+    <string name="identifier">Identifier</string>
+    <string name="interfaceType">Interface</string>
+    <string name="defaultMacAddress">00:11:62:00:00:00</string>
+    <string name="print">Print</string>
+    <string name="monitor">Start Monitoring</string>
+    <string name="status">Get Status</string>
+
+    <string-array name="list">
+        <item>LAN</item>
+        <item>Bluetooth</item>
+        <item>USB</item>
+    </string-array>
+</resources>

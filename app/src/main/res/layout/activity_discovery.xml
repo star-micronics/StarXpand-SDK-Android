@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="30dp"
+        android:paddingEnd="30dp"
+        android:paddingRight="30dp">
+
+        <TextView
+            android:id="@+id/textViewInterface"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/interfaceTextView" />
+
+        <CheckBox
+            android:id="@+id/checkBoxLan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:checked="true"
+            android:text="@string/lanCheckBox" />
+
+        <CheckBox
+            android:id="@+id/checkBoxBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:checked="true"
+            android:text="@string/bluetoothCheckBox" />
+
+        <CheckBox
+            android:id="@+id/checkBoxUsb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:checked="true"
+            android:text="@string/usbCheckBox" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/buttonDiscovery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/discoveryButton" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextDevices"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            android:ems="10"
+            android:focusableInTouchMode="false"
+            android:gravity="start|top"
+            android:hint="@string/empty"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:paddingTop="30dp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
