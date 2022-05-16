@@ -40,9 +40,29 @@ For more information on how to integrate a library into your application, please
 https://developer.android.com/studio/build/dependencies
 
 ### 2. Add settings to your project
-#### 2.1. When using a Bluetooth printer and setting targetSdkVersion to 31 or later
+#### 2.1. When using a Bluetooth printer 
+
+##### 2.1.1. When setting targetSdkVersion to 31 or later
 
 Refer to [sample code](app/src/main/java/com/starmicronics/starxpandsdk) and obtain BLUETOOTH_CONNECT permission before starting to communicate with or discover printers.
+
+##### 2.1.2. When setting targetSdkVersion to 30 or earlier
+
+The StarIO10 library contains the BLUETOOTH_CONNECT permission, which was added at API level 31. Please make the following two settings in AndroidManifest.xml to remove the BLUETOOTH_CONNECT permission.
+
+* Add the `xmlns:tools="http://schemas.android.com/tools"` attribute to the `manifest` element.
+* Add the `<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" tools:node="remove"/>` element.
+
+```xml
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.starmicronics.starxpandsdk">
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" tools:node="remove"/>
+    ...
+</manifest>
+```
 
 #### 2.2. To prevent the connection permission dialog from being displayed every time the USB cable is plugged in or unplugged
 

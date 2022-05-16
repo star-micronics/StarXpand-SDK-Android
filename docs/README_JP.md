@@ -40,9 +40,29 @@ Androidアプリケーションにライブラリを組み込む手順の詳細�
 https://developer.android.com/studio/build/dependencies
 
 ### 2. プロジェクトに設定を追加する
-#### 2.1. Bluetoothプリンターを使用し、targetSdkVersionを31以降に設定する場合
+#### 2.1. Bluetoothプリンターを使用する場合
 
-[サンプル](../app/src/main/java/com/starmicronics/starxpandsdk)を参考にして、プリンターとの通信や検索を開始する前に、BLUETOOTH_CONNECTパーミッションを取得してください。
+##### 2.1.1. targetSdkVersionを31以降に設定する場合
+
+[サンプルコード](../app/src/main/java/com/starmicronics/starxpandsdk)を参考にして、プリンターとの通信や検索を開始する前に、BLUETOOTH_CONNECTパーミッションを取得してください。
+
+##### 2.1.2. targetSdkVersionを30以前に設定する場合
+
+StarIO10ライブラリには、APIレベル 31にて追加されたBLUETOOTH_CONNECTパーミッションが含まれています。AndroidManifest.xmlに下記の二つの設定を行い、BLUETOOTH_CONNECTパーミッションを削除してください。
+
+* `manifest` 要素に `xmlns:tools="http://schemas.android.com/tools"` 属性を追加します。
+* `<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" tools:node="remove"/>` 要素を追加します。
+
+```xml
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.starmicronics.starxpandsdk">
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" tools:node="remove"/>
+    ...
+</manifest>
+```
 
 #### 2.2. USBケーブル挿抜の度に接続許可ダイアログを表示させないようにしたい場合
 
