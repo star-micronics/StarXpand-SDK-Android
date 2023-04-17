@@ -22,6 +22,7 @@
         <activity android:name=".PrintingActivity"/>
         <activity android:name=".MonitorActivity"/>
         <activity android:name=".StatusActivity"/>
+        <activity android:name=".SpoolerActivity"/>
     </application>
 
 </manifest>

@@ -14,6 +14,12 @@
 
 本ソフトウェア開発キットでは、スター精密デバイスを制御するためのライブラリとして、StarIO10ライブラリ(StarIO10.aar)を提供しています。
 
+## ドキュメント
+
+StarXpand SDKのドキュメントは[こちら](https://www.star-m.jp/starxpandsdk-oml.html)を参照ください。
+
+ドキュメントにはSDKの概要、サンプルアプリのビルド方法、APIの使用方法、APIリファレンスなどが含まれます。
+
 ## 動作環境
 
 | Platform | OS Version | Arch |
@@ -42,27 +48,7 @@ https://developer.android.com/studio/build/dependencies
 ### 2. プロジェクトに設定を追加する
 #### 2.1. Bluetoothプリンターを使用する場合
 
-##### 2.1.1. targetSdkVersionを31以降に設定する場合
-
 [サンプルコード](../app/src/main/java/com/starmicronics/starxpandsdk)を参考にして、プリンターとの通信や検索を開始する前に、BLUETOOTH_CONNECTパーミッションを取得してください。
-
-##### 2.1.2. targetSdkVersionを30以前に設定する場合
-
-StarIO10ライブラリには、APIレベル 31にて追加されたBLUETOOTH_CONNECTパーミッションが含まれています。AndroidManifest.xmlに下記の二つの設定を行い、BLUETOOTH_CONNECTパーミッションを削除してください。
-
-* `manifest` 要素に `xmlns:tools="http://schemas.android.com/tools"` 属性を追加します。
-* `<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" tools:node="remove"/>` 要素を追加します。
-
-```xml
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.starmicronics.starxpandsdk">
-
-    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" tools:node="remove"/>
-    ...
-</manifest>
-```
 
 #### 2.2. USBケーブル挿抜の度に接続許可ダイアログを表示させないようにしたい場合
 
@@ -108,183 +94,27 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
 </resources>
 ```
 
-## ドキュメント
-
-[ここを参照ください。](https://www.star-m.jp/starxpandsdk-oml.html)
-
 ## サンプル
 
-### Discover devices
+StarXpand SDKにはプリンターと組み合わせて動作を確認できるサンプルアプリが含まれています。リンク先の各機能の解説と合わせてご利用ください。
 
-```kotlin
+#### 1. [プリンターの検索](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/searchPrinter.html)
 
-var _manager: StarDeviceDiscoveryManager? = null
+#### 2. [印刷データの生成](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/basic-step1.html)
 
-fun discovery() {
-    try {
-        // Specify your printer interface types.
-        val interfaceTypes: List<InterfaceType> = listOf(
-          InterfaceType.Lan, 
-          InterfaceType.Bluetooth, 
-          InterfaceType.Usb
-        )
+ラベル用の印刷レイアウトを作成するのに活用できる各業態の[印刷サンプル](../app/src/main/java/com/starmicronics/starxpandsdk/printingsamples/PrintingSamples.md)（サンプルコードと印刷結果画像）もご利用ください。
 
-        _manager = StarDeviceDiscoveryManagerFactory.create(
-            interfaceTypes,
-            applicationContext
-        )
+> :warning: プリンターのモデルによっては印刷できないサンプルがあります。また、ご利用の際は適宜レイアウトを調節してください。
 
-        // Set discovery time. (option)
-        _manager?.discoveryTime = 10000
-        
-        _manager?.callback = object : StarDeviceDiscoveryManager.Callback {
-            // Callback for printer found.
-            override fun onPrinterFound(printer: StarPrinter) {
-                Log.d("Discovery", "Found printer: ${printer.connectionSettings.identifier}.")
-            }
+#### 3. [印刷データの送信](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/basic-step2.html)
 
-            // Callback for discovery finished. (option)
-            override fun onDiscoveryFinished() {
-                Log.d("Discovery", "Discovery finished.")
-            }
-        }
+#### 4. [スプーラー機能を利用した印刷データの送信](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/spooler.html)
 
-        // Start discovery.
-        _manager?.startDiscovery()
+#### 5. [プリンターステータスの取得](#GetPrinterStatus)
 
-        // Stop discovery.
-        //_manager?.stopDiscovery()
-    } catch (exception: Exception) {
-        // Exception.
-        Log.d("Discovery", "${exception.message}")
-    }
-}
-```
+#### 6. [プリンターステータスの監視](#MonitorPrinter)
 
-### Print
-
-```kotlin
-private fun onPressPrintButton() {
-    // Specify your printer connection settings.
-    val settings = StarConnectionSettings(interfaceType.Lan, "00:11:62:00:00:00")
-    val printer = StarPrinter(settings, applicationContext)
-
-    val job = SupervisorJob()
-    val scope = CoroutineScope(Dispatchers.Default + job)
-    scope.launch {
-        try {
-            // Connect to the printer.
-            printer.openAsync().await()
-            
-            // create printing data. (Please refer to 'Create Printing data')
-            val builder = StarXpandCommandBuilder()
-            // ...
-            val commands = builder.getCommands()
-            // Print.
-            printer.printAsync(commands).await()
-        } catch (e: Exception) {
-            // Exception.
-            Log.d("Printing", "${e.message}")
-        } finally {
-            // Disconnect from the printer.
-            printer.closeAsync().await()
-        }
-    }
-}
-```
-
-### Create printing data
-
-```kotlin
-// Create printing data using StarXpandCommandBuilder object.
-val builder = StarXpandCommandBuilder()
-builder.addDocument(
-    DocumentBuilder()
-        .addPrinter(
-            PrinterBuilder()
-                .actionPrintImage(ImageParameter(logo, 406))
-                .styleInternationalCharacter(InternationalCharacterType.Usa)
-                .styleCharacterSpace(0.0)
-                .styleAlignment(Alignment.Center)
-                .actionPrintText(
-                    "Star Clothing Boutique\n" +
-                            "123 Star Road\n" +
-                            "City, State 12345\n" +
-                            "\n"
-                )
-                .styleAlignment(Alignment.Left)
-                .actionPrintText(
-                    "Date:MM/DD/YYYY    Time:HH:MM PM\n" +
-                            "--------------------------------\n" +
-                            "\n"
-                )
-                .add(
-                     PrinterBuilder()
-                         .styleBold(true)
-                         .actionPrintText("SALE\n")
-                )
-                .actionPrintText(
-                    "SKU         Description    Total\n" +
-                            "300678566   PLAIN T-SHIRT  10.99\n" +
-                            "300692003   BLACK DENIM    29.99\n" +
-                            "300651148   BLUE DENIM     29.99\n" +
-                            "300642980   STRIPED DRESS  49.99\n" +
-                            "300638471   BLACK BOOTS    35.99\n" +
-                            "\n" +
-                            "Subtotal                  156.95\n" +
-                            "Tax                         0.00\n" +
-                            "--------------------------------\n"
-                )
-                .actionPrintText("Total     ")
-                .add(
-                    PrinterBuilder()
-                        .styleMagnification(MagnificationParameter(2, 2))
-                        .actionPrintText("   $156.95\n")
-                )
-                .actionPrintText(
-                    "--------------------------------\n" +
-                            "\n" +
-                            "Charge\n" +
-                            "156.95\n" +
-                            "Visa XXXX-XXXX-XXXX-0123\n" +
-                            "\n"
-                )
-                .add(
-                    PrinterBuilder()
-                        .styleInvert(true)
-                        .actionPrintText("Refunds and Exchanges\n")
-                )
-                .actionPrintText("Within ")
-                .add(
-                     PrinterBuilder()
-                        .styleUnderLine(true)
-                        .actionPrintText("30 days")
-                )
-                .actionPrintText(" with receipt\n")
-                .actionPrintText(
-                    "And tags attached\n" +
-                            "\n"
-                )
-                .styleAlignment(Alignment.Center)
-                .actionPrintBarcode(
-                    BarcodeParameter("0123456", BarcodeSymbology.Jan8)
-                        .setBarDots(3)
-                        .setHeight(5.0)
-                        .setPrintHri(true)
-                )
-                .actionFeedLine(1)
-                .actionPrintQRCode(
-                    QRCodeParameter("Hello, World\n")
-                        .setLevel(QRCodeLevel.L)
-                        .setCellSize(8)
-                )
-                .actionCut(CutType.Partial)
-        )
-)
-// Get printing data from StarXpandCommandBuilder object.
-val commands = builder.getCommands()
-```
-
+<a id="GetPrinterStatus"></a>
 ### Get printer status
 
 ```kotlin
@@ -315,6 +145,7 @@ fun getStatus() {
 }
 ```
 
+<a id="MonitorPrinter"></a>
 ### Monitor printer
 
 ```kotlin

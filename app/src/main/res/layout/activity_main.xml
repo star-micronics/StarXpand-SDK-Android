@@ -20,6 +20,12 @@
         android:text="@string/printingButton" />
 
     <Button
+        android:id="@+id/spoolerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/printingSpoolerButton" />
+
+    <Button
         android:id="@+id/monitorButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

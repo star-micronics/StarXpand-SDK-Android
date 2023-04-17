@@ -25,5 +25,9 @@ class MainActivity : AppCompatActivity() {
         val statusButton = findViewById<Button>(R.id.statusButton)
         val statusIntent = Intent(this, StatusActivity::class.java)
         statusButton.setOnClickListener { startActivity(statusIntent) }
+
+        val spoolerButton = findViewById<Button>(R.id.spoolerButton)
+        val spoolerIntent = Intent(this, SpoolerActivity::class.java)
+        spoolerButton.setOnClickListener { startActivity(spoolerIntent) }
     }
 }
