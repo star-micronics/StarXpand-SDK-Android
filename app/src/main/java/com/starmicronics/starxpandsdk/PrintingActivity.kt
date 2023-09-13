@@ -16,8 +16,11 @@ import com.starmicronics.stario10.StarPrinter
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
+import com.starmicronics.stario10.starxpandcommand.DrawerBuilder
 import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
 import com.starmicronics.stario10.starxpandcommand.printer.*
+import com.starmicronics.stario10.starxpandcommand.drawer.*
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -72,9 +75,18 @@ class PrintingActivity : AppCompatActivity() {
 
         scope.launch {
             try {
+                // TSP100III series and TSP100IIU+ do not support actionPrintText because these products are graphics-only printers.
+                // Please use the actionPrintImage method to create printing data for these products.
+                // For other available methods, please also refer to "Supported Model" of each method.
+                // https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/android-kotlin-api-reference/stario10-star-xpand-command/printer-builder/action-print-image.html
                 val builder = StarXpandCommandBuilder()
                 builder.addDocument(
                     DocumentBuilder()
+                        // To open a cash drawer, comment out the following code.
+//                      .addDrawer(
+//                          DrawerBuilder()
+//                              .actionOpen(OpenParameter())
+//                      )
                         .addPrinter(
                             PrinterBuilder()
                                 .actionPrintImage(ImageParameter(logo, 406))

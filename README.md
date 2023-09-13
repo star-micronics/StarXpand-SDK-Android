@@ -24,7 +24,7 @@ Documentation includes an overview of the SDK, how to build a sample application
 
 | Platform | Version | Arch |
 | --- | --- | --- |
-| Android | Android 6.0 or later | arm64-v8a, armeabi-v7a, x86, x86_64 |
+| Android | Android 9.0 or later | arm64-v8a, armeabi-v7a, x86, x86_64 |
 
 ## Installation
 

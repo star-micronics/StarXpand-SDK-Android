@@ -2,6 +2,14 @@
 
 # Change Log
 
+## 1.4.0 (2023/09/08)
+
+* Added TSP100IV SK support.
+* Added Kiosk SK series (SK1-211/221/V211, SK1-311/321/V311, SK1-41 and SK5-31) support.
+* Changed minimum supported OS version from 6 to 9.
+* Added API for Presenter and Bezel.
+* Updated Bluetooth module information for SM-L200.
+
 ## 1.3.0 (2023/03/31)
 
 * Added mC-Label3 support.

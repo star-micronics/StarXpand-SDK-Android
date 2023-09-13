@@ -24,7 +24,7 @@ StarXpand SDKのドキュメントは[こちら](https://www.star-m.jp/starxpand
 
 | Platform | OS Version | Arch |
 | --- | --- | --- |
-| Android | Android 6.0 以降 | arm64-v8a, armeabi-v7a, x86, x86_64 |
+| Android | Android 9.0 以降 | arm64-v8a, armeabi-v7a, x86, x86_64 |
 
 ## 導入
 
