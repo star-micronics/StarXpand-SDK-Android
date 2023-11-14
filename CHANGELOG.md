@@ -2,6 +2,14 @@
 
 # Change Log
 
+## 1.5.0 (2023/10/27)
+
+* Added MCP31CI/CBI support.
+* Added a sample to generate receipt images from text data.
+
+* Bug Fix:
+  * Fixed an issue where decorations (methods starting with `style`) set with `DocumentBuilder.addPrinter()` were not reset when the method ended.
+
 ## 1.4.0 (2023/09/08)
 
 * Added TSP100IV SK support.

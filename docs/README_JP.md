@@ -78,10 +78,19 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <usb-device class="255" subclass="66" protocol="1" />
-    <usb-device vendor-id="1305" product-id="0003" />   <!--TSP100IIU+/IIIU/IV  - printerClass-->
-    <usb-device vendor-id="1305" product-id="0071" />   <!--mC-Print3           - printerClass-->
-    <usb-device vendor-id="1305" product-id="0073" />   <!--mC-Print2           - printerClass-->
-    <usb-device vendor-id="1305" product-id="0023" />   <!--mPOP                - printerClass-->
+
+    <usb-device vendor-id="1305" product-id="0003" />   <!--TSP100IIU+/IIIU/IV/IV SK-->
+    <usb-device vendor-id="1305" product-id="0071" />   <!--mC-Print3-->
+    <usb-device vendor-id="1305" product-id="0073" />   <!--mC-Print2-->
+    <usb-device vendor-id="1305" product-id="0025" />   <!--mC-Label3-->
+    <usb-device vendor-id="1305" product-id="0023" />   <!--mPOP-->
+    <usb-device vendor-id="1305" product-id="0001" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700 - printerClass-->
+    <usb-device vendor-id="1305" product-id="0002" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700 - vendorClass-->
+    <usb-device vendor-id="1305" product-id="0075" />   <!--SK1-211/221/V211-->
+    <usb-device vendor-id="1305" product-id="0077" />   <!--SK1-311/321/V311-->
+    <usb-device vendor-id="1305" product-id="0079" />   <!--SK5-31-->
+    <usb-device vendor-id="1305" product-id="0081" />   <!--SK1-41-->
+
 </resources>
 ```
 
@@ -91,6 +100,9 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <usb-accessory model="Star TSP143IV-UE" manufacturer="STAR"/>
+    <usb-accessory model="Star TSP143IV-UE SK" manufacturer="STAR"/>
+    <usb-accessory model="mC-Print3" manufacturer="Star Micronics"/>
+    <usb-accessory model="mC-Label3" manufacturer="Star Micronics"/>
 </resources>
 ```
 
@@ -102,7 +114,10 @@ StarXpand SDKにはプリンターと組み合わせて動作を確認できる�
 
 #### 2. [印刷データの生成](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/basic-step1.html)
 
-ラベル用の印刷レイアウトを作成するのに活用できる各業態の[印刷サンプル](../app/src/main/java/com/starmicronics/starxpandsdk/printingsamples/PrintingSamples.md)（サンプルコードと印刷結果画像）もご利用ください。
+[こちら](../app/src/main/java/com/starmicronics/starxpandsdk/printingsamples/PrintingSamples.md)のサンプルコードと印刷結果画像もご活用ください。
+
+- 各業態のラベル用の印刷レイアウトを作成するサンプル
+- テキストデータからレシート画像を生成するサンプル
 
 > :warning: プリンターのモデルによっては印刷できないサンプルがあります。また、ご利用の際は適宜レイアウトを調節してください。
 
