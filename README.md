@@ -84,8 +84,7 @@ Store the following resource files under `res/xml` with the names `device_filter
     <usb-device vendor-id="1305" product-id="0073" />   <!--mC-Print2-->
     <usb-device vendor-id="1305" product-id="0025" />   <!--mC-Label3-->
     <usb-device vendor-id="1305" product-id="0023" />   <!--mPOP-->
-    <usb-device vendor-id="1305" product-id="0001" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700 - printerClass-->
-    <usb-device vendor-id="1305" product-id="0002" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700 - vendorClass-->
+    <usb-device vendor-id="1305" product-id="0001" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700-->
     <usb-device vendor-id="1305" product-id="0075" />   <!--SK1-211/221/V211-->
     <usb-device vendor-id="1305" product-id="0077" />   <!--SK1-311/321/V311-->
     <usb-device vendor-id="1305" product-id="0079" />   <!--SK5-31-->
@@ -103,6 +102,7 @@ Store the following resource files under `res/xml` with the names `device_filter
     <usb-accessory model="Star TSP143IV-UE SK" manufacturer="STAR"/>
     <usb-accessory model="mC-Print3" manufacturer="Star Micronics"/>
     <usb-accessory model="mC-Label3" manufacturer="Star Micronics"/>
+    <usb-accessory model="mPOP" manufacturer="Star Micronics"/>
 </resources>
 ```
 
@@ -114,20 +114,22 @@ StarXpand SDK includes an example application that can be used in combination wi
 
 #### 2. [Create printing data](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/basic-step1.html)
 
-The sample code and printed result images are also [available here](app/src/main/java/com/starmicronics/starxpandsdk/printingsamples/PrintingSamples.md).
+The sample code and printed result images are also [available here](app/src/main/java/com/starmicronics/starxpandsdk/printingsamples/README.md).
 
-- Sample to create print layouts for labels for each type of business
+- Sample to create print layouts for receipts and labels for each type of business
 - Sample to generate receipt images from text data
 
 > :warning: Some printer models may not be able to print some samples. Please adjust the layout accordingly when using this samples.
 
-#### 3. [Send printing data](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/basic-step2.html)
+#### 3. [Create printing data using template printing function](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/template-step1.html)
 
-#### 4. [Send printing data using spooler function](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/spooler.html)
+#### 4. [Send printing data](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/basic-step2.html)
 
-#### 5. [Get printer status](#GetPrinterStatus)
+#### 5. [Send printing data using spooler function](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/spooler.html)
 
-#### 6. [Monitor printer](#MonitorPrinter)
+#### 6. [Get printer status](#GetPrinterStatus)
+
+#### 7. [Monitor printer](#MonitorPrinter)
 
 <a id="GetPrinterStatus"></a>
 ### Get printer status

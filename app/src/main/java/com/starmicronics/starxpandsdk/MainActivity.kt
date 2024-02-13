@@ -29,5 +29,9 @@ class MainActivity : AppCompatActivity() {
         val spoolerButton = findViewById<Button>(R.id.spoolerButton)
         val spoolerIntent = Intent(this, SpoolerActivity::class.java)
         spoolerButton.setOnClickListener { startActivity(spoolerIntent) }
+
+        val templatePrintButton = findViewById<Button>(R.id.templatePrintButton)
+        val templatePrintIntent = Intent(this, TemplatePrintActivity::class.java)
+        templatePrintButton.setOnClickListener { startActivity(templatePrintIntent) }
     }
 }

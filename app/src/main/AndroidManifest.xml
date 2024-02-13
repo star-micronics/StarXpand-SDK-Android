@@ -17,11 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DiscoveryActivity"/>
-        <activity android:name=".PrintingActivity"/>
-        <activity android:name=".MonitorActivity"/>
-        <activity android:name=".StatusActivity"/>
-        <activity android:name=".SpoolerActivity"/>
+        <activity android:name=".DiscoveryActivity" />
+        <activity android:name=".PrintingActivity" />
+        <activity android:name=".MonitorActivity" />
+        <activity android:name=".StatusActivity" />
+        <activity android:name=".SpoolerActivity" />
+        <activity android:name=".TemplatePrintActivity" />
     </application>
 
 </manifest>

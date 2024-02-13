@@ -6,6 +6,7 @@
     <string name="monitorButton">Monitor</string>
     <string name="statusButton">Status</string>
     <string name="printingSpoolerButton">Printing -Spooler-</string>
+    <string name="templatePrintButton">Template Print</string>
 
     <string name="interfaceTextView">Interface</string>
     <string name="lanCheckBox">LAN</string>
@@ -24,9 +25,33 @@
     <string name="hintJobId">jobID</string>
     <string name="getJobStatus">Get Job Status</string>
 
+    <string name="template">Template</string>
+    <string name="fieldData">Field Data</string>
+
     <string-array name="list">
         <item>LAN</item>
         <item>Bluetooth</item>
         <item>USB</item>
+    </string-array>
+
+    <string-array name="listTemplate">
+        <item>Receipt w/ specifying number of characters</item>
+        <item>Receipt w/o specifying number of characters</item>
+        <item>Label</item>
+    </string-array>
+
+    <string-array name="listReceiptWithSpecifyingNumberOfCharactersFieldData">
+        <item>Receipt1</item>
+        <item>Receipt2</item>
+    </string-array>
+
+    <string-array name="listReceiptWithoutSpecifyingNumberOfCharactersFieldData">
+        <item>Receipt1</item>
+        <item>Receipt3</item>
+    </string-array>
+
+    <string-array name="listLabelFieldData">
+        <item>Label1</item>
+        <item>Label2</item>
     </string-array>
 </resources>

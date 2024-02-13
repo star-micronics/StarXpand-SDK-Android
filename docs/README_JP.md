@@ -84,8 +84,7 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
     <usb-device vendor-id="1305" product-id="0073" />   <!--mC-Print2-->
     <usb-device vendor-id="1305" product-id="0025" />   <!--mC-Label3-->
     <usb-device vendor-id="1305" product-id="0023" />   <!--mPOP-->
-    <usb-device vendor-id="1305" product-id="0001" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700 - printerClass-->
-    <usb-device vendor-id="1305" product-id="0002" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700 - vendorClass-->
+    <usb-device vendor-id="1305" product-id="0001" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700-->
     <usb-device vendor-id="1305" product-id="0075" />   <!--SK1-211/221/V211-->
     <usb-device vendor-id="1305" product-id="0077" />   <!--SK1-311/321/V311-->
     <usb-device vendor-id="1305" product-id="0079" />   <!--SK5-31-->
@@ -103,6 +102,7 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
     <usb-accessory model="Star TSP143IV-UE SK" manufacturer="STAR"/>
     <usb-accessory model="mC-Print3" manufacturer="Star Micronics"/>
     <usb-accessory model="mC-Label3" manufacturer="Star Micronics"/>
+    <usb-accessory model="mPOP" manufacturer="Star Micronics"/>
 </resources>
 ```
 
@@ -114,20 +114,22 @@ StarXpand SDKにはプリンターと組み合わせて動作を確認できる�
 
 #### 2. [印刷データの生成](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/basic-step1.html)
 
-[こちら](../app/src/main/java/com/starmicronics/starxpandsdk/printingsamples/PrintingSamples.md)のサンプルコードと印刷結果画像もご活用ください。
+[こちら](../app/src/main/java/com/starmicronics/starxpandsdk/printingsamples/README.md)のサンプルコードと印刷結果画像もご活用ください。
 
-- 各業態のラベル用の印刷レイアウトを作成するサンプル
+- 各業態のレシートやラベル用の印刷レイアウトを作成するサンプル
 - テキストデータからレシート画像を生成するサンプル
 
 > :warning: プリンターのモデルによっては印刷できないサンプルがあります。また、ご利用の際は適宜レイアウトを調節してください。
 
-#### 3. [印刷データの送信](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/basic-step2.html)
+#### 3. [テンプレート印刷機能を利用した印刷データの生成](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/template-step1.html)
 
-#### 4. [スプーラー機能を利用した印刷データの送信](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/spooler.html)
+#### 4. [印刷データの送信](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/basic-step2.html)
 
-#### 5. [プリンターステータスの取得](#GetPrinterStatus)
+#### 5. [スプーラー機能を利用した印刷データの送信](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/spooler.html)
 
-#### 6. [プリンターステータスの監視](#MonitorPrinter)
+#### 6. [プリンターステータスの取得](#GetPrinterStatus)
+
+#### 7. [プリンターステータスの監視](#MonitorPrinter)
 
 <a id="GetPrinterStatus"></a>
 ### Get printer status

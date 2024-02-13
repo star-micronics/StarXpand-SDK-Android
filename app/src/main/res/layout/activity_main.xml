@@ -26,6 +26,12 @@
         android:text="@string/printingSpoolerButton" />
 
     <Button
+        android:id="@+id/templatePrintButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/templatePrintButton" />
+
+    <Button
         android:id="@+id/monitorButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
