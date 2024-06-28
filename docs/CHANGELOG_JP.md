@@ -2,6 +2,12 @@
 
 # 変更点
 
+## 1.7.0 (2024/06/24)
+
+* BSC10II に対応
+* CutTypeのenumにTearOff（ティアバーまで用紙送り）を追加
+* printer.InternationalCharacterTypeのenumにIndiaを追加
+
 ## 1.6.0 (2024/02/09)
 
 * POP10CBI に対応

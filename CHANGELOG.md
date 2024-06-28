@@ -2,6 +2,12 @@
 
 # Change Log
 
+## 1.7.0 (2024/06/24)
+
+* Added BSC10II support.
+* Added TearOff (feed to tear bar) to the CutType enum.
+* Added India to the printer.InternationalCharacterType enum.
+
 ## 1.6.0 (2024/02/09)
 
 * Added POP10CBI support.

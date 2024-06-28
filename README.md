@@ -85,6 +85,7 @@ Store the following resource files under `res/xml` with the names `device_filter
     <usb-device vendor-id="1305" product-id="0025" />   <!--mC-Label3-->
     <usb-device vendor-id="1305" product-id="0023" />   <!--mPOP-->
     <usb-device vendor-id="1305" product-id="0001" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700-->
+    <usb-device vendor-id="1305" product-id="0027" />   <!--BSC10II-->
     <usb-device vendor-id="1305" product-id="0075" />   <!--SK1-211/221/V211-->
     <usb-device vendor-id="1305" product-id="0077" />   <!--SK1-311/321/V311-->
     <usb-device vendor-id="1305" product-id="0079" />   <!--SK5-31-->
@@ -103,6 +104,7 @@ Store the following resource files under `res/xml` with the names `device_filter
     <usb-accessory model="mC-Print3" manufacturer="Star Micronics"/>
     <usb-accessory model="mC-Label3" manufacturer="Star Micronics"/>
     <usb-accessory model="mPOP" manufacturer="Star Micronics"/>
+    <usb-accessory model="BSC10II" manufacturer="Star Micronics"/>
 </resources>
 ```
 
