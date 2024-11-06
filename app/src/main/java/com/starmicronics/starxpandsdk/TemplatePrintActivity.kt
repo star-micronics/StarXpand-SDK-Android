@@ -11,23 +11,18 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
-import com.starmicronics.stario10.InterfaceType
-import com.starmicronics.stario10.StarConnectionSettings
-import com.starmicronics.stario10.StarPrinter
-import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
-import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
-import com.starmicronics.stario10.starxpandcommand.PageModeBuilder
-import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
-import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
-import com.starmicronics.stario10.starxpandcommand.TemplateExtensionParameter
-import com.starmicronics.stario10.starxpandcommand.printer.*
+import androidx.core.view.WindowCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import java.util.Scanner
+import com.starmicronics.stario10.*
+import com.starmicronics.stario10.starxpandcommand.*
+import com.starmicronics.stario10.starxpandcommand.printer.*
 
 class TemplatePrintActivity : AppCompatActivity() {
 
@@ -40,6 +35,9 @@ class TemplatePrintActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_template_print)
+
+        val linerLayout = findViewById<LinearLayout>(R.id.linearLayout)
+        Util.setPadding(linerLayout)
 
         val button = findViewById<Button>(R.id.buttonPrinting)
         button.setOnClickListener { onPressPrintButton() }

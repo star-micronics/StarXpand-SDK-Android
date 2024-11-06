@@ -2,6 +2,19 @@
 
 # 変更点
 
+## 1.8.0 (2024/11/01)
+
+* TSP100IV-UEWB およびTSP100IV-UEWB SK に対応
+* プリンターの詳細情報を取得するAPIを追加
+  * StarPrinterInformationのdetailプロパティ
+  * StarPrinterInformationDetail
+  * StarPrinterInformationLAN
+  * StarPrinterInformationBluetooth
+  * StarPrinterInformationUSB
+* エラーの詳細情報を取得するAPIを追加
+  * StarPrinterのerrorDetailプロパティ
+  * StarIO10ErrorDetail
+
 ## 1.7.0 (2024/06/24)
 
 * BSC10II に対応

@@ -8,11 +8,10 @@ import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.starmicronics.stario10.InterfaceType
-import com.starmicronics.stario10.StarDeviceDiscoveryManager
-import com.starmicronics.stario10.StarDeviceDiscoveryManagerFactory
-import com.starmicronics.stario10.StarPrinter
+import androidx.core.view.WindowCompat
+import com.starmicronics.stario10.*
 
 class DiscoveryActivity: AppCompatActivity() {
     private var lanIsEnabled = true
@@ -28,6 +27,9 @@ class DiscoveryActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_discovery)
+        
+        val linerLayout = findViewById<LinearLayout>(R.id.linearLayout)
+        Util.setPadding(linerLayout)
 
         val checkBoxLan = findViewById<CheckBox>(R.id.checkBoxLan)
         checkBoxLan.setOnClickListener { lanIsEnabled = checkBoxLan.isChecked }

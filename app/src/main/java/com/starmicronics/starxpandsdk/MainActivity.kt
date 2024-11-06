@@ -1,14 +1,18 @@
 package com.starmicronics.starxpandsdk
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.LinearLayout
+import androidx.core.view.WindowCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val linerLayout = findViewById<LinearLayout>(R.id.linearLayout)
+        Util.setPadding(linerLayout)
 
         val discoveryButton = findViewById<Button>(R.id.discoveryButton)
         val discoveryIntent = Intent(this, DiscoveryActivity::class.java)

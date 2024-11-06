@@ -5,11 +5,11 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id = "@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="30dp"
-        android:paddingTop="30dp"
         android:paddingEnd="30dp"
         android:paddingRight="30dp">
 
@@ -17,6 +17,8 @@
             android:id="@+id/textViewInterface"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
             android:text="@string/interfaceTextView" />
 
         <CheckBox

@@ -8,19 +8,15 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.starmicronics.stario10.InterfaceType
-import com.starmicronics.stario10.StarConnectionSettings
-import com.starmicronics.stario10.StarPrinter
-import com.starmicronics.stario10.StarSpoolJobSettings
-import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
-import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
-import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
-import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
-import com.starmicronics.stario10.starxpandcommand.printer.*
+import androidx.core.view.WindowCompat
 import kotlinx.coroutines.*
+import com.starmicronics.stario10.*
+import com.starmicronics.stario10.starxpandcommand.*
+import com.starmicronics.stario10.starxpandcommand.printer.*
 
 class SpoolerActivity : AppCompatActivity() {
 
@@ -29,6 +25,9 @@ class SpoolerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_spooler)
+
+        val linerLayout = findViewById<LinearLayout>(R.id.linearLayout)
+        Util.setPadding(linerLayout)
 
         val spoolPrintButton = findViewById<Button>(R.id.buttonSpoolPrint)
         spoolPrintButton.setOnClickListener { onPressSpoolPrintButton() }

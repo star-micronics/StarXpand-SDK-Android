@@ -1,10 +1,10 @@
-<p align="center">
+<div style="text-align: center;">
   <img
     src="docs/logo.png"
     width="600"
     style="margin-top: 20px; margin-bottom: 20px;"
   />
-</p>
+</div>
 
 - [日本語はこちら](docs/README_JP.md)
 
@@ -22,9 +22,9 @@ Documentation includes an overview of the SDK, how to build a sample application
 
 ## Requirements
 
-| Platform | Version | Arch |
-| --- | --- | --- |
-| Android | Android 9.0 or later | arm64-v8a, armeabi-v7a, x86, x86_64 |
+| Language | Platform | Version | Arch |
+| --- | --- | --- | --- |
+| Kotlin | Android | Android 9.0 or later | arm64-v8a, armeabi-v7a, x86, x86_64 |
 
 ## Installation
 
@@ -101,6 +101,8 @@ Store the following resource files under `res/xml` with the names `device_filter
 <resources>
     <usb-accessory model="Star TSP143IV-UE" manufacturer="STAR"/>
     <usb-accessory model="Star TSP143IV-UE SK" manufacturer="STAR"/>
+    <usb-accessory model="Star TSP143IV-UEWB" manufacturer="STAR"/>
+    <usb-accessory model="Star TSP143IV-UEWB SK" manufacturer="STAR"/>
     <usb-accessory model="mC-Print3" manufacturer="Star Micronics"/>
     <usb-accessory model="mC-Label3" manufacturer="Star Micronics"/>
     <usb-accessory model="mPOP" manufacturer="Star Micronics"/>

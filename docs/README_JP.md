@@ -1,10 +1,10 @@
-<p align="center">
+<div style="text-align: center;">
   <img
     src="logo.png"
     width="600"
     style="margin-top: 20px; margin-bottom: 20px;"
   />
-</p>
+</div>
 
 - [English](../README.md)
 
@@ -22,9 +22,9 @@ StarXpand SDKのドキュメントは[こちら](https://www.star-m.jp/starxpand
 
 ## 動作環境
 
-| Platform | OS Version | Arch |
-| --- | --- | --- |
-| Android | Android 9.0 以降 | arm64-v8a, armeabi-v7a, x86, x86_64 |
+| Language | Platform | OS Version | Arch |
+| --- | --- | --- | --- |
+| Kotlin | Android | Android 9.0 以降 | arm64-v8a, armeabi-v7a, x86, x86_64 |
 
 ## 導入
 
@@ -101,6 +101,8 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
 <resources>
     <usb-accessory model="Star TSP143IV-UE" manufacturer="STAR"/>
     <usb-accessory model="Star TSP143IV-UE SK" manufacturer="STAR"/>
+    <usb-accessory model="Star TSP143IV-UEWB" manufacturer="STAR"/>
+    <usb-accessory model="Star TSP143IV-UEWB SK" manufacturer="STAR"/>
     <usb-accessory model="mC-Print3" manufacturer="Star Micronics"/>
     <usb-accessory model="mC-Label3" manufacturer="Star Micronics"/>
     <usb-accessory model="mPOP" manufacturer="Star Micronics"/>

@@ -7,13 +7,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.starmicronics.stario10.InterfaceType
-import com.starmicronics.stario10.StarConnectionSettings
-import com.starmicronics.stario10.StarPrinter
+import androidx.core.view.WindowCompat
 import kotlinx.coroutines.*
+import com.starmicronics.stario10.*
 
 class StatusActivity : AppCompatActivity() {
 
@@ -22,6 +22,9 @@ class StatusActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_status)
+
+        val linerLayout = findViewById<LinearLayout>(R.id.linearLayout)
+        Util.setPadding(linerLayout)
 
         val statusButton = findViewById<Button>(R.id.buttonStatus)
         statusButton.setOnClickListener { onPressGetStatusButton() }

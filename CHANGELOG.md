@@ -2,6 +2,19 @@
 
 # Change Log
 
+## 1.8.0 (2024/11/01)
+
+* Added TSP100IV-UEWB and TSP100IV-UEWB SK support.
+* Added API to get detail information of printer.
+  * detail property of StarPrinterInformation
+  * StarPrinterInformationDetail
+  * StarPrinterInformationLAN
+  * StarPrinterInformationBluetooth
+  * StarPrinterInformationUSB
+* Added API to get detail information of error.
+  * errorDetail property of StarPrinter
+  * StarIO10ErrorDetail
+
 ## 1.7.0 (2024/06/24)
 
 * Added BSC10II support (Limited region model).
