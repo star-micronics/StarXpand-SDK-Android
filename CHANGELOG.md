@@ -2,6 +2,17 @@
 
 # Change Log
 
+## 1.9.0 (2025/05/19)
+
+* Added mC-Label2 support.
+* Added the actionSeparatorFeed method to execute paper feeding per black mark and gap for die-cut label paper, etc.
+* Added the styleBaseMagnification method to set the base print size.
+* Added [Printing Samples](app/src/main/java/com/starmicronics/starxpandsdk/printingsamples/README.md) for mC-Label2 (300dpi model).
+* Changed minimum supported OS version from 9 to 10.
+* Added Android 16 support (tested on platform stability version).
+* Bug Fix:
+  * Fixed an issue where the execution of StarPrinter.printAsync() occasionally failed immediately after the printer came back online (when PrinterDelegate onReady() was called) with the LAN interface of TSP650II, TSP700II, TSP800II, and SP700. [#38](https://github.com/star-micronics/StarXpand-SDK-Android/issues/38)
+
 ## 1.8.0 (2024/11/01)
 
 * Added TSP100IV-UEWB and TSP100IV-UEWB SK support.
@@ -17,7 +28,7 @@
 
 ## 1.7.0 (2024/06/24)
 
-* Added BSC10II support (Limited region model).
+* Added BSC10II support.
 * Added TearOff (feed to tear bar) to the CutType enum.
 * Added India to the printer.InternationalCharacterType enum.
 

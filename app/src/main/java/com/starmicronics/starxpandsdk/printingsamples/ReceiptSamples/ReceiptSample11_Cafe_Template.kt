@@ -24,7 +24,7 @@ import com.starmicronics.starxpandsdk.R
 class ReceiptSample11_Cafe_Template {
     companion object {
         fun createReceiptTemplate(context: Context): String {
-            val logoBitmap = BitmapFactory.decodeResource(context.resources, R.drawable.receipt_sample16_cafe_template_coffee_cup)
+            val logoBitmap = BitmapFactory.decodeResource(context.resources, R.drawable.cafe_template_coffee_cup)
 
             val builder = StarXpandCommandBuilder()
             builder.addDocument(

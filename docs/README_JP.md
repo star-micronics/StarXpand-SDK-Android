@@ -22,9 +22,11 @@ StarXpand SDKのドキュメントは[こちら](https://www.star-m.jp/starxpand
 
 ## 動作環境
 
-| Language | Platform | OS Version | Arch |
-| --- | --- | --- | --- |
-| Kotlin | Android | Android 9.0 以降 | arm64-v8a, armeabi-v7a, x86, x86_64 |
+| Language | StarIO10 Kotlin Version | Platform | OS Version | Arch | Test Environment[*](#TestEnvironment) |
+| --- | --- | --- | --- | --- | --- |
+| Kotlin | 1.7.21 | Android | Android 10.0 以降 | arm64-v8a, armeabi-v7a, x86, x86_64 | Gradle 8.11.1, AGP 8.9.1 |
+
+<a id="TestEnvironment"></a>*SDK同梱のサンプルアプリをビルドして動作することを確認しています。
 
 ## 導入
 
@@ -83,6 +85,7 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
     <usb-device vendor-id="1305" product-id="0071" />   <!--mC-Print3-->
     <usb-device vendor-id="1305" product-id="0073" />   <!--mC-Print2-->
     <usb-device vendor-id="1305" product-id="0025" />   <!--mC-Label3-->
+    <usb-device vendor-id="1305" product-id="0029" />   <!--mC-Label2-->
     <usb-device vendor-id="1305" product-id="0023" />   <!--mPOP-->
     <usb-device vendor-id="1305" product-id="0001" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700-->
     <usb-device vendor-id="1305" product-id="0027" />   <!--BSC10II-->
@@ -105,6 +108,7 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
     <usb-accessory model="Star TSP143IV-UEWB SK" manufacturer="STAR"/>
     <usb-accessory model="mC-Print3" manufacturer="Star Micronics"/>
     <usb-accessory model="mC-Label3" manufacturer="Star Micronics"/>
+    <usb-accessory model="mC-Label2" manufacturer="Star Micronics"/>
     <usb-accessory model="mPOP" manufacturer="Star Micronics"/>
     <usb-accessory model="BSC10II" manufacturer="Star Micronics"/>
 </resources>
