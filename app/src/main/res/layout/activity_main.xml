@@ -44,4 +44,10 @@
         android:layout_height="wrap_content"
         android:text="@string/statusButton" />
 
+    <Button
+        android:id="@+id/firmwareUpdateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/firmwareUpdateButton" />
+
 </LinearLayout>

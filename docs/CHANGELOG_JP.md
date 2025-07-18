@@ -2,6 +2,23 @@
 
 # 変更点
 
+## 1.10.0 (2025/7/14)
+
+* プリンターファームウェアの更新を行うAPIを追加
+* 以下のプリンター機種をメンテナンスサポートとして対応
+  * TSP100LAN
+  * TSP100ECO
+  * TSP650II (LAN : IFBD-HE05)
+  * SP700 (LAN : IFBD-HE06)
+* 詳細ステータス取得API (StarPrinterStatusDetail)にプロパティを追加
+* PrinterBuilder actionSeparatorFeed()メソッドの対応機種を追加
+* ネイティブライブラリの16KBページサイズのサポート [#42](https://github.com/star-micronics/StarXpand-SDK-Android/issues/42)
+* StarIO10Loggerによるログ保存のパフォーマンス改善
+* 不具合修正
+  * actionPrintImage()メソッドのパフォーマンス改善 [#44](https://github.com/star-micronics/StarXpand-SDK-Android/issues/44)
+  * 権限がない状態でBluetoothプリンターの検索を行うとクラッシュする [#45](https://github.com/star-micronics/StarXpand-SDK-Android/issues/45)
+  * StarXpandCommandBuilder APIのパラメータの指定によっては、StarPrinter.printAsync()メソッドでクラッシュする
+  
 ## 1.9.0 (2025/05/19)
 
 * mC-Label2 に対応

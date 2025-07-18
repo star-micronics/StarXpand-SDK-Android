@@ -23,6 +23,7 @@
         <activity android:name=".StatusActivity" />
         <activity android:name=".SpoolerActivity" />
         <activity android:name=".TemplatePrintActivity" />
+        <activity android:name=".FirmwareUpdateActivity" />
     </application>
 
 </manifest>

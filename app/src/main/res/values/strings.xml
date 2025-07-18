@@ -7,6 +7,8 @@
     <string name="statusButton">Status</string>
     <string name="printingSpoolerButton">Printing -Spooler-</string>
     <string name="templatePrintButton">Template Print</string>
+    <string name="firmwareUpdateButton">Firmware Update</string>
+
 
     <string name="interfaceTextView">Interface</string>
     <string name="lanCheckBox">LAN</string>
@@ -27,6 +29,11 @@
 
     <string name="template">Template</string>
     <string name="fieldData">Field Data</string>
+
+    <string name="checkVersions">Check Versions</string>
+    <string name="update">Update</string>
+    <string name="firmware_update_warning_writing">Caution : The firmware is being updated. Until the result is displayed, please leave the printer turned on and wait without operating the screen of this device.\n\n</string>
+    <string name="firmware_update_warning_Updating">\nFirmware data transmission has been completed. The firmware is being updated.　This process may take several minutes.\n\n</string>
 
     <string-array name="list">
         <item>LAN</item>

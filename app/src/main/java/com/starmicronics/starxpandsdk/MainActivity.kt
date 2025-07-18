@@ -37,5 +37,9 @@ class MainActivity : AppCompatActivity() {
         val templatePrintButton = findViewById<Button>(R.id.templatePrintButton)
         val templatePrintIntent = Intent(this, TemplatePrintActivity::class.java)
         templatePrintButton.setOnClickListener { startActivity(templatePrintIntent) }
+
+        val firmwareUpdateButton = findViewById<Button>(R.id.firmwareUpdateButton)
+        val firmwareUpdateIntent = Intent(this, FirmwareUpdateActivity::class.java)
+        firmwareUpdateButton.setOnClickListener { startActivity(firmwareUpdateIntent) }
     }
 }
