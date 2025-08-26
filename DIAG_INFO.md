@@ -9,7 +9,7 @@ Some of the APIs provided by the StarIO10 library (StarIO10.aar) collect informa
 
 ## Target APIs
 
-In library version V1.10.0, the following APIs collect and transmit information:  
+In library version V1.11.0, the following APIs collect and transmit information:  
 **If you use any of these APIs, please ensure that your privacy policy includes appropriate information on the relevant app distribution platform.**
 
 - [StarPrinterSetting](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/android-kotlin-api-reference/stario10/star-printer-setting-firmware/index.html)

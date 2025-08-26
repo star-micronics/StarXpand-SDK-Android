@@ -9,7 +9,7 @@ StarIO10ライブラリ (StarIO10.aar) が提供するAPIの一部は、実行�
 
 ## 対象API
 
-ライブラリバージョン V1.10.0 において、情報の収集および送信を行うAPIは以下のとおりです。  
+ライブラリバージョン V1.11.0 において、情報の収集および送信を行うAPIは以下のとおりです。  
 **これらのAPIを利用する場合、アプリ配信プラットフォームにおけるプライバシーポリシーに、適切な記載を行ってください。**
 
 - [StarPrinterSetting](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/android-kotlin-api-reference/stario10/star-printer-setting-firmware/index.html)
