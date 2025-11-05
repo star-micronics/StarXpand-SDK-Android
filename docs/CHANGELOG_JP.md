@@ -2,6 +2,10 @@
 
 # 変更点
 
+## 1.11.1 (2025/10/31)
+
+* USBプリンターとの通信がまれに失敗することがある問題を修正 [#49](https://github.com/star-micronics/StarXpand-SDK-Android/issues/49)
+
 ## 1.11.0 (2025/8/21)
 
 * 以下のプリンター機種のUSBインターフェースに対応
