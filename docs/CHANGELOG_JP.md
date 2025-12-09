@@ -2,9 +2,15 @@
 
 # 変更点
 
+## 1.11.2 (2025/12/08)
+
+* USBプリンター(Android Open Accessory)との通信がまれに失敗することがある問題を修正 [#49](https://github.com/star-micronics/StarXpand-SDK-Android/issues/49)
+* USBプリンターを検索する際、USB権限がないとクラッシュする問題を修正 [#52](https://github.com/star-micronics/StarXpand-SDK-Android/issues/52)
+* JaCoCoライブラリを利用した場合、Discovery実行することでクラッシュする問題を修正 [#51](https://github.com/star-micronics/StarXpand-SDK-Android/issues/51)
+
 ## 1.11.1 (2025/10/31)
 
-* USBプリンターとの通信がまれに失敗することがある問題を修正 [#49](https://github.com/star-micronics/StarXpand-SDK-Android/issues/49)
+* USBプリンター(USB Printer Class)との通信がまれに失敗することがある問題を修正 [#49](https://github.com/star-micronics/StarXpand-SDK-Android/issues/49)
 
 ## 1.11.0 (2025/8/21)
 

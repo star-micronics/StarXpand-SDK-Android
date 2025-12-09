@@ -2,9 +2,15 @@
 
 # Change Log
 
+## 1.11.2 (2025/12/08)
+
+* Fixed an issue where communication with USB printers(Android Open Accessory) occasionally failes.  [#49](https://github.com/star-micronics/StarXpand-SDK-Android/issues/49)
+* Fixed an issue where discovery for USB printers crashes when USB permission is not granted. [#52](https://github.com/star-micronics/StarXpand-SDK-Android/issues/52)
+* Fixed an issue where discovery crashes when using JaCoCo library. [#51](https://github.com/star-micronics/StarXpand-SDK-Android/issues/51)
+
 ## 1.11.1 (2025/10/31)
 
-* Fixed an issue where communication with USB printers occasionally failes.  [#49](https://github.com/star-micronics/StarXpand-SDK-Android/issues/49)
+* Fixed an issue where communication with USB printers(USB Printer Class) occasionally failes.  [#49](https://github.com/star-micronics/StarXpand-SDK-Android/issues/49)
 
 ## 1.11.0 (2025/8/21)
 
