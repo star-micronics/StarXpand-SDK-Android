@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -33,27 +33,27 @@ class LabelSample14_For203dpiAnd300dpi_ExpirationLabelJP_Template {
                                     .styleBold(true)
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${remarks}\n"
+                                        $$"${remarks}\n"
                                     )
                             )
                             .add(
                                 PrinterBuilder()
                                     .styleAlignment(Alignment.Left)
                                     .actionPrintText(
-                                        "\${note}\n" +
+                                        $$"${note}\n" +
                                                 "　　消費期限\n"
                                     )
                             )
                             .styleAlignment(Alignment.Center)
                             .styleMagnification(MagnificationParameter(2, 2))
                             .actionPrintText(
-                                "\${expiry_date}\n"
+                                $$"${expiry_date}\n"
                             )
                             .styleMagnification(MagnificationParameter(1, 1))
                             .actionPrintText(
-                                "\${shop_name}\n" +
-                                        "\${address}\n" +
-                                        "TEL \${telephone_number}\n"
+                                $$"${shop_name}\n" +
+                                        $$"${address}\n" +
+                                        $$"TEL ${telephone_number}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

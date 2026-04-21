@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -27,7 +27,7 @@ class LabelSample14_For203dpi_BarbellLabel_Template {
                                     .styleHorizontalPositionTo(5.0)
                                     .styleVerticalPositionTo(5.0)
                                     .actionPrintBarcode(
-                                        BarcodeParameter("\${barcode}", BarcodeSymbology.Code128)
+                                        BarcodeParameter($$"${barcode}", BarcodeSymbology.Code128)
                                             .setBarDots(2)
                                             .setHeight(4.0)
                                             .setPrintHri(true)
@@ -35,7 +35,7 @@ class LabelSample14_For203dpi_BarbellLabel_Template {
                                     .styleHorizontalPositionTo(32.0)
                                     .styleVerticalPositionTo(4.0)
                                     .actionPrintText(
-                                        "\${product_name}",
+                                        $$"${product_name}",
                                         TextParameter().setWidth(
                                             12,
                                             TextWidthParameter()
@@ -45,7 +45,7 @@ class LabelSample14_For203dpi_BarbellLabel_Template {
                                     .styleVerticalPositionBy(3.0)
                                     .styleHorizontalPositionTo(32.0)
                                     .actionPrintText(
-                                        "$\${price%.2f}\n",
+                                        $$$"$${price%.2f}\n",
                                         TextParameter()
                                             .setWidth(
                                                 12,
@@ -57,7 +57,7 @@ class LabelSample14_For203dpi_BarbellLabel_Template {
                                     .styleHorizontalPositionTo(5.0)
                                     .styleVerticalPositionTo(16.0)
                                     .actionPrintBarcode(
-                                        BarcodeParameter("\${barcode}", BarcodeSymbology.Code128)
+                                        BarcodeParameter($$"${barcode}", BarcodeSymbology.Code128)
                                             .setBarDots(2)
                                             .setHeight(4.0)
                                             .setPrintHri(true)
@@ -65,7 +65,7 @@ class LabelSample14_For203dpi_BarbellLabel_Template {
                                     .styleHorizontalPositionTo(32.0)
                                     .styleVerticalPositionTo(15.0)
                                     .actionPrintText(
-                                        "\${product_name}",
+                                        $$"${product_name}",
                                         TextParameter().setWidth(
                                             12,
                                             TextWidthParameter()
@@ -75,7 +75,7 @@ class LabelSample14_For203dpi_BarbellLabel_Template {
                                     .styleVerticalPositionBy(3.0)
                                     .styleHorizontalPositionTo(32.0)
                                     .actionPrintText(
-                                        "$\${price%.2f}\n",
+                                        $$$"$${price%.2f}\n",
                                         TextParameter()
                                             .setWidth(
                                                 12,

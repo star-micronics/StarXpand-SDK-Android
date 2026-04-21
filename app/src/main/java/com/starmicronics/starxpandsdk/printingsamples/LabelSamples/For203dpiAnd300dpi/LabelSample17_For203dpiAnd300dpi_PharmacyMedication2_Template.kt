@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -26,12 +26,12 @@ class LabelSample17_For203dpiAnd300dpi_PharmacyMedication2_Template {
                         PrinterBuilder()
                             .styleCjkCharacterPriority(listOf(CjkCharacterType.Japanese))
                             .actionPrintText(
-                                "\${patient_name} 様",
+                                $$"${patient_name} 様",
                                 TextParameter()
                                     .setWidth(24)
                             )
                             .actionPrintText(
-                                "処方日 \${prescription_date}  \n",
+                                $$"処方日 ${prescription_date}  \n",
                                 TextParameter()
                                     .setWidth(
                                         24,
@@ -40,7 +40,7 @@ class LabelSample17_For203dpiAnd300dpi_PharmacyMedication2_Template {
                                     )
                             )
                             .actionPrintText(
-                                "調剤日 \${dispensing_date}  \n",
+                                $$"調剤日 ${dispensing_date}  \n",
                                 TextParameter()
                                     .setWidth(
                                         48,
@@ -50,7 +50,7 @@ class LabelSample17_For203dpiAnd300dpi_PharmacyMedication2_Template {
                             )
                             .actionFeedLine(1)
                             .actionPrintText(
-                                "\${hospital_name}:\n"
+                                $$"${hospital_name}:\n"
                             )
                             .actionFeedLine(1)
                             .add(
@@ -62,7 +62,7 @@ class LabelSample17_For203dpiAnd300dpi_PharmacyMedication2_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "  \${item_list1.name}",
+                                        $$"  ${item_list1.name}",
                                          TextParameter()
                                              .setWidth(
                                                  17,
@@ -71,12 +71,12 @@ class LabelSample17_For203dpiAnd300dpi_PharmacyMedication2_Template {
                                              )
                                     )
                                     .actionPrintText(
-                                        "\${item_list1.take_the_medicine}",
+                                        $$"${item_list1.take_the_medicine}",
                                         TextParameter()
                                             .setWidth(5)
                                     )
                                     .actionPrintText(
-                                        "\${item_list1.dosage}\n",
+                                        $$"${item_list1.dosage}\n",
                                         TextParameter()
                                             .setWidth(9)
                                     )
@@ -93,7 +93,7 @@ class LabelSample17_For203dpiAnd300dpi_PharmacyMedication2_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "  \${item_list2.name}",
+                                        $$"  ${item_list2.name}",
                                         TextParameter()
                                             .setWidth(
                                                 17,
@@ -102,17 +102,17 @@ class LabelSample17_For203dpiAnd300dpi_PharmacyMedication2_Template {
                                             )
                                     )
                                     .actionPrintText(
-                                        "\${item_list2.take_the_medicine}",
+                                        $$"${item_list2.take_the_medicine}",
                                         TextParameter()
                                             .setWidth(5)
                                     )
                                     .actionPrintText(
-                                        "\${item_list2.dosage}\n",
+                                        $$"${item_list2.dosage}\n",
                                         TextParameter()
                                             .setWidth(9)
                                     )
                                     .actionPrintText(
-                                        "　\${item_list2.note}\n"
+                                        $$"　${item_list2.note}\n"
                                     )
                             )
                             .actionPrintText(
@@ -127,7 +127,7 @@ class LabelSample17_For203dpiAnd300dpi_PharmacyMedication2_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "  \${item_list3.name}",
+                                        $$"  ${item_list3.name}",
                                         TextParameter()
                                             .setWidth(
                                                 17,
@@ -136,24 +136,24 @@ class LabelSample17_For203dpiAnd300dpi_PharmacyMedication2_Template {
                                             )
                                     )
                                     .actionPrintText(
-                                        "\${item_list3.take_the_medicine}",
+                                        $$"${item_list3.take_the_medicine}",
                                         TextParameter()
                                             .setWidth(5)
                                     )
                                     .actionPrintText(
-                                        "\${item_list3.dosage}\n",
+                                        $$"${item_list3.dosage}\n",
                                         TextParameter()
                                             .setWidth(9)
                                     )
                                     .actionPrintText(
-                                        "　\${item_list3.note}\n"
+                                        $$"　${item_list3.note}\n"
                                     )
                             )
                             .actionPrintText(
                                 "  ----------------------------------------------\n"
                             )
                             .actionPrintText(
-                                "\${store_name}  TEL \${telephone_number}\n"
+                                $$"${store_name}  TEL ${telephone_number}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

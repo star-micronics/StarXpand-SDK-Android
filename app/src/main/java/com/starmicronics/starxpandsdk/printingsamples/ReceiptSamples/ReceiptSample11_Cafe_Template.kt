@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -69,7 +69,7 @@ class ReceiptSample11_Cafe_Template {
                                     .styleHorizontalPositionTo(100.0)
                                     .styleVerticalPositionTo(3.0)
                                     .actionPrintText(
-                                        "No.\${number%04d}"
+                                        $$"No.${number%04d}"
                                     )
                                     .styleHorizontalPositionTo(80.0)
                                     .styleVerticalPositionTo(6.0)
@@ -77,7 +77,7 @@ class ReceiptSample11_Cafe_Template {
                                         PageModeBuilder()
                                             .styleMagnification(MagnificationParameter(2,1))
                                             .actionPrintText(
-                                                "\${year%04d}"
+                                                $$"${year%04d}"
                                             )
                                             .styleMagnification(MagnificationParameter(1,1))
                                             .actionPrintText(
@@ -85,7 +85,7 @@ class ReceiptSample11_Cafe_Template {
                                             )
                                             .styleMagnification(MagnificationParameter(2,1))
                                             .actionPrintText(
-                                                "\${month%02d}"
+                                                $$"${month%02d}"
                                             )
                                             .styleMagnification(MagnificationParameter(1,1))
                                             .actionPrintText(
@@ -93,7 +93,7 @@ class ReceiptSample11_Cafe_Template {
                                             )
                                             .styleMagnification(MagnificationParameter(2,1))
                                             .actionPrintText(
-                                                "\${day%02d}"
+                                                $$"${day%02d}"
                                             )
                                             .styleMagnification(MagnificationParameter(1,1))
                                             .actionPrintText(
@@ -106,7 +106,7 @@ class ReceiptSample11_Cafe_Template {
                                         PageModeBuilder()
                                             .styleMagnification(MagnificationParameter(2,2))
                                             .actionPrintText(
-                                                "\${name}",
+                                                $$"${name}",
                                                 TextParameter()
                                                     .setWidth(
                                                         7,
@@ -128,7 +128,7 @@ class ReceiptSample11_Cafe_Template {
                                         "但し "
                                     )
                                     .actionPrintText(
-                                        "\${description}",
+                                        $$"${description}",
                                         TextParameter()
                                             .setWidth(
                                                 12,
@@ -142,7 +142,7 @@ class ReceiptSample11_Cafe_Template {
                                         PageModeBuilder()
                                             .styleMagnification(MagnificationParameter(2,2))
                                             .actionPrintText(
-                                                "金\${price}円",
+                                                $$"金${price}円",
                                                 TextParameter()
                                                     .setWidth(
                                                         9,
@@ -167,7 +167,7 @@ class ReceiptSample11_Cafe_Template {
                                         "(税抜金額"
                                     )
                                     .actionPrintText(
-                                        "\\\${excluding_tax})",
+                                        $$"${excluding_tax})",
                                         TextParameter()
                                             .setWidth(
                                                 15,
@@ -182,7 +182,7 @@ class ReceiptSample11_Cafe_Template {
                                         "(消費税等"
                                     )
                                     .actionPrintText(
-                                        "\\\${tax})",
+                                        $$"${tax})",
                                         TextParameter()
                                             .setWidth(
                                                 15,
@@ -198,7 +198,7 @@ class ReceiptSample11_Cafe_Template {
                                         PageModeBuilder()
                                             .styleHorizontalPositionTo(0.0)
                                             .actionPrintText(
-                                                "\${store_name}\n"
+                                                $$"${store_name}\n"
                                             )
                                     )
                                     .addPageMode(
@@ -208,7 +208,7 @@ class ReceiptSample11_Cafe_Template {
                                         PageModeBuilder()
                                             .styleHorizontalPositionTo(0.0)
                                             .actionPrintText(
-                                                "\${address}\n",
+                                                $$"${address}\n",
                                                 TextParameter()
                                                     .setWidth(
                                                         29,
@@ -217,7 +217,7 @@ class ReceiptSample11_Cafe_Template {
                                                     )
                                             )
                                             .actionPrintText(
-                                                "TEL \${telephone_number}\n",
+                                                $$"TEL ${telephone_number}\n",
                                                 TextParameter()
                                                     .setWidth(
                                                         29,

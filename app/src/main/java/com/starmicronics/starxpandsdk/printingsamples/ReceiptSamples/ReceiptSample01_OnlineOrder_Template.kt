@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -27,12 +27,12 @@ class ReceiptSample01_OnlineOrder_Template {
                                     .styleMagnification(MagnificationParameter(2,2))
                                     .styleBold(true)
                                     .actionPrintText(
-                                        "\${store_name}\n" +
-                                                "\${order_number}\n"
+                                        $$"${store_name}\n" +
+                                                $$"${order_number}\n"
                                     )
                             )
                             .actionPrintText(
-                                "\${name}\n"
+                                $$"${name}\n"
                             )
                             .actionPrintRuledLine(
                                 RuledLineParameter(72.0)
@@ -40,12 +40,12 @@ class ReceiptSample01_OnlineOrder_Template {
                             )
                             .actionFeed(1.0)
                             .actionPrintText(
-                                "\${date}",
+                                $$"${date}",
                                 TextParameter()
                                     .setWidth(24)
                             )
                             .actionPrintText(
-                                "\${time}\n",
+                                $$"${time}\n",
                                 TextParameter()
                                     .setWidth(
                                         24,
@@ -60,7 +60,7 @@ class ReceiptSample01_OnlineOrder_Template {
                             )
                             .styleAlignment(Alignment.Center)
                             .actionPrintText(
-                                "PICKUP \${pickup_time}\n"
+                                $$"PICKUP ${pickup_time}\n"
                             )
                             .styleAlignment(Alignment.Left)
                             .actionPrintRuledLine(
@@ -78,11 +78,11 @@ class ReceiptSample01_OnlineOrder_Template {
                                 )
                                     .styleBold(true)
                                     .actionPrintText(
-                                        "\${item_list.quantity} x \${item_list.name}\n"
+                                        $$"${item_list.quantity} x ${item_list.name}\n"
                                     )
                                     .styleBold(false)
                                     .actionPrintText(
-                                        "\${item_list.detail}"
+                                        $$"${item_list.detail}"
                                     )
                                     .actionFeedLine(1)
                             )
@@ -92,7 +92,7 @@ class ReceiptSample01_OnlineOrder_Template {
                             )
                             .actionFeed(1.0)
                             .actionPrintText(
-                                "\${note}\n"
+                                $$"${note}\n"
                             )
                             .actionFeed(1.0)
                             .actionPrintRuledLine(
@@ -100,12 +100,12 @@ class ReceiptSample01_OnlineOrder_Template {
                                     .setThickness(0.1)
                             )
                             .actionPrintText(
-                                "\${footer1}",
+                                $$"${footer1}",
                                 TextParameter()
                                     .setWidth(24)
                             )
                             .actionPrintText(
-                                "\${footer2}\n",
+                                $$"${footer2}\n",
                                 TextParameter()
                                     .setWidth(
                                         24,

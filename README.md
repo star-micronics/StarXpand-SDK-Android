@@ -27,10 +27,11 @@ Please refer [here](DIAG_INFO.md) for details.
 
 ## Requirements
 
-| Language | StarIO10 Kotlin Version | Platform | Version | Arch | Test Environment[*](#TestEnvironment) |
+| Language | StarIO10 Kotlin Version | Platform | Version[*](#OsVersion) | Arch | Test Environment[*](#TestEnvironment) |
 | --- | --- | --- | --- | --- | --- |
-| Kotlin | 1.7.21 | Android | Android 10.0 or later | arm64-v8a, armeabi-v7a, x86, x86_64 | Gradle 8.11.1, AGP 8.9.1 |
+| Kotlin | 1.7.21 | Android | Android 11.0 or later | arm64-v8a, armeabi-v7a, x86, x86_64 | Gradle 8.11.1, AGP 8.9.1 |
 
+<a id="OsVersion"></a>*The Bluetooth Low Energy interface is only supported on Android 12.0 and later.<br>
 <a id="TestEnvironment"></a>*The sample app included with this SDK is being built, and its operation is being confirmed.
 
 ## Installation
@@ -53,9 +54,10 @@ For more information on how to integrate a library into your application, please
 https://developer.android.com/studio/build/dependencies
 
 ### 2. Add settings to your project
-#### 2.1. When using a Bluetooth printer 
 
-Refer to [sample code](app/src/main/java/com/starmicronics/starxpandsdk) and obtain BLUETOOTH_CONNECT permission before starting to communicate with or discover printers.
+#### 2.1. When using a Bluetooth interface
+
+Refer to [sample code](app/src/main/java/com/starmicronics/starxpandsdk/ContentView.kt) and obtain BLUETOOTH_CONNECT and BLUETOOTH permission before starting Bluetooth(Classic) communication. Also, enable Bluetooth in the Android device's Bluetooth settings screen.
 
 #### 2.2. To prevent the connection permission dialog from being displayed every time the USB cable is plugged in or unplugged
 
@@ -64,6 +66,7 @@ When communicating with a USB printer, a dialog box will appear asking for conne
 If you do not want to display the connection permission dialog every time the USB cable is plugged in or unplugged, configure the following settings. This setting will also allow the application to start automatically when the USB cable is plugged.
 
 ##### 2.2.1. Add settings to AndroidManifest.xml
+
 Add the following `<intent-filter>` and `<meta-data>` elements to AndroidManifest.xml.
 
 ```xml
@@ -77,6 +80,7 @@ Add the following `<intent-filter>` and `<meta-data>` elements to AndroidManifes
 ```
 
 ##### 2.2.2. Add a resource file
+
 Store the following resource files under `res/xml` with the names `device_filter.xml` and `accessory_filter.xml`.
 
 - device_filter.xml
@@ -92,12 +96,14 @@ Store the following resource files under `res/xml` with the names `device_filter
     <usb-device vendor-id="1305" product-id="0025" />   <!--mC-Label3-->
     <usb-device vendor-id="1305" product-id="0029" />   <!--mC-Label2-->
     <usb-device vendor-id="1305" product-id="0023" />   <!--mPOP-->
+    <usb-device vendor-id="1305" product-id="4104" />   <!--mC-Connect Drawer-->
     <usb-device vendor-id="1305" product-id="0001" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700-->
     <usb-device vendor-id="1305" product-id="0027" />   <!--BSC10II-->
     <usb-device vendor-id="1305" product-id="0075" />   <!--SK1-211/221/V211-->
     <usb-device vendor-id="1305" product-id="0077" />   <!--SK1-311/321/V311-->
     <usb-device vendor-id="1305" product-id="0079" />   <!--SK5-31-->
     <usb-device vendor-id="1305" product-id="0081" />   <!--SK1-41-->
+    <usb-device vendor-id="1305" product-id="4113" />   <!--CD5 : 4113, 4114, ..., 4120-->
 
 </resources>
 ```
@@ -118,6 +124,32 @@ Store the following resource files under `res/xml` with the names `device_filter
     <usb-accessory model="BSC10II" manufacturer="Star Micronics"/>
 </resources>
 ```
+
+#### 2.3. When using the Bluetooth Low Energy interface
+
+The Bluetooth Low Energy interface is only supported on Android 12.0 and later.
+
+##### 2.3.1. Add settings to AndroidManifest.xml
+
+Add the following `<uses-permission>` elements to AndroidManifest.xml.  
+
+- If you need to obtain location information, the neverForLocation specification is not required.
+
+```xml
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" />
+```
+
+##### 2.3.2. Bluetooth enablement
+
+Refer to the [sample code](app/src/main/java/com/starmicronics/starxpandsdk/ContentView.kt) and obtain the necessary permissions before starting Bluetooth Low Energy communication. Also, enable Bluetooth in the Android device's Bluetooth settings screen.
+
+##### 2.3.3. Perform pairing
+
+When using Bluetooth Low Energy communication, pairing is required.  
+For pairing instructions, please refer to [here](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/pairing.html).
+
+Please note that if the Android device is in silent mode, pairing may not be performed correctly. Please disable silent mode when performing pairing.
 
 ## Examples
 
@@ -147,6 +179,7 @@ The sample code and printed result images are also [available here](app/src/main
 #### 8. [Update printer firmware](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/fw-update.html)
 
 <a id="GetPrinterStatus"></a>
+
 ### Get printer status
 
 ```kotlin
@@ -178,6 +211,7 @@ fun getStatus() {
 ```
 
 <a id="MonitorPrinter"></a>
+
 ### Monitor printer
 
 ```kotlin

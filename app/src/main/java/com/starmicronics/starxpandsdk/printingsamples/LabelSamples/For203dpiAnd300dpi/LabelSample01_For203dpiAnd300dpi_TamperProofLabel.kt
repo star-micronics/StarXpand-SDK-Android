@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import android.content.Context
 import android.graphics.BitmapFactory

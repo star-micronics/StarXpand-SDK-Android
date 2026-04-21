@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -6,8 +6,6 @@ import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
 import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
 import com.starmicronics.stario10.starxpandcommand.TemplateExtensionParameter
 import com.starmicronics.stario10.starxpandcommand.printer.Alignment
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnification
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnificationParameter
 import com.starmicronics.stario10.starxpandcommand.printer.RuledLineParameter
 import com.starmicronics.stario10.starxpandcommand.printer.CutType
 import com.starmicronics.stario10.starxpandcommand.printer.PrinterParameter
@@ -41,7 +39,7 @@ class LabelSample08_For203dpiAnd300dpi_NutritionFactsLabel_Template {
                                     .setThickness(0.1)
                             )
                             .actionPrintText(
-                                "\${servings_per_container} servings per container\n"
+                                $$"${servings_per_container} servings per container\n"
                             )
                             .add(
                                 PrinterBuilder()
@@ -50,7 +48,7 @@ class LabelSample08_For203dpiAnd300dpi_NutritionFactsLabel_Template {
                                         "Serving size"
                                     )
                                     .actionPrintText(
-                                        "\${serving_size}\n",
+                                        $$"${serving_size}\n",
                                         TextParameter()
                                             .setWidth(
                                                 36,
@@ -66,7 +64,7 @@ class LabelSample08_For203dpiAnd300dpi_NutritionFactsLabel_Template {
                                     )
                                     .styleMagnification(MagnificationParameter(3, 3))
                                     .actionPrintText(
-                                        "\${amount_per_serving}\n"
+                                        $$"${amount_per_serving}\n"
                                     )
                             )
                             .actionPrintRuledLine(
@@ -94,12 +92,12 @@ class LabelSample08_For203dpiAnd300dpi_NutritionFactsLabel_Template {
                                             .setThickness(0.1)
                                     )
                                     .actionPrintText(
-                                    "\${item1_list.name} \${item1_list.amount}",
+                                        $$"${item1_list.name} ${item1_list.amount}",
                                         TextParameter()
                                             .setWidth(44)
                                     )
                                     .actionPrintText(
-                                        "\${item1_list.percentage}\n",
+                                        $$"${item1_list.percentage}\n",
                                         TextParameter()
                                             .setWidth(
                                                 4,
@@ -121,12 +119,12 @@ class LabelSample08_For203dpiAnd300dpi_NutritionFactsLabel_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "\${item2_list.name} \${item2_list.amount}",
+                                        $$"${item2_list.name} ${item2_list.amount}",
                                         TextParameter()
                                             .setWidth(44)
                                     )
                                     .actionPrintText(
-                                        "\${item2_list.percentage}\n",
+                                        $$"${item2_list.percentage}\n",
                                         TextParameter().setWidth(
                                             4,
                                             TextWidthParameter().setAlignment(TextAlignment.Right)

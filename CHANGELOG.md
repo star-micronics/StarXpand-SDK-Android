@@ -2,6 +2,32 @@
 
 # Change Log
 
+## 1.12.0 (2026/03/31)
+
+#### Added
+
+* Added support for MCD10UEWB (mC-Connect Drawer) and CD5.
+* Added support for Bluetooth Low Energy (Bluetooth LE) interface communication for mC-Label2.
+* API additions and changes to support Bluetooth LE interface communication:
+  * Added `BluetoothLE` to interface type specification API (InterfaceType).
+  * Added Bluetooth LE communication information retrieval API (`StarPrinterInformationBluetoothLE`).
+* Added binary data send/receive API (`write()` / `read()`) to StarPrinter class.
+* Added support for the following APIs for external device 2 port:
+  * Detailed status retrieval API (`StarPrinterStatusDetail`).
+  * Cash drawer channel (`stario10.starxpandcommand.drawer.Channel`).  
+  * Buzzer channel (`stario10.starxpandcommand.buzzer.Channel`).  
+* Added support for detailed information retrieval such as connection status to the cash drawer status event retrieval API (`DrawerDelegate`).
+* Added `uniqueId` property to LAN communication information retrieval API (`StarPrinterInformationLan`).
+
+#### Changed
+
+* Changed minimum supported OS version from 10 to 11.
+* Changed sample code implementation to Jetpack Compose.
+  
+#### Fixed
+
+* Fixed an issue where LAN interface communication occasionally failed when interface auto-switch feature was enabled (default).
+
 ## 1.11.2 (2025/12/08)
 
 * Fixed an issue where communication with USB printers(Android Open Accessory) occasionally failes.  [#49](https://github.com/star-micronics/StarXpand-SDK-Android/issues/49)

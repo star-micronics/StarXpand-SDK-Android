@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -56,14 +56,14 @@ class LabelSample20_For203dpiAnd300dpi_VisitorLabel_Template {
                                             .styleMagnification(MagnificationParameter(2,2))
                                             .styleVerticalPositionBy(5.0)
                                             .actionPrintText(
-                                                "\${name}\n",
+                                                $$"${name}\n",
                                                 TextParameter()
                                                     .setWidth(17)
                                             )
                                             .styleMagnification(MagnificationParameter(1,1))
                                             .styleVerticalPositionBy(1.0)
                                             .actionPrintText(
-                                                "\${company_name}\n",
+                                                $$"${company_name}\n",
                                                 TextParameter()
                                                     .setWidth(34)
                                             )
@@ -74,21 +74,21 @@ class LabelSample20_For203dpiAnd300dpi_VisitorLabel_Template {
                                             )
                                             .styleBold(true)
                                             .actionPrintText(
-                                                "\${visiting}\n",
+                                                $$"${visiting}\n",
                                                 TextParameter()
                                                     .setWidth(25)
                                             )
                                             .styleBold(false)
                                             .styleVerticalPositionBy(1.0)
                                             .actionPrintText(
-                                                "\${datetime}\n",
+                                                $$"${datetime}\n",
                                                 TextParameter()
                                                     .setWidth(34)
                                             )
                                             .styleHorizontalPositionTo(5.0)
                                             .styleVerticalPositionBy(3.0)
                                             .actionPrintBarcode(
-                                                BarcodeParameter("\${barcode}", BarcodeSymbology.Code128)
+                                                BarcodeParameter($$"${barcode}", BarcodeSymbology.Code128)
                                                     .setHeight(5.0)
                                                     .setPrintHri(true)
                                             )

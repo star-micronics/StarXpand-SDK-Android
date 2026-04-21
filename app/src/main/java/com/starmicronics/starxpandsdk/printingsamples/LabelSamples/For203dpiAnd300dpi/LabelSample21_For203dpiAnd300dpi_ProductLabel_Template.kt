@@ -1,12 +1,10 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
 import com.starmicronics.stario10.starxpandcommand.PageModeBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
 import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnification
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnificationParameter
 import com.starmicronics.stario10.starxpandcommand.printer.CutType
 import com.starmicronics.stario10.starxpandcommand.printer.PageModeAreaParameter
 import com.starmicronics.stario10.starxpandcommand.printer.PageModeRectangleParameter
@@ -38,22 +36,22 @@ class LabelSample21_For203dpiAnd300dpi_ProductLabel_Template {
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .styleVerticalPositionTo(4.0)
                                     .actionPrintText(
-                                        "\${code1}\n"
+                                        $$"${code1}\n"
                                     )
                                     .styleHorizontalPositionTo(2.0)
                                     .styleVerticalPositionTo(12.0)
                                     .actionPrintText(
-                                        "\${code2}\n"
+                                        $$"${code2}\n"
                                     )
                                     .styleHorizontalPositionTo(2.0)
                                     .styleVerticalPositionTo(20.0)
                                     .actionPrintText(
-                                        "\${code3}\n"
+                                        $$"${code3}\n"
                                     )
                                     .styleHorizontalPositionTo(26.0)
                                     .styleVerticalPositionTo(0.0)
                                     .actionPrintQRCode(
-                                        QRCodeParameter("\${qrcode}")
+                                        QRCodeParameter($$"${qrcode}")
                                             .setCellSize(6)
                                             .setLevel(QRCodeLevel.Q)
                                             .setModel(QRCodeModel.Model2)

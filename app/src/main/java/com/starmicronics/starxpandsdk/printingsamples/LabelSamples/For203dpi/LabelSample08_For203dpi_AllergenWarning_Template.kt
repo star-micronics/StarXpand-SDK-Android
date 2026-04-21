@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -45,7 +45,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                             )
                                             .styleUnderLine(true)
                                             .actionPrintText(
-                                                "\${item}\n",
+                                                $$"${item}\n",
                                                 TextParameter()
                                                     .setWidth(14)
                                             )
@@ -57,7 +57,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                             )
                                             .styleUnderLine(true)
                                             .actionPrintText(
-                                                "\${date}\n",
+                                                $$"${date}\n",
                                                 TextParameter()
                                                     .setWidth(14)
                                             )
@@ -69,7 +69,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                     .styleHorizontalPositionTo(3.0)
                                     .styleVerticalPositionTo(31.0)
                                     .actionPrintText(
-                                        "\${dairy}",
+                                        $$"${dairy}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
@@ -79,7 +79,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                     )
                                     .styleHorizontalPositionTo(26.0)
                                     .actionPrintText(
-                                        "\${fish}",
+                                        $$"${fish}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
@@ -89,7 +89,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                     )
                                     .styleHorizontalPositionTo(49.0)
                                     .actionPrintText(
-                                        "\${eggs}",
+                                        $$"${eggs}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
@@ -103,7 +103,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                     .styleHorizontalPositionTo(3.0)
                                     .styleVerticalPositionTo(37.0)
                                     .actionPrintText(
-                                        "\${peanuts}",
+                                        $$"${peanuts}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
@@ -113,7 +113,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                     )
                                     .styleHorizontalPositionTo(26.0)
                                     .actionPrintText(
-                                        "\${shellfish}",
+                                        $$"${shellfish}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
@@ -123,7 +123,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                     )
                                     .styleHorizontalPositionTo(49.0)
                                     .actionPrintText(
-                                        "\${soy}",
+                                        $$"${soy}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
@@ -137,7 +137,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                     .styleHorizontalPositionTo(3.0)
                                     .styleVerticalPositionTo(43.0)
                                     .actionPrintText(
-                                        "\${treenuts}",
+                                        $$"${treenuts}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
@@ -147,7 +147,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
 
                                     .styleHorizontalPositionTo(26.0)
                                     .actionPrintText(
-                                        "\${wheat}",
+                                        $$"${wheat}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
@@ -157,7 +157,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                     )
                                     .styleHorizontalPositionTo(49.0)
                                     .actionPrintText(
-                                        "\${gluten}",
+                                        $$"${gluten}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
@@ -172,7 +172,7 @@ class LabelSample08_For203dpi_AllergenWarning_Template {
                                     )
                                     .styleUnderLine(true)
                                     .actionPrintText(
-                                        "\${other}\n",
+                                        $$"${other}\n",
                                         TextParameter()
                                             .setWidth(32)
                                     )

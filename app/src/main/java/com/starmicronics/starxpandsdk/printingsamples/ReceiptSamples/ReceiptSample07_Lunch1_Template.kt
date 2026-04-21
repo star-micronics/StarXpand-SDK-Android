@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -48,26 +48,26 @@ class ReceiptSample07_Lunch1_Template {
                                 "]\n"
                             )
                             .actionPrintText(
-                                "\${store_name}\n"
+                                $$"${store_name}\n"
                             )
                             .add(
                                 PrinterBuilder()
                                     .styleLineSpace(3.00)
                                     .actionPrintText(
-                                        "\${address}"
+                                        $$"${address}"
                                     )
                             )
                             .actionPrintText(
-                                        "\nTEL:\${telephone_number}\n" +
-                                        "登録番号:\${registration_number}\n"
+                                        $$"\nTEL:${telephone_number}\n" +
+                                                $$"登録番号:${registration_number}\n"
                             )
                             .styleAlignment(Alignment.Left)
                             .actionPrintText(
-                                "\${datetime}\n" +
-                                        "レジ:\${register_number%04d}" + "    担当:\${staff_number%04d}\n" +
-                                        "人数:\${number_of_people}名\n" +
-                                        "伝票名:\${voucher_name}\n" +
-                                        "取引No:\${transaction_number}\n"
+                                $$"${datetime}\n" +
+                                        $$"レジ:${register_number%04d}" + $$"    担当:${staff_number%04d}\n" +
+                                        $$"人数:${number_of_people}名\n" +
+                                        $$"伝票名:${voucher_name}\n" +
+                                        $$"取引No:${transaction_number}\n"
                             )
                             .actionFeedLine(1)
                             .actionPrintText(
@@ -83,7 +83,7 @@ class ReceiptSample07_Lunch1_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "\${item_list.name}\n",
+                                        $$"${item_list.name}\n",
                                         TextParameter()
                                             .setWidth(
                                                 16,
@@ -92,7 +92,7 @@ class ReceiptSample07_Lunch1_Template {
                                             )
                                     )
                                     .actionPrintText(
-                                        "\\\${item_list.unit_price}  \${item_list.number_of_items}点  \\\${item_list.price}\n",
+                                        $$"\\${item_list.unit_price}  ${item_list.number_of_items}点  \\${item_list.price}\n",
                                         TextParameter()
                                             .setWidth(
                                                 32,
@@ -108,7 +108,7 @@ class ReceiptSample07_Lunch1_Template {
                                 "小計"
                             )
                             .actionPrintText(
-                                "\${total_number_of_items}点  \\\${subtotal_price}\n",
+                                $$"${total_number_of_items}点  \\${subtotal_price}\n",
                                 TextParameter()
                                     .setWidth(
                                         28,
@@ -122,7 +122,7 @@ class ReceiptSample07_Lunch1_Template {
                             )
                             .styleBold(true)
                             .actionPrintText(
-                                "\\\${total_price}\n",
+                                $$"${total_price}\n",
                                 TextParameter()
                                     .setWidth(
                                         28,
@@ -135,7 +135,7 @@ class ReceiptSample07_Lunch1_Template {
                                 "(内消費税等"
                             )
                             .actionPrintText(
-                                "\\\${total_tax})\n",
+                                $$"${total_tax})\n",
                                 TextParameter()
                                     .setWidth(
                                         21,
@@ -147,7 +147,7 @@ class ReceiptSample07_Lunch1_Template {
                                 "(10%標準対象"
                             )
                             .actionPrintText(
-                                "\\\${tax_rate_10_target})\n",
+                                $$"${tax_rate_10_target})\n",
                                 TextParameter()
                                     .setWidth(
                                         20,
@@ -159,7 +159,7 @@ class ReceiptSample07_Lunch1_Template {
                                 "( 内消費税等"
                             )
                             .actionPrintText(
-                                "\\\${tax_rate_10_tax})\n",
+                                $$"${tax_rate_10_tax})\n",
                                 TextParameter()
                                     .setWidth(
                                         20,
@@ -171,7 +171,7 @@ class ReceiptSample07_Lunch1_Template {
                                 "("
                             )
                             .actionPrintText(
-                                "\${payment_method}",
+                                $$"${payment_method}",
                                 TextParameter()
                                     .setWidth(
                                         10,
@@ -180,7 +180,7 @@ class ReceiptSample07_Lunch1_Template {
                                     )
                             )
                             .actionPrintText(
-                                "\\\${payment_amount})\n",
+                                $$"${payment_amount})\n",
                                 TextParameter()
                                     .setWidth(
                                         11,
@@ -192,7 +192,7 @@ class ReceiptSample07_Lunch1_Template {
                                 "お預かり"
                             )
                             .actionPrintText(
-                                "\\\${deposit_amount}\n",
+                                $$"${deposit_amount}\n",
                                 TextParameter()
                                     .setWidth(
                                         24,
@@ -205,7 +205,7 @@ class ReceiptSample07_Lunch1_Template {
                             )
                             .styleBold(true)
                             .actionPrintText(
-                                "\\\${change_amount}\n",
+                                $$"${change_amount}\n",
                                 TextParameter()
                                     .setWidth(
                                         26,
@@ -222,7 +222,7 @@ class ReceiptSample07_Lunch1_Template {
                             .actionFeedLine(1)
                             .styleAlignment(Alignment.Left)
                             .actionPrintText(
-                                "\${note}\n"
+                                $$"${note}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

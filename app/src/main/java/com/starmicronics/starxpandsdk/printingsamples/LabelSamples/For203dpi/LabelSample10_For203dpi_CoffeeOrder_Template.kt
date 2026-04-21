@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -67,7 +67,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                             .stylePrintDirection(PageModePrintDirection.BottomToTop)
                                             .styleVerticalPositionTo(6.0)
                                             .actionPrintText(
-                                                "\${store_name}\n",
+                                                $$"${store_name}\n",
                                                 TextParameter()
                                                     .setWidth(
                                                         24,
@@ -108,7 +108,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                     .styleHorizontalPositionTo(8.0)
                                                     .styleVerticalPositionBy(4.0)
                                                     .actionPrintText(
-                                                        "\${decaf}",
+                                                        $$"${decaf}",
                                                         TextParameter()
                                                             .setWidth(
                                                                 3,
@@ -118,7 +118,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                     )
                                                     .styleHorizontalPositionTo(38.0)
                                                     .actionPrintText(
-                                                        "\${shots}\n",
+                                                        $$"${shots}\n",
                                                         TextParameter()
                                                             .setWidth(
                                                                 3,
@@ -154,7 +154,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                     .styleHorizontalPositionTo(8.0)
                                                     .styleVerticalPositionBy(4.0)
                                                     .actionPrintText(
-                                                        "\${size}",
+                                                        $$"${size}",
                                                         TextParameter()
                                                             .setWidth(
                                                                 3,
@@ -164,7 +164,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                     )
                                                     .styleHorizontalPositionTo(38.0)
                                                     .actionPrintText(
-                                                        "\${milk}\n",
+                                                        $$"${milk}\n",
                                                         TextParameter()
                                                             .setWidth(
                                                                 3,
@@ -190,7 +190,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                     .styleHorizontalPositionTo(8.0)
                                                     .styleVerticalPositionBy(4.0)
                                                     .actionPrintText(
-                                                        "\${syrup}\n",
+                                                        $$"${syrup}\n",
                                                         TextParameter()
                                                             .setWidth(
                                                                 13,
@@ -216,7 +216,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                     .styleHorizontalPositionTo(8.0)
                                                     .styleVerticalPositionBy(4.0)
                                                     .actionPrintText(
-                                                        "\${custom}\n",
+                                                        $$"${custom}\n",
                                                         TextParameter()
                                                             .setWidth(
                                                                 13,
@@ -251,7 +251,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                     .styleHorizontalPositionTo(8.0)
                                                     .styleVerticalPositionBy(1.0)
                                                     .actionPrintText(
-                                                        "\${drink}",
+                                                        $$"${drink}",
                                                         TextParameter()
                                                             .setWidth(
                                                                 6,
@@ -261,7 +261,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                     )
                                                     .styleHorizontalPositionTo(32.0)
                                                     .actionPrintText(
-                                                        "\${iced}\n",
+                                                        $$"${iced}\n",
                                                         TextParameter()
                                                             .setWidth(
                                                                 10,
@@ -279,7 +279,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                     )
                                                     .styleHorizontalPositionBy(1.0)
                                                     .actionPrintText(
-                                                        "\${customer_name}\n",
+                                                        $$"${customer_name}\n",
                                                         TextParameter()
                                                             .setWidth(14)
                                                     )
@@ -288,7 +288,7 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                 "FOR HERE"
                                             )
                                             .actionPrintText(
-                                                "\${item_number} of \${total_items}",
+                                                $$"${item_number} of ${total_items}",
                                                 TextParameter()
                                                     .setWidth(
                                                         32,
@@ -297,12 +297,12 @@ class LabelSample10_For203dpi_CoffeeOrder_Template {
                                                     )
                                             )
                                             .actionPrintText(
-                                                "\${order_number}",
+                                                $$"${order_number}",
                                                 TextParameter()
                                                     .setWidth(30)
                                             )
                                             .actionPrintText(
-                                                "\${time}",
+                                                $$"${time}",
                                                 TextParameter()
                                                     .setWidth(
                                                         10,

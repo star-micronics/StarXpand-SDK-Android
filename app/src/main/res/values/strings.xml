@@ -1,63 +1,54 @@
 <resources>
     <string name="app_name">StarXpandSDK</string>
 
-    <string name="discoveryButton">Discovery</string>
-    <string name="printingButton">Printing</string>
-    <string name="monitorButton">Monitor</string>
-    <string name="statusButton">Status</string>
-    <string name="printingSpoolerButton">Printing -Spooler-</string>
-    <string name="templatePrintButton">Template Print</string>
-    <string name="firmwareUpdateButton">Firmware Update</string>
+    <string name="bluetooth_classic_printer_notice">If you are using a Bluetooth (Classic) printer or device on Android 12 or later, you must request Bluetooth permissions.</string>
+    <string name="bluetooth_low_energy_printer_notice">If you are using a Bluetooth (Low Energy) printer or device, you must request the Bluetooth permissions.</string>
+    <string name="request_bluetooth_permission">Request bluetooth permission</string>
+    <string name="bluetooth_permission_granted">Bluetooth permission granted</string>
 
-
-    <string name="interfaceTextView">Interface</string>
-    <string name="lanCheckBox">LAN</string>
-    <string name="bluetoothCheckBox">Bluetooth</string>
-    <string name="usbCheckBox">USB</string>
-    <string name="empty"> </string>
+    <string name="discovery_title">Discovery</string>
+    <string name="printing_title">Printing</string>
+    <string name="monitor_title">Monitor</string>
+    <string name="status_title">Status</string>
+    <string name="printingSpooler_title">Printing -Spooler-</string>
+    <string name="templatePrint_title">Template Print</string>
+    <string name="firmwareUpdate_title">Firmware Update</string>
 
     <string name="identifier">Identifier</string>
-    <string name="interfaceType">Interface</string>
-    <string name="defaultMacAddress">00:11:62:00:00:00</string>
+    <string name="interface_type">Interface</string>
+    <string name="discovery">Discovery</string>
     <string name="print">Print</string>
-    <string name="monitor">Start Monitoring</string>
+    <string name="start_monitor">Start Monitoring</string>
+    <string name="stop_monitor">Stop Monitoring</string>
     <string name="status">Get Status</string>
     <string name="spoolPrint">Spool Print</string>
 
-    <string name="hintJobId">jobID</string>
+    <string name="jobId">jobID</string>
     <string name="getJobStatus">Get Job Status</string>
 
     <string name="template">Template</string>
     <string name="fieldData">Field Data</string>
 
-    <string name="checkVersions">Check Versions</string>
+    <string name="check_versions">Check Versions</string>
     <string name="update">Update</string>
-    <string name="firmware_update_warning_writing">Caution : The firmware is being updated. Until the result is displayed, please leave the printer turned on and wait without operating the screen of this device.\n\n</string>
-    <string name="firmware_update_warning_Updating">\nFirmware data transmission has been completed. The firmware is being updated.　This process may take several minutes.\n\n</string>
 
-    <string-array name="list">
-        <item>LAN</item>
-        <item>Bluetooth</item>
-        <item>USB</item>
-    </string-array>
-
-    <string-array name="listTemplate">
+    <string-array name="list_template">
         <item>Receipt w/ specifying number of characters</item>
         <item>Receipt w/o specifying number of characters</item>
         <item>Label</item>
     </string-array>
 
-    <string-array name="listReceiptWithSpecifyingNumberOfCharactersFieldData">
+    <string-array name="list_receipt_with_specifying_number_of_characters_field_data">
         <item>Receipt1</item>
         <item>Receipt2</item>
     </string-array>
 
-    <string-array name="listReceiptWithoutSpecifyingNumberOfCharactersFieldData">
+    <string-array name="list_receipt_without_specifying_number_of_characters_field_data">
         <item>Receipt1</item>
         <item>Receipt3</item>
     </string-array>
 
-    <string-array name="listLabelFieldData">
+    <string-array name="list_label_field_data">
         <item>Label1</item>
         <item>Label2</item>
     </string-array>

@@ -1,12 +1,10 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
 import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
 import com.starmicronics.stario10.starxpandcommand.TemplateExtensionParameter
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnification
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnificationParameter
 import com.starmicronics.stario10.starxpandcommand.printer.CutType
 import com.starmicronics.stario10.starxpandcommand.printer.PrinterParameter
 
@@ -26,10 +24,10 @@ class LabelSample03_For203dpiAnd300dpi_DrinkLabel2_Template {
                             // you can print text at the same size as 203dpi.
                             //.styleBaseMagnification(BaseMagnificationParameter().setText(BaseMagnification.X1_5))
                             .actionPrintText(
-                                "Item: \${item_number%2d} of \${number_of_items}\n"
+                                $$"Item: ${item_number%2d} of ${number_of_items}\n"
                             )
                             .actionPrintText(
-                                "Items in order: \${items_in_order}"
+                                $$"Items in order: ${items_in_order}"
                             )
                             .add(
                                 PrinterBuilder()
@@ -37,11 +35,11 @@ class LabelSample03_For203dpiAnd300dpi_DrinkLabel2_Template {
                                     .styleMagnification(MagnificationParameter(1, 2))
                                     .actionFeed(6.0)
                                     .actionPrintText(
-                                        "\${customer_name}"
+                                        $$"${customer_name}"
                                     )
                                     .actionFeed(8.0)
                                     .actionPrintText(
-                                        "\${product_name}"
+                                        $$"${product_name}"
                                     )
                                     .actionFeed(6.0)
                             )
@@ -54,14 +52,14 @@ class LabelSample03_For203dpiAnd300dpi_DrinkLabel2_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "\${item_list.detail}\n"
+                                        $$"${item_list.detail}\n"
                                     )
                             )
                             .actionPrintText(
-                                "\nTime: \${time}\n"
+                                $$"\nTime: ${time}\n"
                             )
                             .actionPrintText(
-                                "\n\${order_types}\n"
+                                $$"\n${order_types}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

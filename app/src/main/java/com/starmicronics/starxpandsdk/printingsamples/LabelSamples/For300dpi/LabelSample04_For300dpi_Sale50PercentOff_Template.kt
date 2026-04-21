@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for300dpi
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -35,7 +35,7 @@ class LabelSample04_For300dpi_Sale50PercentOff_Template {
                                     .styleVerticalPositionTo(27.0)
                                     .styleMagnification(MagnificationParameter(4,4))
                                     .actionPrintText(
-                                        "\${note}\n",
+                                        $$"${note}\n",
                                         TextParameter()
                                             .setWidth(
                                                 10,

@@ -27,10 +27,11 @@ StarIO10ライブラリが提供するAPIの一部は、実行時にユーザー
 
 ## 動作環境
 
-| Language | StarIO10 Kotlin Version | Platform | OS Version | Arch | Test Environment[*](#TestEnvironment) |
+| Language | StarIO10 Kotlin Version | Platform | OS Version[*](#OsVersion) | Arch | Test Environment[*](#TestEnvironment) |
 | --- | --- | --- | --- | --- | --- |
-| Kotlin | 1.7.21 | Android | Android 10.0 以降 | arm64-v8a, armeabi-v7a, x86, x86_64 | Gradle 8.11.1, AGP 8.9.1 |
+| Kotlin | 1.7.21 | Android | Android 11.0 以降 | arm64-v8a, armeabi-v7a, x86, x86_64 | Gradle 8.11.1, AGP 8.9.1 |
 
+<a id="OsVersion"></a>*Bluetooth Low Enegryインターフェースは、Android 12.0以降でのみサポートしています。<br>
 <a id="TestEnvironment"></a>*SDK同梱のサンプルアプリをビルドして動作することを確認しています。
 
 ## 導入
@@ -53,9 +54,10 @@ Androidアプリケーションにライブラリを組み込む手順の詳細�
 https://developer.android.com/studio/build/dependencies
 
 ### 2. プロジェクトに設定を追加する
-#### 2.1. Bluetoothプリンターを使用する場合
 
-[サンプルコード](../app/src/main/java/com/starmicronics/starxpandsdk)を参考にして、プリンターとの通信や検索を開始する前に、BLUETOOTH_CONNECTパーミッションを取得してください。
+#### 2.1. Bluetooth(Classic)インターフェイスを使用する場合
+
+[サンプルコード](../app/src/main/java/com/starmicronics/starxpandsdk/ContentView.kt)を参考にして、Bluetooth(Classic)通信を開始する前に、BLUETOOTH_CONNECTとBLUETOOTHパーミッションを取得してください。また、AndroidデバイスのBluetooth設定画面でBluetoothを有効にしてください。
 
 #### 2.2. USBケーブル挿抜の度に接続許可ダイアログを表示させないようにしたい場合
 
@@ -64,6 +66,7 @@ USBプリンターと通信を行うとき、接続許可を求めるダイ�
 USBケーブル挿抜の度に接続許可ダイアログを表示させないようにしたい場合、次の設定を行ってください。また、この設定を行うことで、USBケーブルを挿入したときにアプリケーションが自動で起動するようになります。
 
 ##### 2.2.1. AndroidManifest.xmlに設定を追加する
+
 AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素を追加してください。
 
 ```xml
@@ -77,6 +80,7 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
 ```
 
 ##### 2.2.2. リソースファイルを追加する
+
 下記のリソースファイルを `res/xml` 以下に `device_filter.xml`、`accessory_filter.xml` という名前で保存してください。
 
 - device_filter.xml
@@ -92,12 +96,14 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
     <usb-device vendor-id="1305" product-id="0025" />   <!--mC-Label3-->
     <usb-device vendor-id="1305" product-id="0029" />   <!--mC-Label2-->
     <usb-device vendor-id="1305" product-id="0023" />   <!--mPOP-->
+    <usb-device vendor-id="1305" product-id="4104" />   <!--mC-Connect Drawer-->
     <usb-device vendor-id="1305" product-id="0001" />   <!--TSP650II/TSP650II SK/TSP700II/TSP800II/SP700-->
     <usb-device vendor-id="1305" product-id="0027" />   <!--BSC10II-->
     <usb-device vendor-id="1305" product-id="0075" />   <!--SK1-211/221/V211-->
     <usb-device vendor-id="1305" product-id="0077" />   <!--SK1-311/321/V311-->
     <usb-device vendor-id="1305" product-id="0079" />   <!--SK5-31-->
     <usb-device vendor-id="1305" product-id="0081" />   <!--SK1-41-->
+    <usb-device vendor-id="1305" product-id="4113" />   <!--CD5 : 4113, 4114, ..., 4120-->
 
 </resources>
 ```
@@ -118,6 +124,32 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
     <usb-accessory model="BSC10II" manufacturer="Star Micronics"/>
 </resources>
 ```
+
+#### 2.3. Bluetooth Low Energyインターフェイスを使用する場合
+
+Bluetooth Low Enegryインターフェースは、Android 12.0以降でのみサポートしています。
+
+##### 2.3.1. AndroidManifest.xmlに設定を追加する
+
+AndroidManifest.xmlに下記の `<uses-permission>` 要素を追加してください。  
+
+- 位置情報の取得を行う場合、neverForLocationの指定は不要です。
+
+```xml
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" />
+```
+
+##### 2.3.2. Bluetooth機能を有効化する
+
+[サンプルコード](../app/src/main/java/com/starmicronics/starxpandsdk/ContentView.kt)を参考にして、Bluetooth Low Energy通信を開始する前に必要なパーミッションを取得してください。また、AndroidデバイスのBluetooth設定画面でBluetoothを有効にしてください。
+
+##### 2.3.3. ペアリングを行う
+
+Bluetooth Low Energy通信を行う場合、ペアリングを行う必要があります。  
+ペアリングの手順については、[こちら](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/pairing.html)を参照ください。
+
+Androidデバイスがサイレントモードの場合、ペアリングが正常に行えない場合があります。ペアリングを行う際は、サイレントモードを解除してください。
 
 ## サンプル
 
@@ -147,6 +179,7 @@ StarXpand SDKにはプリンターと組み合わせて動作を確認できる�
 #### 8. [プリンターファームウェアの更新](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/fw-update.html)
 
 <a id="GetPrinterStatus"></a>
+
 ### Get printer status
 
 ```kotlin
@@ -178,6 +211,7 @@ fun getStatus() {
 ```
 
 <a id="MonitorPrinter"></a>
+
 ### Monitor printer
 
 ```kotlin

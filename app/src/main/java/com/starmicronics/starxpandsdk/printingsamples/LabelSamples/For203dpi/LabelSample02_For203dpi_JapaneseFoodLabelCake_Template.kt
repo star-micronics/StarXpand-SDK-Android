@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -58,7 +58,7 @@ class LabelSample02_For203dpi_JapaneseFoodLabelCake_Template {
                                     )
                                     .styleHorizontalPositionTo(17.0)
                                     .actionPrintText(
-                                        "\${name}\n"
+                                        $$"${name}\n"
                                     )
                                     .styleHorizontalPositionTo(0.5)
                                     .actionPrintText(
@@ -66,7 +66,7 @@ class LabelSample02_For203dpi_JapaneseFoodLabelCake_Template {
                                     )
                                     .styleHorizontalPositionTo(22.0)
                                     .actionPrintText(
-                                        "\${classification}\n"
+                                        $$"${classification}\n"
                                     )
                                     .styleHorizontalPositionTo(0.5)
                                     .actionPrintText(
@@ -78,7 +78,7 @@ class LabelSample02_For203dpi_JapaneseFoodLabelCake_Template {
                                             .setY(8.0),
                                         PageModeBuilder()
                                             .actionPrintText(
-                                                "\${ingredients}\n"
+                                                $$"${ingredients}\n"
                                             )
                                     )
                                     .styleHorizontalPositionTo(0.5)
@@ -88,7 +88,7 @@ class LabelSample02_For203dpi_JapaneseFoodLabelCake_Template {
                                     )
                                     .styleHorizontalPositionTo(23.0)
                                     .actionPrintText(
-                                        "\${contents}\n"
+                                        $$"${contents}\n"
                                     )
                                     .styleHorizontalPositionTo(0.5)
                                     .actionPrintText(
@@ -96,7 +96,7 @@ class LabelSample02_For203dpi_JapaneseFoodLabelCake_Template {
                                     )
                                     .styleHorizontalPositionTo(13.0)
                                     .actionPrintText(
-                                        "\${expiry_date}\n"
+                                        $$"${expiry_date}\n"
                                     )
                                     .styleHorizontalPositionTo(0.5)
                                     .actionPrintText(
@@ -108,7 +108,7 @@ class LabelSample02_For203dpi_JapaneseFoodLabelCake_Template {
                                             .setY(32.0),
                                         PageModeBuilder()
                                             .actionPrintText(
-                                                "\${preservation_method}"
+                                                $$"${preservation_method}"
                                             )
                                     )
                                     .styleHorizontalPositionTo(0.5)
@@ -122,7 +122,7 @@ class LabelSample02_For203dpi_JapaneseFoodLabelCake_Template {
                                             .setY(44.0),
                                         PageModeBuilder()
                                             .actionPrintText(
-                                                "\${manufacturer}"
+                                                $$"${manufacturer}"
                                             )
                                     )
                                     .actionPrintImage(
@@ -132,7 +132,7 @@ class LabelSample02_For203dpi_JapaneseFoodLabelCake_Template {
                                     .styleHorizontalPositionTo(6.0)
                                     .styleVerticalPositionTo(42.0)
                                     .actionPrintBarcode(
-                                        BarcodeParameter("\${sku}", BarcodeSymbology.Jan13)
+                                        BarcodeParameter($$"${sku}", BarcodeSymbology.Jan13)
                                             .setBarDots(3)
                                             .setHeight(3.0)
                                             .setPrintHri(true)

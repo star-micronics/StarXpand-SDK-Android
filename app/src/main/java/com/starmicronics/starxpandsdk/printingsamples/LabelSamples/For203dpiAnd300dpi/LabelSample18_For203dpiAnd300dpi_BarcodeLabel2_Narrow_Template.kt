@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -24,15 +24,15 @@ class LabelSample18_For203dpiAnd300dpi_BarcodeLabel2_Narrow_Template {
                             .styleAlignment(Alignment.Center)
                             .styleBold(true)
                             .actionPrintText(
-                                "\${product_name}\n"
+                                $$"${product_name}\n"
                             )
                             .styleBold(false)
                             .styleFont(FontType.B)
                             .actionPrintText(
-                                "\${parameter1} / \${parameter2} / \${parameter3} / \${parameter4}\n"
+                                $$"${parameter1} / ${parameter2} / ${parameter3} / ${parameter4}\n"
                             )
                             .actionPrintBarcode(
-                                BarcodeParameter("\${sku}", BarcodeSymbology.UpcA)
+                                BarcodeParameter($$"${sku}", BarcodeSymbology.UpcA)
                                     .setBarDots(3)
                                     .setHeight(12.0)
                                     .setPrintHri(true)

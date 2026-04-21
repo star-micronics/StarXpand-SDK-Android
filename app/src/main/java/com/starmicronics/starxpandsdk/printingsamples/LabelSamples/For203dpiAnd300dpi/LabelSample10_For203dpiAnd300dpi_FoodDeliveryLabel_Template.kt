@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -33,19 +33,19 @@ class LabelSample10_For203dpiAnd300dpi_FoodDeliveryLabel_Template {
                                     .styleBold(true)
                                     .styleMagnification(MagnificationParameter(3, 3))
                                     .actionPrintText(
-                                        "\${store_name}\n"
+                                        $$"${store_name}\n"
                                     )
                                     .add(
                                         PrinterBuilder()
                                             .styleInvert(true)
                                             .actionPrintText(
-                                                "\${order_name}\n"
+                                                $$"${order_name}\n"
                                             )
                                     )
                             )
                             .styleAlignment(Alignment.Center)
                             .actionPrintText(
-                                "Placed at \${time}\n"
+                                $$"Placed at ${time}\n"
                             )
                             .add(
                                 PrinterBuilder()
@@ -59,7 +59,7 @@ class LabelSample10_For203dpiAnd300dpi_FoodDeliveryLabel_Template {
                                     .styleBold(true)
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${order_types}\n"
+                                        $$"${order_types}\n"
                                     )
                             )
                             .add(
@@ -78,7 +78,7 @@ class LabelSample10_For203dpiAnd300dpi_FoodDeliveryLabel_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "\${item_list.name}",
+                                        $$"${item_list.name}",
                                         TextParameter().setWidth(
                                             40,
                                             TextWidthParameter()
@@ -86,7 +86,7 @@ class LabelSample10_For203dpiAnd300dpi_FoodDeliveryLabel_Template {
                                         )
                                     )
                                     .actionPrintText(
-                                        "$\${item_list.price%.2f}\n",
+                                        $$$"$${item_list.price%.2f}\n",
                                         TextParameter()
                                             .setWidth(
                                                 8,
@@ -102,7 +102,7 @@ class LabelSample10_For203dpiAnd300dpi_FoodDeliveryLabel_Template {
                                 "Subtotal"
                             )
                             .actionPrintText(
-                                "$\${subtotal%.2f}\n",
+                                $$$"$${subtotal%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         40,
@@ -113,7 +113,7 @@ class LabelSample10_For203dpiAnd300dpi_FoodDeliveryLabel_Template {
                                 "Amount paid"
                             )
                             .actionPrintText(
-                                "$\${amount_paid%.2f}\n",
+                                $$$"$${amount_paid%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         37,
@@ -121,12 +121,12 @@ class LabelSample10_For203dpiAnd300dpi_FoodDeliveryLabel_Template {
                                             .setAlignment(TextAlignment.Right))
                             )
                             .actionPrintText(
-                                "item \${item_count}",
+                                $$"item ${item_count}",
                                 TextParameter()
                                     .setWidth(10)
                             )
                             .actionPrintText(
-                                "$\${item_price%.2f}\n",
+                                $$$"$${item_price%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         38,
@@ -136,7 +136,7 @@ class LabelSample10_For203dpiAnd300dpi_FoodDeliveryLabel_Template {
                             .styleAlignment(Alignment.Left)
                             .actionPrintText(
                                 "------------------------------------------------\n" +
-                                        "\${note}\n"
+                                        $$"${note}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

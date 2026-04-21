@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -28,12 +28,12 @@ class ReceiptSample09_Order1_Template {
                                     .styleLineSpace(0.0)
                                     .styleMagnification(MagnificationParameter(2,2))
                                     .actionPrintText(
-                                        "\${header}\n"
+                                        $$"${header}\n"
                                     )
                                     .styleBold(true)
                                     .styleInvert(true)
                                     .actionPrintText(
-                                        "\${title}\n",
+                                        $$"${title}\n",
                                         TextParameter()
                                             .setWidth(
                                                 24,
@@ -44,12 +44,12 @@ class ReceiptSample09_Order1_Template {
                             )
                             .actionFeed(2.0)
                             .actionPrintText(
-                                "#\${number}",
+                                $$"#${number}",
                                 TextParameter()
                                     .setWidth(10)
                             )
                             .actionPrintText(
-                                "\${datetime}\n",
+                                $$"${datetime}\n",
                                 TextParameter()
                                     .setWidth(
                                         38,
@@ -59,13 +59,13 @@ class ReceiptSample09_Order1_Template {
                             )
                             .styleBold(true)
                             .actionPrintText(
-                                "\${store_name}",
+                                $$"${store_name}",
                                 TextParameter()
                                     .setWidth(20)
                             )
                             .styleBold(false)
                             .actionPrintText(
-                                "\${order_number}\n",
+                                $$"${order_number}\n",
                                 TextParameter()
                                     .setWidth(
                                         28,
@@ -74,7 +74,7 @@ class ReceiptSample09_Order1_Template {
                                     )
                             )
                             .actionPrintText(
-                                "\${customer_name}\n"
+                                $$"${customer_name}\n"
                             )
                             .actionFeedLine(1)
                             .actionPrintRuledLine(
@@ -105,17 +105,17 @@ class ReceiptSample09_Order1_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "\${item_list.quantity}",
+                                        $$"${item_list.quantity}",
                                         TextParameter()
                                             .setWidth(2)
                                     )
                                     .actionPrintText(
-                                        "\${item_list.name}",
+                                        $$"${item_list.name}",
                                         TextParameter()
                                             .setWidth(41)
                                     )
                                     .actionPrintText(
-                                        "\${item_list.cost}\n",
+                                        $$"${item_list.cost}\n",
                                         TextParameter()
                                             .setWidth(
                                                 5,

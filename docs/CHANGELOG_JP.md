@@ -1,6 +1,32 @@
 - [English](../CHANGELOG.md)
 
-# 変更点
+# 変更履歴
+
+## 1.12.0 (2026/03/31)
+
+#### 追加
+
+* MCD10UEWB(mC-Connect Drawer)、およびCD5に対応
+* mC-Label2のBluetooth Low Energy (BluetoothLE) インターフェイス通信に対応
+* Bluetooth LEインターフェイス通信対応に伴い、以下APIを追加
+  * インターフェイスタイプ指定API (`InterfaceType`) に`BluetoothLE`を追加
+  * Bluetooth LE通信用情報取得API (`StarPrinterInformationBluetoothLE`)
+* StarPrinterクラスにバイナリデータ送受信API (`write()` / `read()`) を追加
+* 以下APIに2個目の外部機器駆動用ポート対応を追加
+  * 詳細ステータス取得API (`StarPrinterStatusDetail`)
+  * キャッシュドロアーチャネル (`stario10.starxpandcommand.drawer.Channel`)
+  * ブザーチャネル (`stario10.starxpandcommand.buzzer.Channel`)
+* キャッシュドロアーのステータスイベント取得API (`DrawerDelegate`) に、接続状態などの詳細情報取得機能を追加
+* LAN通信用情報取得API (`StarPrinterInformationLan`) に`uniqueId`プロパティを追加
+
+#### 変更
+
+* 最低サポートOSバージョンを10から11に変更
+* サンプルコードの実装をJetpack Composeベースに変更
+
+#### 修正
+
+* インターフェイス自動切り替え機能 (デフォルトで有効)が有効の場合、まれにLANインターフェイス通信が失敗する不具合を修正
 
 ## 1.11.2 (2025/12/08)
 
@@ -14,7 +40,7 @@
 
 ## 1.11.0 (2025/8/21)
 
-* 以下のプリンター機種のUSBインターフェースに対応
+* 以下のプリンター機種のUSBインターフェイスに対応
   * TSP650II
   * TSP650IISK
   * TSP700II

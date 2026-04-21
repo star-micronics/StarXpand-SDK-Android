@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -34,7 +34,7 @@ class ReceiptSample06_PharmacyStore2_Template {
                                 ImageParameter(logoBitmap, 300)
                             )
                             .actionPrintText(
-                                "\${address}\n" + "\${telephone_number}"
+                                $$"${address}\n" + $$"${telephone_number}"
                             )
                             .styleAlignment(Alignment.Left)
                             .actionFeedLine(1)
@@ -43,7 +43,7 @@ class ReceiptSample06_PharmacyStore2_Template {
                             )
                             .styleHorizontalPositionTo(0.0)
                             .actionPrintText(
-                                "\${datetime}\n",
+                                $$"${datetime}\n",
                                 TextParameter()
                                     .setWidth(
                                         48,
@@ -68,12 +68,12 @@ class ReceiptSample06_PharmacyStore2_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "\${item_list1.name}\n",
+                                        $$"${item_list1.name}\n",
                                         TextParameter()
                                             .setWidth(48)
                                     )
                                     .actionPrintText(
-                                        "    \${item_list1.product_number}",
+                                        $$"    ${item_list1.product_number}",
                                         TextParameter()
                                             .setWidth(30)
                                     )
@@ -81,12 +81,12 @@ class ReceiptSample06_PharmacyStore2_Template {
                                         " "
                                     )
                                     .actionPrintText(
-                                        "\${item_list1.tax_mark}",
+                                        $$"${item_list1.tax_mark}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
                                     .actionPrintText(
-                                        "\${item_list1.price%.2f}",
+                                        $$"${item_list1.price%.2f}",
                                         TextParameter()
                                             .setWidth(
                                                 10,
@@ -95,14 +95,14 @@ class ReceiptSample06_PharmacyStore2_Template {
                                             )
                                     )
                                     .actionPrintText(
-                                        " \${item_list1.remarks}\n",
+                                        $$" ${item_list1.remarks}\n",
                                         TextParameter()
                                             .setWidth(6)
                                     )
                                     .actionPrintText(
-                                        "\${item_list1.detail1}" +
-                                                "\${item_list1.detail2}" +
-                                                "\${item_list1.detail3}"
+                                        $$"${item_list1.detail1}" +
+                                                $$"${item_list1.detail2}" +
+                                                $$"${item_list1.detail3}"
                                     )
                             )
                             .actionPrintText(
@@ -117,12 +117,12 @@ class ReceiptSample06_PharmacyStore2_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "\${item_list2.name}\n",
+                                        $$"${item_list2.name}\n",
                                         TextParameter()
                                             .setWidth(48)
                                     )
                                     .actionPrintText(
-                                        "    \${item_list2.product_number}",
+                                        $$"    ${item_list2.product_number}",
                                         TextParameter()
                                             .setWidth(30)
                                     )
@@ -130,12 +130,12 @@ class ReceiptSample06_PharmacyStore2_Template {
                                         " "
                                     )
                                     .actionPrintText(
-                                        "\${item_list2.tax_mark}",
+                                        $$"${item_list2.tax_mark}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
                                     .actionPrintText(
-                                        "\${item_list2.price%.2f}",
+                                        $$"${item_list2.price%.2f}",
                                         TextParameter()
                                             .setWidth(
                                                 10,
@@ -144,15 +144,15 @@ class ReceiptSample06_PharmacyStore2_Template {
                                             )
                                     )
                                     .actionPrintText(
-                                        " \${item_list2.remarks}\n",
+                                        $$" ${item_list2.remarks}\n",
                                         TextParameter()
                                             .setWidth(6)
                                     )
                                     .actionPrintText(
-                                        "\${item_list2.detail1}" +
-                                                "\${item_list2.detail2}" +
-                                                "\${item_list2.detail3}" +
-                                                "\${item_list2.detail4}"
+                                        $$"${item_list2.detail1}" +
+                                                $$"${item_list2.detail2}" +
+                                                $$"${item_list2.detail3}" +
+                                                $$"${item_list2.detail4}"
                                     )
                             )
                             .actionFeedLine(1)
@@ -160,7 +160,7 @@ class ReceiptSample06_PharmacyStore2_Template {
                                 "    SUBTOTAL"
                             )
                             .actionPrintText(
-                                "\${subtotal%.2f}\n",
+                                $$"${subtotal%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         30,
@@ -172,7 +172,7 @@ class ReceiptSample06_PharmacyStore2_Template {
                                 "    SALES TAX A=6.75%"
                             )
                             .actionPrintText(
-                                "\${sales_tax%.2f}\n",
+                                $$"${sales_tax%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         21,
@@ -185,7 +185,7 @@ class ReceiptSample06_PharmacyStore2_Template {
                                 "    TOTAL"
                             )
                             .actionPrintText(
-                                "\${total_price%.2f}\n",
+                                $$"${total_price%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         33,
@@ -194,12 +194,12 @@ class ReceiptSample06_PharmacyStore2_Template {
                                     )
                             )
                             .actionPrintText(
-                                "    \${payment_method}",
+                                $$"    ${payment_method}",
                                 TextParameter()
                                     .setWidth(24)
                             )
                             .actionPrintText(
-                                "\${payment_amount%.2f}\n",
+                                $$"${payment_amount%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         18,
@@ -211,7 +211,7 @@ class ReceiptSample06_PharmacyStore2_Template {
                                 "    CHANGE"
                             )
                             .actionPrintText(
-                                "\${change%.2f}\n",
+                                $$"${change%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         32,
@@ -224,7 +224,7 @@ class ReceiptSample06_PharmacyStore2_Template {
                                 "MYSTAR SAVINGS"
                             )
                             .actionPrintText(
-                                "\${my_serving%.2f}\n",
+                                $$"${my_serving%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         28,
@@ -236,7 +236,7 @@ class ReceiptSample06_PharmacyStore2_Template {
                                 "MFG COUPON SAVINGS"
                             )
                             .actionPrintText(
-                                "\${mfg_serving%.2f}\n",
+                                $$"${mfg_serving%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         24,
@@ -250,15 +250,15 @@ class ReceiptSample06_PharmacyStore2_Template {
                             )
                             .actionFeedLine(1)
                             .actionPrintText(
-                                "\${note}\n"
+                                $$"${note}\n"
                             )
                             .actionFeedLine(1)
                             .styleAlignment(Alignment.Center)
                             .actionPrintText(
-                                "RFN# \${rfn}\n"
+                                $$"RFN# ${rfn}\n"
                             )
                             .actionPrintBarcode(
-                                BarcodeParameter("\${barcode}", BarcodeSymbology.Code128)
+                                BarcodeParameter($$"${barcode}", BarcodeSymbology.Code128)
                                     .setBarDots(1)
                             )
                             .actionFeedLine(1)

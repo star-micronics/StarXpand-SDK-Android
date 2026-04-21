@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -108,7 +108,7 @@ class LabelSample07_For203dpi_OrderLabel_Template {
                                     .styleHorizontalPositionTo(4.0)
                                     .styleVerticalPositionBy(8.0)
                                     .actionPrintText(
-                                        "備考欄\${remarks}"
+                                        $$"備考欄${remarks}"
                                     )
                                     .add(
                                         PageModeBuilder()
@@ -116,7 +116,7 @@ class LabelSample07_For203dpi_OrderLabel_Template {
                                             .styleMagnification(MagnificationParameter(1,2))
                                             .styleVerticalPositionTo(17.0)
                                             .actionPrintText(
-                                                "\${order_number}",
+                                                $$"${order_number}",
                                                 TextParameter()
                                                     .setWidth(
                                                         24,
@@ -126,7 +126,7 @@ class LabelSample07_For203dpi_OrderLabel_Template {
                                             )
                                             .styleHorizontalPositionBy(12.0)
                                             .actionPrintText(
-                                                "\${total_quantity}",
+                                                $$"${total_quantity}",
                                                 TextParameter()
                                                     .setWidth(
                                                         9,
@@ -138,7 +138,7 @@ class LabelSample07_For203dpi_OrderLabel_Template {
                                             .styleHorizontalPositionTo(4.0)
                                             .styleVerticalPositionBy(16.0)
                                             .actionPrintText(
-                                                "\${room_temperature}",
+                                                $$"${room_temperature}",
                                                 TextParameter()
                                                     .setWidth(
                                                         9,
@@ -149,7 +149,7 @@ class LabelSample07_For203dpi_OrderLabel_Template {
                                             )
                                             .styleHorizontalPositionBy(10.0)
                                             .actionPrintText(
-                                                "\${refrigeration}",
+                                                $$"${refrigeration}",
                                                 TextParameter()
                                                     .setWidth(
                                                         9,
@@ -160,7 +160,7 @@ class LabelSample07_For203dpi_OrderLabel_Template {
                                             )
                                             .styleHorizontalPositionBy(11.0)
                                             .actionPrintText(
-                                                "\${frozen}",
+                                                $$"${frozen}",
                                                 TextParameter()
                                                     .setWidth(
                                                         9,
@@ -176,7 +176,7 @@ class LabelSample07_For203dpi_OrderLabel_Template {
                                             .setY(46.0),
                                         PageModeBuilder()
                                             .actionPrintText(
-                                                "\${note}"
+                                                $$"${note}"
                                             )
                                     )
                             )

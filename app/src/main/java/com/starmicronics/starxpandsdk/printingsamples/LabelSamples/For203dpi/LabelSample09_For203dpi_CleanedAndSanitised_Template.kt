@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -67,7 +67,7 @@ class LabelSample09_For203dpi_CleanedAndSanitised_Template {
                                     .styleMagnification(MagnificationParameter(1,2))
                                     .styleVerticalPositionBy(10.0)
                                     .actionPrintText(
-                                        "\${name}",
+                                        $$"${name}",
                                         TextParameter()
                                             .setWidth(28)
                                     )
@@ -75,7 +75,7 @@ class LabelSample09_For203dpi_CleanedAndSanitised_Template {
                                         " "
                                     )
                                     .actionPrintText(
-                                        "\${date}",
+                                        $$"${date}",
                                         TextParameter()
                                             .setWidth(16)
                                     )

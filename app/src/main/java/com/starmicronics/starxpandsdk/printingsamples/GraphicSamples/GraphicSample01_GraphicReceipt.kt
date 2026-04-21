@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.graphicSamples
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -17,7 +17,6 @@ import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
 import com.starmicronics.stario10.starxpandcommand.printer.Alignment
 import com.starmicronics.stario10.starxpandcommand.printer.CutType
 import com.starmicronics.stario10.starxpandcommand.printer.ImageParameter
-import com.starmicronics.stario10.starxpandcommand.printer.InternationalCharacterType
 import com.starmicronics.starxpandsdk.R
 
 
@@ -70,7 +69,7 @@ class GraphicSample15_GraphicReceipt {
         private fun createImageParameterFromText(text: String):ImageParameter{
             val width = 384
             val typeface = Typeface.create(Typeface.MONOSPACE, Typeface.NORMAL)
-            val bitmap = createBitmapFromText(text,22,width,typeface);
+            val bitmap = createBitmapFromText(text,22,width,typeface)
             return ImageParameter(bitmap,width)
         }
 
@@ -97,7 +96,7 @@ class GraphicSample15_GraphicReceipt {
             )
 
             // Create canvas
-            val canvas: Canvas = Canvas(bitmap)
+            val canvas = Canvas(bitmap)
             canvas.drawColor(Color.WHITE)
             canvas.translate(0f, 0f)
             staticLayout.draw(canvas)

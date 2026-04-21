@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -6,8 +6,6 @@ import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
 import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
 import com.starmicronics.stario10.starxpandcommand.TemplateExtensionParameter
 import com.starmicronics.stario10.starxpandcommand.printer.Alignment
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnification
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnificationParameter
 import com.starmicronics.stario10.starxpandcommand.printer.CutType
 import com.starmicronics.stario10.starxpandcommand.printer.PrinterParameter
 
@@ -32,14 +30,14 @@ class LabelSample07_For203dpiAnd300dpi_DrinkLabel6_Template {
                                 PrinterBuilder()
                                     .styleMagnification(MagnificationParameter(1, 2))
                                     .actionPrintText(
-                                        "\${order_types}\${order_types_detail}\n"
+                                        $$"${order_types}${order_types_detail}\n"
                                     )
                             )
                             .add(
                                 PrinterBuilder()
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "#\${order_number%04d}\n"
+                                        $$"#${order_number%04d}\n"
                                     )
                             )
                             .add(
@@ -47,11 +45,11 @@ class LabelSample07_For203dpiAnd300dpi_DrinkLabel6_Template {
                                     .styleInvert(true)
                                     .styleMagnification(MagnificationParameter(1, 2))
                                     .actionPrintText(
-                                        "\${number}\n" // ?
+                                        $$"${number}\n" // ?
                                     )
                             )
                             .actionPrintText(
-                                "\${time}\n"
+                                $$"${time}\n"
                             )
                             .actionPrintText(
                                 "--------------------------------\n"
@@ -61,7 +59,7 @@ class LabelSample07_For203dpiAnd300dpi_DrinkLabel6_Template {
                                     .styleAlignment(Alignment.Left)
                                     .styleMagnification(MagnificationParameter(1, 2))
                                     .actionPrintText(
-                                        "\${product_name}\n"
+                                        $$"${product_name}\n"
                                     )
                                     .add(
                                         PrinterBuilder(
@@ -73,7 +71,7 @@ class LabelSample07_For203dpiAnd300dpi_DrinkLabel6_Template {
                                         )
                                             .styleHorizontalPositionTo(3.0)
                                             .actionPrintText(
-                                                "\${item_list.detail}\n"
+                                                $$"${item_list.detail}\n"
                                             )
                                     )
                             )

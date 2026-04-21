@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -51,10 +51,10 @@ class LabelSample01_For203dpiAnd300dpi_TamperProofLabel_Template {
                             )
                             .styleBold(false)
                             .actionPrintText(
-                                "\${remarks}"
+                                $$"${remarks}"
                             )
                             .actionPrintQRCode(
-                                QRCodeParameter("\${store_url}")
+                                QRCodeParameter($$"${store_url}")
                                     .setCellSize(8)
                                     .setLevel(QRCodeLevel.Q)
                                     .setModel(QRCodeModel.Model2)

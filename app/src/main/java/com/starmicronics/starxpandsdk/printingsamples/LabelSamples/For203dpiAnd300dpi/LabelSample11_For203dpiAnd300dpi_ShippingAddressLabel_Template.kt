@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -22,21 +22,21 @@ class LabelSample11_For203dpiAnd300dpi_ShippingAddressLabel_Template {
                             .styleAlignment(Alignment.Center)
                             .styleMagnification(MagnificationParameter(2, 2))
                             .actionPrintText(
-                                "\${name}\n"
+                                $$"${name}\n"
                             )
                             .add(
                                 PrinterBuilder()
                                     .styleBold(true)
                                     .actionPrintText(
-                                        "\${company}\n"
+                                        $$"${company}\n"
                                     )
                             )
                             .actionPrintText(
-                                "\${address}\n"
+                                $$"${address}\n"
                             )
                             .styleBold(true)
                             .actionPrintText(
-                                "\${country}\n"
+                                $$"${country}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

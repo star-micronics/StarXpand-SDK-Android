@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -32,18 +32,18 @@ class LabelSample06_For203dpi_BarcodeLabel1_Template {
                                             .styleBold(true)
                                             .styleMagnification(MagnificationParameter(2,2))
                                             .actionPrintText(
-                                                "\${shop_name}\n"
+                                                $$"${shop_name}\n"
                                             )
                                     )
                                     .styleHorizontalPositionTo(2.0)
                                     .styleVerticalPositionBy(1.0)
                                     .actionPrintText(
-                                        "\${product_name}\n"
+                                        $$"${product_name}\n"
                                     )
                                     .styleHorizontalPositionTo(2.0)
                                     .styleVerticalPositionBy(2.0)
                                     .actionPrintText(
-                                        "\${product_number}\n"
+                                        $$"${product_number}\n"
                                     )
                                     .addPageMode(
                                         PageModeAreaParameter(72.0, 16.0)
@@ -52,14 +52,14 @@ class LabelSample06_For203dpi_BarcodeLabel1_Template {
                                         PageModeBuilder()
                                             .styleHorizontalPositionTo(4.0)
                                             .styleVerticalPositionTo(10.0)
-                                            .actionPrintBarcode(BarcodeParameter("\${sku}", BarcodeSymbology.UpcA)
+                                            .actionPrintBarcode(BarcodeParameter($$"${sku}", BarcodeSymbology.UpcA)
                                                 .setBarDots(3)
                                                 .setHeight(12.0)
                                                 .setPrintHri(true)
                                             )
                                             .styleVerticalPositionTo(2.0)
                                             .actionPrintText(
-                                                "MSRP $\${msrp%.2f} \n",
+                                                $$$"MSRP $${msrp%.2f} \n",
                                                 TextParameter()
                                                     .setWidth(
                                                         48,
@@ -74,7 +74,7 @@ class LabelSample06_For203dpi_BarcodeLabel1_Template {
                                                     .styleMagnification(MagnificationParameter(2,2))
                                                     .styleVerticalPositionBy(3.0)
                                                     .actionPrintText(
-                                                        "$\${selling_price% .2f}\n"
+                                                        $$$"$${selling_price% .2f}\n"
                                                     )
                                             )
                                     )

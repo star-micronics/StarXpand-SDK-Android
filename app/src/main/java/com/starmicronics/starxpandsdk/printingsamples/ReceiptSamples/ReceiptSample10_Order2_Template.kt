@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -25,12 +25,12 @@ class ReceiptSample10_Order2_Template {
                         PrinterBuilder()
                             .styleCjkCharacterPriority(listOf(CjkCharacterType.Japanese))
                             .actionPrintText(
-                                "\${time}",
+                                $$"${time}",
                                 TextParameter()
                                     .setWidth(8)
                             )
                             .actionPrintText(
-                                "\${staff_name}",
+                                $$"${staff_name}",
                                 TextParameter()
                                     .setWidth(
                                         20,
@@ -42,11 +42,11 @@ class ReceiptSample10_Order2_Template {
                             .styleMagnification(MagnificationParameter(2,2))
                             .styleInvert(true)
                             .actionPrintText(
-                                " \${classification} "
+                                $$" ${classification} "
                             )
                             .styleInvert(false)
                             .actionPrintText(
-                                " \${table_number}",
+                                $$" ${table_number}",
                                 TextParameter()
                                     .setWidth(10)
                             )
@@ -55,7 +55,7 @@ class ReceiptSample10_Order2_Template {
                                     .styleLineSpace(0.0)
                                     .styleMagnification(MagnificationParameter(1,1))
                                     .actionPrintText(
-                                        "\${visitors}名\n",
+                                        $$"${visitors}名\n",
                                         TextParameter()
                                             .setWidth(
                                                 20,
@@ -77,12 +77,12 @@ class ReceiptSample10_Order2_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "\${item_list.name}",
+                                        $$"${item_list.name}",
                                         TextParameter()
                                             .setWidth(22)
                                     )
                                     .actionPrintText(
-                                        "\${item_list.quantity}\n",
+                                        $$"${item_list.quantity}\n",
                                         TextParameter()
                                             .setWidth(
                                                 2,

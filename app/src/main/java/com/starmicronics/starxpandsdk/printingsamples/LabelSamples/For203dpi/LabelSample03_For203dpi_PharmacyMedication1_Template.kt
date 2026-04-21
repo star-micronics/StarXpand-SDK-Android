@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -37,16 +37,16 @@ class LabelSample03_For203dpi_PharmacyMedication1_Template {
                                                 MagnificationParameter(2,2)
                                             )
                                             .actionPrintText(
-                                                "\${store_name}\n"
+                                                $$"${store_name}\n"
                                             )
                                             .styleMagnification(
                                                 MagnificationParameter(1,1)
                                             )
                                             .actionPrintText(
-                                                "\${address}\n"
+                                                $$"${address}\n"
                                             )
                                             .actionPrintText(
-                                                "\${telephone_number}\n"
+                                                $$"${telephone_number}\n"
                                             )
                                     )
                                     .addPageMode(
@@ -62,12 +62,12 @@ class LabelSample03_For203dpi_PharmacyMedication1_Template {
                                             )
                                             .styleVerticalPositionTo(4.0)
                                             .actionPrintText(
-                                                "\${number}\n"
+                                                $$"${number}\n"
                                             )
                                             .styleHorizontalPositionTo(1.0)
                                             .styleVerticalPositionBy(4.0)
                                             .actionPrintText(
-                                                "\${customer_name}"
+                                                $$"${customer_name}"
                                             )
                                     )
                                     .styleVerticalPositionTo(40.0)
@@ -76,7 +76,7 @@ class LabelSample03_For203dpi_PharmacyMedication1_Template {
                                     )
                                     .styleBold(true)
                                     .actionPrintText(
-                                        "\${usage}\n"
+                                        $$"${usage}\n"
                                     )
                                     .styleBold(false)
                                     .addPageMode(
@@ -97,7 +97,7 @@ class LabelSample03_For203dpi_PharmacyMedication1_Template {
                                     )
                                     .styleVerticalPositionTo(65.0)
                                     .actionPrintText(
-                                        "EXP: \${expiry_date}\n"
+                                        $$"EXP: ${expiry_date}\n"
                                     )
                                     .add(
                                         PageModeBuilder()
@@ -105,7 +105,7 @@ class LabelSample03_For203dpi_PharmacyMedication1_Template {
                                                 MagnificationParameter(2,1)
                                                 )
                                             .actionPrintText(
-                                                "Quantity: \${quantity}\n"
+                                                $$"Quantity: ${quantity}\n"
                                             )
                                     )
                             )

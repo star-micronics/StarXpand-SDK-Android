@@ -1,7 +1,5 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
-import android.content.Context
-import android.graphics.BitmapFactory
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
 import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
@@ -11,13 +9,10 @@ import com.starmicronics.stario10.starxpandcommand.printer.QRCodeParameter
 import com.starmicronics.stario10.starxpandcommand.printer.QRCodeModel
 import com.starmicronics.stario10.starxpandcommand.printer.QRCodeLevel
 import com.starmicronics.stario10.starxpandcommand.printer.CutType
-import com.starmicronics.starxpandsdk.R
 
 class LabelSample15_For203dpiAnd300dpi_FoodDeliveryLabelThai {
     companion object {
-        fun createFoodDeliveryThaiReceipt(context: Context): String {
-            val logoBitmap = BitmapFactory.decodeResource(context.resources, R.drawable.logo_01)
-
+        fun createFoodDeliveryThaiReceipt(): String {
             val builder = StarXpandCommandBuilder()
             builder.addDocument(
                 DocumentBuilder()

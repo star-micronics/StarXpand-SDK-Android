@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -37,8 +37,8 @@ class ReceiptSample08_Lunch2_Template {
                             .actionFeedLine(1)
                             .styleAlignment(Alignment.Right)
                             .actionPrintText(
-                                "\${number}\n" +
-                                        "会計日:\${account_day}\n"
+                                $$"${number}\n" +
+                                        $$"会計日:${account_day}\n"
                             )
                             .actionFeed(3.0)
                             .styleAlignment(Alignment.Left)
@@ -54,7 +54,7 @@ class ReceiptSample08_Lunch2_Template {
                             .actionFeed(3.0)
                             .styleUnderLine(true)
                             .actionPrintText(
-                                "\${customer_name}",
+                                $$"${customer_name}",
                                 TextParameter()
                                     .setWidth(
                                         15,
@@ -76,7 +76,7 @@ class ReceiptSample08_Lunch2_Template {
                             .styleBold(true)
                             .styleUnderLine(true)
                             .actionPrintText(
-                                "\\\${total_price}-\n",
+                                $$"${total_price}-\n",
                                 TextParameter()
                                     .setWidth(
                                         24,
@@ -90,7 +90,7 @@ class ReceiptSample08_Lunch2_Template {
                                 "     (10%標準対象"
                             )
                             .actionPrintText(
-                                "\\\${tax_rate_10_target})\n",
+                                $$"${tax_rate_10_target})\n",
                                 TextParameter()
                                     .setWidth(
                                         15,
@@ -102,7 +102,7 @@ class ReceiptSample08_Lunch2_Template {
                                 "     ( 内消費税等"
                             )
                             .actionPrintText(
-                                "\\\${tax_rate_10_tax})\n",
+                                $$"${tax_rate_10_tax})\n",
                                 TextParameter()
                                     .setWidth(
                                         15,
@@ -122,7 +122,7 @@ class ReceiptSample08_Lunch2_Template {
                                 "但 "
                             )
                             .actionPrintText(
-                                "\${description}",
+                                $$"${description}",
                                 TextParameter()
                                     .setWidth(
                                         11,
@@ -140,17 +140,17 @@ class ReceiptSample08_Lunch2_Template {
                                     .styleBold(true)
                                     .styleMagnification(MagnificationParameter(2,2))
                                     .actionPrintText(
-                                        "\${store_name}\n"
+                                        $$"${store_name}\n"
                                     )
                             )
                             .actionPrintText(
-                                "\${address}\n" +
-                                        "TEL:\${telephone_number}\n" +
-                                        "登録番号:\${registration_number}\n" +
+                                $$"${address}\n" +
+                                        $$"TEL:${telephone_number}\n" +
+                                        $$"登録番号:${registration_number}\n" +
                                         "\n" +
-                                        "担当者:\${staff_name}\n" +
+                                        $$"担当者:${staff_name}\n" +
                                         "領収書No:\n" +
-                                        "\${receipt_number}\n"
+                                        $$"${receipt_number}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

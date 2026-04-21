@@ -1,30 +1,23 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
-import android.content.Context
-import android.graphics.BitmapFactory
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
 import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
 import com.starmicronics.stario10.starxpandcommand.TemplateExtensionParameter
-import com.starmicronics.stario10.starxpandcommand.printer.InternationalCharacterType
 import com.starmicronics.stario10.starxpandcommand.printer.Alignment
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnification
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnificationParameter
-import com.starmicronics.stario10.starxpandcommand.printer.QRCodeParameter
-import com.starmicronics.stario10.starxpandcommand.printer.QRCodeModel
-import com.starmicronics.stario10.starxpandcommand.printer.QRCodeLevel
 import com.starmicronics.stario10.starxpandcommand.printer.CutType
+import com.starmicronics.stario10.starxpandcommand.printer.InternationalCharacterType
 import com.starmicronics.stario10.starxpandcommand.printer.PrinterParameter
+import com.starmicronics.stario10.starxpandcommand.printer.QRCodeLevel
+import com.starmicronics.stario10.starxpandcommand.printer.QRCodeModel
+import com.starmicronics.stario10.starxpandcommand.printer.QRCodeParameter
 import com.starmicronics.stario10.starxpandcommand.printer.TextAlignment
 import com.starmicronics.stario10.starxpandcommand.printer.TextParameter
 import com.starmicronics.stario10.starxpandcommand.printer.TextWidthParameter
-import com.starmicronics.starxpandsdk.R
 
 class LabelSample15_For203dpiAnd300dpi_FoodDeliveryLabelThai_Template {
     companion object {
-        fun createFoodDeliveryThaiReceipt(context: Context): String {
-            val logoBitmap = BitmapFactory.decodeResource(context.resources, R.drawable.logo_01)
-
+        fun createFoodDeliveryThaiReceipt(): String {
             val builder = StarXpandCommandBuilder()
             builder.addDocument(
                 DocumentBuilder()
@@ -46,18 +39,18 @@ class LabelSample15_For203dpiAnd300dpi_FoodDeliveryLabelThai_Template {
                             )
                             .styleBold(false)
                             .actionPrintText(
-                                "\${store_name}  \n" +
-                                        "\${address} \n"
+                                $$"${store_name}  \n" +
+                                        $$"${address} \n"
                             )
                             .add(
                                 PrinterBuilder()
                                     .styleBold(true)
                                     .actionPrintText(
-                                        "#\${number%04u}\n"
+                                        $$"#${number%04u}\n"
                                     )
                             )
                             .actionPrintText(
-                                "วันที่:\${date}  เวลา:\${time}\n" +
+                                $$"วันที่:${date}  เวลา:${time}\n" +
                                         "--------------------------------\n"
                             )
                             .styleAlignment(Alignment.Left)
@@ -66,12 +59,12 @@ class LabelSample15_For203dpiAnd300dpi_FoodDeliveryLabelThai_Template {
                             )
                             .styleBold(true)
                             .actionPrintText(
-                                "\${customer_name} \n"
+                                $$"${customer_name} \n"
                             )
                             .styleBold(false)
                             .actionPrintText(
                                 "ชำระเงินแล้ว \n"+
-                                        "เวลาที่รับออเดอร์:\${order_time}\n" +
+                                        $$"เวลาที่รับออเดอร์:${order_time}\n" +
                                         "--------------------------------\n" +
                                         "\n"
                             )
@@ -85,10 +78,10 @@ class LabelSample15_For203dpiAnd300dpi_FoodDeliveryLabelThai_Template {
                                 )
                                     .styleHorizontalTabPositions(listOf(3, 18, 23))
                                     .actionPrintText(
-                                        "\${item_list.number_of_items}X\t\${item_list.name}\t"
+                                        $$"${item_list.number_of_items}X\t${item_list.name}\t"
                                     )
                                     .actionPrintText(
-                                        "\${item_list.price}",
+                                        $$"${item_list.price}",
                                         TextParameter()
                                             .setWidth(
                                                 4,
@@ -107,7 +100,7 @@ class LabelSample15_For203dpiAnd300dpi_FoodDeliveryLabelThai_Template {
                                 PrinterBuilder()
                                     .styleAlignment(Alignment.Center)
                                     .actionPrintText(
-                                        "\${note}\n"
+                                        $$"${note}\n"
                                     )
                             )
                             .actionPrintText(
@@ -121,7 +114,7 @@ class LabelSample15_For203dpiAnd300dpi_FoodDeliveryLabelThai_Template {
                                     )
                                     .styleBold(true)
                                     .actionPrintText(
-                                        "\${sub_total}",
+                                        $$"${sub_total}",
                                     )
                                     .styleBold(false)
                                     .actionPrintText(
@@ -131,7 +124,7 @@ class LabelSample15_For203dpiAnd300dpi_FoodDeliveryLabelThai_Template {
                                         "ภาษีมูลค่าเพิ่ม\t"
                                     )
                                     .actionPrintText(
-                                        "\${tax}\n",
+                                        $$"${tax}\n",
                                     )
                             )
                             .actionPrintText(
@@ -146,12 +139,13 @@ class LabelSample15_For203dpiAnd300dpi_FoodDeliveryLabelThai_Template {
                                     )
                                     .styleAlignment(Alignment.Right)
                                     .actionPrintText(
-                                        "\${total} บาท\n")
+                                        $$"${total} บาท\n"
+                                    )
                             )
                             .actionPrintText(
                                 "--------------------------------\n" +
                                         "\n" +
-                                        "Charge \${charge}\n" +
+                                        $$"Charge ${charge}\n" +
                                         "\n")
                             .styleAlignment(Alignment.Center)
                             .add(PrinterBuilder()
@@ -168,7 +162,7 @@ class LabelSample15_For203dpiAnd300dpi_FoodDeliveryLabelThai_Template {
                             )
                             .actionFeedLine(1)
                             .actionPrintQRCode(
-                                QRCodeParameter("\${store_url}")
+                                QRCodeParameter($$"${store_url}")
                                     .setCellSize(8)
                                     .setLevel(QRCodeLevel.L)
                                     .setModel(QRCodeModel.Model2)

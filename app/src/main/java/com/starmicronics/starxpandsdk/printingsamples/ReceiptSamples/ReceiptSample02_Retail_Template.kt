@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -30,7 +30,7 @@ class ReceiptSample02_Retail_Template {
                                     .styleInvert(true)
                                     .styleMagnification(MagnificationParameter(2,2))
                                     .actionPrintText(
-                                        "\${store_name}\n",
+                                        $$"${store_name}\n",
                                         TextParameter()
                                             .setWidth(
                                                 24,
@@ -40,12 +40,12 @@ class ReceiptSample02_Retail_Template {
                             )
                             .styleAlignment(Alignment.Left)
                             .actionPrintText(
-                                "\${order_number}",
+                                $$"${order_number}",
                                 TextParameter()
                                     .setWidth(24)
                             )
                             .actionPrintText(
-                                "\${datetime}\n",
+                                $$"${datetime}\n",
                                 TextParameter()
                                     .setWidth(
                                         24,
@@ -54,12 +54,12 @@ class ReceiptSample02_Retail_Template {
                                     )
                             )
                             .actionPrintText(
-                                "\${order_types}",
+                                $$"${order_types}",
                                 TextParameter()
                                     .setWidth(24)
                             )
                             .actionPrintText(
-                                "Served by \${staff_name}\n",
+                                $$"Served by ${staff_name}\n",
                                 TextParameter()
                                     .setWidth(
                                         24,
@@ -68,7 +68,7 @@ class ReceiptSample02_Retail_Template {
                                     )
                             )
                             .actionPrintText(
-                                "Transaction \${transaction}\n"
+                                $$"Transaction ${transaction}\n"
                             )
                             .actionPrintRuledLine(
                                 RuledLineParameter(72.0)
@@ -83,7 +83,7 @@ class ReceiptSample02_Retail_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "\${item_list.quantity} x \${item_list.name}",
+                                        $$"${item_list.quantity} x ${item_list.name}",
                                         TextParameter()
                                             .setWidth(37)
                                     )
@@ -91,7 +91,7 @@ class ReceiptSample02_Retail_Template {
                                         " "
                                     )
                                     .actionPrintText(
-                                        "\${item_list.price%8.2f} T\n",
+                                        $$"${item_list.price%8.2f} T\n",
                                         TextParameter()
                                             .setWidth(
                                                 10,
@@ -100,7 +100,7 @@ class ReceiptSample02_Retail_Template {
                                             )
                                     )
                                     .actionPrintText(
-                                        "\${item_list.detail}"
+                                        $$"${item_list.detail}"
                                     )
                             )
                             .actionPrintRuledLine(
@@ -111,7 +111,7 @@ class ReceiptSample02_Retail_Template {
                                 "Subtotal"
                             )
                             .actionPrintText(
-                                "\${subtotal_price%.2f}\n",
+                                $$"${subtotal_price%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         40,
@@ -123,7 +123,7 @@ class ReceiptSample02_Retail_Template {
                                 "Tax"
                             )
                             .actionPrintText(
-                                "\${tax%8.2f}\n",
+                                $$"${tax%8.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         45,
@@ -136,7 +136,7 @@ class ReceiptSample02_Retail_Template {
                                 "Total"
                             )
                             .actionPrintText(
-                                "\${total_price%.2f}\n",
+                                $$"${total_price%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         43,
@@ -150,12 +150,12 @@ class ReceiptSample02_Retail_Template {
                                     .setThickness(0.1)
                             )
                             .actionPrintText(
-                                "\${payment_method}",
+                                $$"${payment_method}",
                                 TextParameter()
                                     .setWidth(24)
                             )
                             .actionPrintText(
-                                "\${payment_amount%.2f}\n",
+                                $$"${payment_amount%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         24,
@@ -169,12 +169,12 @@ class ReceiptSample02_Retail_Template {
                             )
                             .styleAlignment(Alignment.Center)
                             .actionPrintText(
-                                "\${address}\n" +
-                                        "\${telephone_number}\n" +
-                                        "\${footer}\n"
+                                $$"${address}\n" +
+                                        $$"${telephone_number}\n" +
+                                        $$"${footer}\n"
                             )
                             .actionPrintBarcode(
-                                BarcodeParameter("\${barcode}", BarcodeSymbology.Code128)
+                                BarcodeParameter($$"${barcode}", BarcodeSymbology.Code128)
                                     .setBarDots(1)
                                     .setPrintHri(true)
                             )

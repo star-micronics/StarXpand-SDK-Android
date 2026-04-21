@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -26,21 +26,21 @@ class LabelSample12_For203dpiAnd300dpi_InventoryLabel_Template {
                                     .styleBold(true)
                                     .styleUnderLine(true)
                                     .actionPrintText(
-                                        "\${name}\n"
+                                        $$"${name}\n"
                                     )
                             )
                             .actionPrintText(
-                                "P/N: \${parts_number%06u}\n"
+                                $$"P/N: ${parts_number%06u}\n"
                             )
                             .actionPrintBarcode(
-                                BarcodeParameter("\${sku}", BarcodeSymbology.Code39)
+                                BarcodeParameter($$"${sku}", BarcodeSymbology.Code39)
                                     .setBarDots(3)
                                     .setHeight(18.0)
                                     .setPrintHri(true)
                             )
                             .actionPrintText(
                                 "\n" +
-                                        "ABC: \${abc}\n"
+                                        $$"ABC: ${abc}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

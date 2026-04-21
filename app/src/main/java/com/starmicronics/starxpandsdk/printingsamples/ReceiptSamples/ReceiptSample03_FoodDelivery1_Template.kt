@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -25,7 +25,7 @@ class ReceiptSample03_FoodDelivery1_Template {
                             .styleBold(true)
                             .styleMagnification(MagnificationParameter(2,2))
                             .actionPrintText(
-                                "\${store_name}\n",
+                                $$"${store_name}\n",
                                 TextParameter()
                                     .setWidth(
                                         24,
@@ -47,7 +47,7 @@ class ReceiptSample03_FoodDelivery1_Template {
                             )
                             .styleBold(true)
                             .actionPrintText(
-                                "\${customer_name}\n"
+                                $$"${customer_name}\n"
                             )
                             .styleBold(false)
                             .add(
@@ -58,7 +58,7 @@ class ReceiptSample03_FoodDelivery1_Template {
                                     )
                             )
                             .actionPrintText(
-                                "\${staff_name}\n"
+                                $$"${staff_name}\n"
                             )
                             .add(
                                 PrinterBuilder()
@@ -68,7 +68,7 @@ class ReceiptSample03_FoodDelivery1_Template {
                                     )
                             )
                             .actionPrintText(
-                                "\${pickup_time}\n"
+                                $$"${pickup_time}\n"
                             )
                             .add(
                                 PrinterBuilder()
@@ -78,7 +78,7 @@ class ReceiptSample03_FoodDelivery1_Template {
                                     )
                             )
                             .actionPrintText(
-                                "\${order_number}\n"
+                                $$"${order_number}\n"
                             )
                             .add(
                                 PrinterBuilder()
@@ -88,7 +88,7 @@ class ReceiptSample03_FoodDelivery1_Template {
                                     )
                             )
                             .actionPrintText(
-                                "\${total_items} items\n"
+                                $$"${total_items} items\n"
                             )
                             .actionPrintText(
                                 "------------------------"
@@ -102,7 +102,7 @@ class ReceiptSample03_FoodDelivery1_Template {
                                         )
                                 )
                                     .actionPrintText(
-                                        "\${item_list.quantity}x\${item_list.name}",
+                                        $$"${item_list.quantity}x${item_list.name}",
                                         TextParameter()
                                             .setWidth(18)
                                     )
@@ -110,7 +110,7 @@ class ReceiptSample03_FoodDelivery1_Template {
                                         " "
                                     )
                                     .actionPrintText(
-                                        "$\${item_list.price%.2f}\n",
+                                        $$$"$${item_list.price%.2f}\n",
                                         TextParameter()
                                             .setWidth(
                                                 5,
@@ -118,20 +118,20 @@ class ReceiptSample03_FoodDelivery1_Template {
                                                     .setAlignment(TextAlignment.Right))
                                     )
                                     .actionPrintText(
-                                        "\${item_list.detail}"
+                                        $$"${item_list.detail}"
                                     )
                                     .actionPrintText(
                                         "------------------------\n"
                                     )
                             )
                             .actionPrintText(
-                                "\${total_items} totalitems\n"
+                                $$"${total_items} totalitems\n"
                             )
                             .actionPrintText(
                                 "Subtotal"
                             )
                             .actionPrintText(
-                                "$\${subtotal%.2f}\n",
+                                $$$"$${subtotal%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         16,
@@ -144,7 +144,7 @@ class ReceiptSample03_FoodDelivery1_Template {
                                 "Total"
                             )
                             .actionPrintText(
-                                "$\${total%.2f}\n",
+                                $$$"$${total%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         19,

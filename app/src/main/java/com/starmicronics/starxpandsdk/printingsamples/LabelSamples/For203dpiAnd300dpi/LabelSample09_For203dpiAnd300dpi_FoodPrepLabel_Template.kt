@@ -1,14 +1,12 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
 import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
 import com.starmicronics.stario10.starxpandcommand.printer.Alignment
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnification
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnificationParameter
-import com.starmicronics.stario10.starxpandcommand.printer.RuledLineParameter
 import com.starmicronics.stario10.starxpandcommand.printer.CutType
+import com.starmicronics.stario10.starxpandcommand.printer.RuledLineParameter
 import com.starmicronics.stario10.starxpandcommand.printer.TextParameter
 
 class LabelSample09_For203dpiAnd300dpi_FoodPrepLabel_Template {
@@ -32,7 +30,7 @@ class LabelSample09_For203dpiAnd300dpi_FoodPrepLabel_Template {
                                     .styleBold(true)
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${day_of_week}\n"
+                                        $$"${day_of_week}\n"
                                     )
                             )
                             .styleAlignment(Alignment.Left)
@@ -43,7 +41,7 @@ class LabelSample09_For203dpiAnd300dpi_FoodPrepLabel_Template {
                                 PrinterBuilder()
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${product}\n"
+                                        $$"${product}\n"
                                     )
                             )
                             .actionPrintText(
@@ -53,7 +51,7 @@ class LabelSample09_For203dpiAnd300dpi_FoodPrepLabel_Template {
                                 PrinterBuilder()
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${prepared_on}\n"
+                                        $$"${prepared_on}\n"
                                     )
                             )
                             .actionPrintText(
@@ -63,19 +61,19 @@ class LabelSample09_For203dpiAnd300dpi_FoodPrepLabel_Template {
                                 PrinterBuilder()
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${used_by}\n"
+                                        $$"${used_by}\n"
                                     )
                             )
                             .actionPrintRuledLine(
                                 RuledLineParameter(48.0)
                             )
                             .actionPrintText(
-                                "User: \${user} ",
+                                $$"User: ${user} ",
                                 TextParameter()
                                     .setWidth(16)
                             )
                             .actionPrintText(
-                                "Manager: \${manager}\n",
+                                $$"Manager: ${manager}\n",
                                 TextParameter()
                                     .setWidth(16)
                             )

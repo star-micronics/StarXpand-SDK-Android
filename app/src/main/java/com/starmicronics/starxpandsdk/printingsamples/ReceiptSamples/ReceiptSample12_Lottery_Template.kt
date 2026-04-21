@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -41,17 +41,17 @@ class ReceiptSample12_Lottery_Template {
                                 )
                                     .styleBold(true)
                                     .actionPrintText(
-                                        "\${item_list.header}",
+                                        $$"${item_list.header}",
                                         TextParameter()
                                             .setWidth(1)
                                     )
                                     .styleMagnification(MagnificationParameter(2,2))
                                     .actionPrintText(
-                                        " \${item_list.number_1%02d}" +
-                                                " \${item_list.number_2%02d}" +
-                                                " \${item_list.number_3%02d}" +
-                                                " \${item_list.number_4%02d}" +
-                                                " \${item_list.number_5%02d}"
+                                        $$" ${item_list.number_1%02d}" +
+                                                $$" ${item_list.number_2%02d}" +
+                                                $$" ${item_list.number_3%02d}" +
+                                                $$" ${item_list.number_4%02d}" +
+                                                $$" ${item_list.number_5%02d}"
                                     )
                                     .styleMagnification(MagnificationParameter(1,1))
                                     .actionPrintText(
@@ -59,7 +59,7 @@ class ReceiptSample12_Lottery_Template {
                                     )
                                     .styleMagnification(MagnificationParameter(2,2))
                                     .actionPrintText(
-                                        " \${item_list.number_6%02d}"
+                                        $$" ${item_list.number_6%02d}"
                                     )
                                     .styleMagnification(MagnificationParameter(1,1))
                                     .actionPrintText(
@@ -72,21 +72,21 @@ class ReceiptSample12_Lottery_Template {
                                     .styleBold(true)
                                     .styleMagnification(MagnificationParameter(2,2))
                                     .actionPrintText(
-                                        "\${winning_day}\n" +
-                                                "$\${price%.2f}\n"
+                                        $$"${winning_day}\n" +
+                                                $$$"$${price%.2f}\n"
                                     )
                             )
                             .actionFeedLine(1)
                             .actionPrintText(
-                                "\${sales_number}\n" +
-                                        "\${datetime}\n"
+                                $$"${sales_number}\n" +
+                                        $$"${datetime}\n"
                             )
                             .actionFeedLine(1)
                             .actionPrintText(
-                                "\${note}\n"
+                                $$"${note}\n"
                             )
                             .actionPrintBarcode(
-                                BarcodeParameter("\${barcode}", BarcodeSymbology.Code128)
+                                BarcodeParameter($$"${barcode}", BarcodeSymbology.Code128)
                                     .setHeight(7.0)
                             )
                             .actionCut(CutType.Partial)

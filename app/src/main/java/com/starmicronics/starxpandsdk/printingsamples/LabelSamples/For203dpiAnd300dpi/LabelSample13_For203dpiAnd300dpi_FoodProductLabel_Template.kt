@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -25,15 +25,15 @@ class LabelSample13_For203dpiAnd300dpi_FoodProductLabel_Template {
                                 PrinterBuilder()
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${name}\n"
+                                        $$"${name}\n"
                                     )
                             )
                             .actionPrintText(
-                                "\${message}\n" +
+                                $$"${message}\n" +
                                         "------------------------------------------------\n" +
-                                        "MFG \${manufacturing_date}\n" +
+                                        $$"MFG ${manufacturing_date}\n" +
                                         "------------------------------------------------\n" +
-                                        "\${note}\n"
+                                        $$"${note}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

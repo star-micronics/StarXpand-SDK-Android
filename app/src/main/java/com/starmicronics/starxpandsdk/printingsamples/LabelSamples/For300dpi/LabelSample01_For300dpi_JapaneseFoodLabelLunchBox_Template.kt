@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for300dpi
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -51,18 +51,18 @@ class LabelSample01_For300dpi_JapaneseFoodLabelLunchBox_Template {
                                         PageModeBuilder()
                                             .styleMagnification(MagnificationParameter(2, 2))
                                             .actionPrintText(
-                                                "\${name}"
+                                                $$"${name}"
                                             )
                                     )
                                     .styleHorizontalPositionTo(1.0)
                                     .styleVerticalPositionBy(5.0)
                                     .actionPrintText(
-                                        "消費期限 \${expiry_date}\n"
+                                        $$"消費期限 ${expiry_date}\n"
                                     )
                                     .styleHorizontalPositionBy(2.0)
                                     .styleVerticalPositionBy(3.0)
                                     .actionPrintBarcode(
-                                        BarcodeParameter("\${sku}", BarcodeSymbology.Jan13)
+                                        BarcodeParameter($$"${sku}", BarcodeSymbology.Jan13)
                                             .setBarDots(2)
                                             .setHeight(5.0)
                                             .setPrintHri(true)
@@ -73,7 +73,7 @@ class LabelSample01_For300dpi_JapaneseFoodLabelLunchBox_Template {
                                             .styleMagnification(MagnificationParameter(3, 3))
                                             .styleVerticalPositionTo(12.0)
                                             .actionPrintText(
-                                                "\${price}"
+                                                $$"${price}"
                                             )
                                     )
                                     .styleHorizontalPositionTo(37.0)
@@ -87,7 +87,7 @@ class LabelSample01_For300dpi_JapaneseFoodLabelLunchBox_Template {
                                             .setY(19.0),
                                         PageModeBuilder()
                                             .actionPrintText(
-                                                "原材料名：\${ingredients}\n"
+                                                $$"原材料名：${ingredients}\n"
                                             )
                                     )
                                     .addPageMode(
@@ -105,7 +105,7 @@ class LabelSample01_For300dpi_JapaneseFoodLabelLunchBox_Template {
                                             .setY(29.0),
                                         PageModeBuilder()
                                             .actionPrintText(
-                                                "\${preservation_method}"
+                                                $$"${preservation_method}"
                                             )
                                     )
                                     .addPageMode(
@@ -114,9 +114,9 @@ class LabelSample01_For300dpi_JapaneseFoodLabelLunchBox_Template {
                                             .setY(35.0),
                                         PageModeBuilder()
                                             .actionPrintText(
-                                        "製造者：\${manufacturer}\n" +
-                                                "\${address}\n" +
-                                                "TEL \${telephone_number}\n"
+                                        $$"製造者：${manufacturer}\n" +
+                                                $$"${address}\n" +
+                                                $$"TEL ${telephone_number}\n"
                                         )
                                     )
                                     .actionPrintImage(

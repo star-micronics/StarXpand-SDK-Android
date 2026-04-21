@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.receiptSamples
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -26,11 +26,11 @@ class ReceiptSample04_FoodDelivery2_Template {
                                     .styleBold(true)
                                     .styleMagnification(MagnificationParameter(2,2))
                                     .actionPrintText(
-                                        "\${store_name}\n"
+                                        $$"${store_name}\n"
                                     )
                                     .styleInvert(true)
                                     .actionPrintText(
-                                        "\${order_number}",
+                                        $$"${order_number}",
                                         TextParameter()
                                             .setWidth(
                                                 7,
@@ -40,7 +40,7 @@ class ReceiptSample04_FoodDelivery2_Template {
                                     )
                                     .styleBold(false)
                                     .actionPrintText(
-                                        "\${customer_name}\n",
+                                        $$"${customer_name}\n",
                                         TextParameter()
                                             .setWidth(
                                                 17,
@@ -50,11 +50,11 @@ class ReceiptSample04_FoodDelivery2_Template {
                                     )
                             )
                             .actionPrintText(
-                                "Placed at \${placed_at}\n"
+                                $$"Placed at ${placed_at}\n"
                             )
                             .styleBold(true)
                             .actionPrintText(
-                                "Due at \${due_at}"
+                                $$"Due at ${due_at}"
                             )
                             .styleBold(false)
                             .actionPrintRuledLine(
@@ -67,7 +67,7 @@ class ReceiptSample04_FoodDelivery2_Template {
                                     .styleAlignment(Alignment.Center)
                                     .styleMagnification(MagnificationParameter(2,2))
                                     .actionPrintText(
-                                        "\${order_types}\n"
+                                        $$"${order_types}\n"
                                     )
                                     .actionFeed(2.0)
                             )
@@ -76,7 +76,7 @@ class ReceiptSample04_FoodDelivery2_Template {
                                     .setThickness(0.1)
                             )
                             .actionPrintText(
-                                "Disposable items:\${disposable_items}\n"
+                                $$"Disposable items:${disposable_items}\n"
                             )
                             .actionPrintRuledLine(
                                 RuledLineParameter(72.0)
@@ -92,7 +92,7 @@ class ReceiptSample04_FoodDelivery2_Template {
                                 )
                                     .styleBold(true)
                                     .actionPrintText(
-                                        "\${item_list.quantity} x \${item_list.name}",
+                                        $$"${item_list.quantity} x ${item_list.name}",
                                         TextParameter()
                                             .setWidth(39)
                                     )
@@ -101,7 +101,7 @@ class ReceiptSample04_FoodDelivery2_Template {
                                     )
                                     .styleBold(false)
                                     .actionPrintText(
-                                        "$\${item_list.price%.2f}\n",
+                                        $$$"$${item_list.price%.2f}\n",
                                         TextParameter()
                                             .setWidth(
                                                 8,
@@ -110,10 +110,10 @@ class ReceiptSample04_FoodDelivery2_Template {
                                             )
                                     )
                                     .actionPrintText(
-                                        "\${item_list.detail1}" +
-                                                "\${item_list.detail2}" +
-                                                "\${item_list.detail3}" +
-                                                "\${item_list.detail4}"
+                                        $$"${item_list.detail1}" +
+                                                $$"${item_list.detail2}" +
+                                                $$"${item_list.detail3}" +
+                                                $$"${item_list.detail4}"
                                     )
                                     .actionFeed(1.0)
                             )
@@ -125,7 +125,7 @@ class ReceiptSample04_FoodDelivery2_Template {
                                 "Subtotal"
                             )
                             .actionPrintText(
-                                "$\${subtotal%.2f}\n",
+                                $$$"$${subtotal%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         40,
@@ -138,7 +138,7 @@ class ReceiptSample04_FoodDelivery2_Template {
                                 "Amount paid"
                             )
                             .actionPrintText(
-                                "$\${total%.2f}\n",
+                                $$$"$${total%.2f}\n",
                                 TextParameter()
                                     .setWidth(
                                         37,
@@ -153,7 +153,7 @@ class ReceiptSample04_FoodDelivery2_Template {
                             )
                             .styleAlignment(Alignment.Center)
                             .actionPrintText(
-                                "\${note}"
+                                $$"${note}"
                             )
                             .actionCut(CutType.Partial)
                     )

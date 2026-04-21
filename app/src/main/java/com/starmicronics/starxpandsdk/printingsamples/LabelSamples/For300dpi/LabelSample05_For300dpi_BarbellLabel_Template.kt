@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -7,7 +7,6 @@ import com.starmicronics.stario10.starxpandcommand.PageModeBuilder
 import com.starmicronics.stario10.starxpandcommand.printer.BarcodeParameter
 import com.starmicronics.stario10.starxpandcommand.printer.BarcodeSymbology
 import com.starmicronics.stario10.starxpandcommand.printer.CutType
-import com.starmicronics.stario10.starxpandcommand.printer.LabelParameter
 import com.starmicronics.stario10.starxpandcommand.printer.PageModeAreaParameter
 import com.starmicronics.stario10.starxpandcommand.printer.TextAlignment
 import com.starmicronics.stario10.starxpandcommand.printer.TextParameter
@@ -28,7 +27,7 @@ class LabelSample05_For300dpi_BarbellLabel_Template {
                                     .styleHorizontalPositionTo(6.0)
                                     .styleVerticalPositionTo(8.0)
                                     .actionPrintBarcode(
-                                        BarcodeParameter("\${barcode}", BarcodeSymbology.Code128)
+                                        BarcodeParameter($$"${barcode}", BarcodeSymbology.Code128)
                                             .setBarDots(2)
                                             .setHeight(4.0)
                                             .setPrintHri(true)
@@ -36,7 +35,7 @@ class LabelSample05_For300dpi_BarbellLabel_Template {
                                     .styleHorizontalPositionTo(35.0)
                                     .styleVerticalPositionTo(6.0)
                                     .actionPrintText(
-                                        "\${product_name}",
+                                        $$"${product_name}",
                                         TextParameter().setWidth(
                                             12,
                                             TextWidthParameter()
@@ -46,7 +45,7 @@ class LabelSample05_For300dpi_BarbellLabel_Template {
                                     .styleVerticalPositionBy(3.0)
                                     .styleHorizontalPositionTo(35.0)
                                     .actionPrintText(
-                                        "$\${price%.2f}\n",
+                                        $$$"$${price%.2f}\n",
                                         TextParameter()
                                             .setWidth(
                                                 12,
@@ -58,7 +57,7 @@ class LabelSample05_For300dpi_BarbellLabel_Template {
                                     .styleHorizontalPositionTo(6.0)
                                     .styleVerticalPositionTo(19.0)
                                     .actionPrintBarcode(
-                                        BarcodeParameter("\${barcode}", BarcodeSymbology.Code128)
+                                        BarcodeParameter($$"${barcode}", BarcodeSymbology.Code128)
                                             .setBarDots(2)
                                             .setHeight(4.0)
                                             .setPrintHri(true)
@@ -66,7 +65,7 @@ class LabelSample05_For300dpi_BarbellLabel_Template {
                                     .styleHorizontalPositionTo(35.0)
                                     .styleVerticalPositionTo(17.0)
                                     .actionPrintText(
-                                        "\${product_name}",
+                                        $$"${product_name}",
                                         TextParameter().setWidth(
                                             12,
                                             TextWidthParameter()
@@ -76,7 +75,7 @@ class LabelSample05_For300dpi_BarbellLabel_Template {
                                     .styleVerticalPositionBy(3.0)
                                     .styleHorizontalPositionTo(35.0)
                                     .actionPrintText(
-                                        "$\${price%.2f}\n",
+                                        $$$"$${price%.2f}\n",
                                         TextParameter()
                                             .setWidth(
                                                 12,

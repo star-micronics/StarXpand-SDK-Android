@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -6,8 +6,6 @@ import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
 import com.starmicronics.stario10.starxpandcommand.StarXpandCommandBuilder
 import com.starmicronics.stario10.starxpandcommand.TemplateExtensionParameter
 import com.starmicronics.stario10.starxpandcommand.printer.Alignment
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnification
-import com.starmicronics.stario10.starxpandcommand.printer.BaseMagnificationParameter
 import com.starmicronics.stario10.starxpandcommand.printer.CutType
 import com.starmicronics.stario10.starxpandcommand.printer.PrinterParameter
 
@@ -33,25 +31,25 @@ class LabelSample06_For203dpiAnd300dpi_DrinkLabel5_Template {
                                     .styleInvert(true)
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${header}\n"
+                                        $$"${header}\n"
                                     )
                             )
                             .add(
                                 PrinterBuilder()
                                     .styleMagnification(MagnificationParameter(1, 2))
                                     .actionPrintText(
-                                        "\${order_types}\n"
+                                        $$"${order_types}\n"
                                     )
                             )
                             .add(
                                 PrinterBuilder()
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "#\${order_number%04d}\n"
+                                        $$"#${order_number%04d}\n"
                                     )
                             )
                             .actionPrintText(
-                                "\${time}\n"
+                                $$"${time}\n"
                             )
                             .actionPrintText(
                                 "--------------------------------\n"
@@ -61,7 +59,7 @@ class LabelSample06_For203dpiAnd300dpi_DrinkLabel5_Template {
                                     .styleAlignment(Alignment.Left)
                                     .styleMagnification(MagnificationParameter(1, 2))
                                     .actionPrintText(
-                                        "\${product_name}\n"
+                                        $$"${product_name}\n"
                                     )
                                     .add(
                                         PrinterBuilder(
@@ -73,7 +71,7 @@ class LabelSample06_For203dpiAnd300dpi_DrinkLabel5_Template {
                                         )
                                             .styleHorizontalPositionTo(3.0)
                                             .actionPrintText(
-                                                "\${item_list.detail}\n"
+                                                $$"${item_list.detail}\n"
                                             )
                                     )
                             )
@@ -85,7 +83,7 @@ class LabelSample06_For203dpiAnd300dpi_DrinkLabel5_Template {
                                     .styleInvert(true)
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${footer}\n"
+                                        $$"${footer}\n"
                                     )
                             )
                             .actionCut(CutType.Partial)

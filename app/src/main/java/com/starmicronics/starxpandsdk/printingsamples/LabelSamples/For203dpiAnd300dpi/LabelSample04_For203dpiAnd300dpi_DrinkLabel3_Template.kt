@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -29,7 +29,7 @@ class LabelSample04_For203dpiAnd300dpi_DrinkLabel3_Template {
                                     .setThickness(0.1)
                             )
                             .actionPrintText(
-                                "No.\${order_number}(\${item_number}/\${number_of_items}) \${datetime}\n"
+                                $$"No.${order_number}(${item_number}/${number_of_items}) ${datetime}\n"
                             )
                             .actionPrintRuledLine(
                                 RuledLineParameter(72.0)
@@ -40,7 +40,7 @@ class LabelSample04_For203dpiAnd300dpi_DrinkLabel3_Template {
                                     .styleBold(true)
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${product_name}\n"
+                                        $$"${product_name}\n"
                                     )
                             )
                             .add(
@@ -53,7 +53,7 @@ class LabelSample04_For203dpiAnd300dpi_DrinkLabel3_Template {
                                 )
                                     .styleHorizontalPositionTo(2.0)
                                     .actionPrintText(
-                                        "\${item_list.detail}\n"
+                                        $$"${item_list.detail}\n"
                                     )
                             )
                             .actionPrintRuledLine(
@@ -61,11 +61,11 @@ class LabelSample04_For203dpiAnd300dpi_DrinkLabel3_Template {
                                     .setThickness(0.1)
                             )
                             .actionPrintText(
-                                "\${note}\n"
+                                $$"${note}\n"
                             )
                             .styleAlignment(Alignment.Right)
                             .actionPrintText(
-                                "No:\${number}\n"
+                                $$"No:${number}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -41,13 +41,13 @@ class LabelSample16_For203dpiAnd300dpi_ShelfLabelForInventory_Template {
                                         PageModeBuilder()
                                             .styleMagnification(MagnificationParameter(2, 2))
                                             .actionPrintText(
-                                                "\${name}"
+                                                $$"${name}"
                                             )
                                     )
                                     .styleHorizontalPositionTo(0.0)
                                     .styleVerticalPositionTo(15.0)
                                     .actionPrintQRCode(
-                                        QRCodeParameter("\${sku}")
+                                        QRCodeParameter($$"${sku}")
                                             .setCellSize(4)
                                             .setLevel(QRCodeLevel.L)
                                             .setModel(QRCodeModel.Model2)
@@ -58,19 +58,19 @@ class LabelSample16_For203dpiAnd300dpi_ShelfLabelForInventory_Template {
                                             .setY(12.0),
                                         PageModeBuilder()
                                             .actionPrintText(
-                                                "\${company}\n"
+                                                $$"${company}\n"
                                             )
                                             .actionPrintText(
-                                                "\${note}\n"
+                                                $$"${note}\n"
                                             )
                                             .actionPrintText(
-                                                "使用材料名:\${material}\n"
+                                                $$"使用材料名:${material}\n"
                                             )
                                             .actionPrintText(
-                                                "金型取数:\${mold_cavities}\n"
+                                                $$"金型取数:${mold_cavities}\n"
                                             )
                                             .actionPrintText(
-                                                "整形場所:\${molding_place}"
+                                                $$"整形場所:${molding_place}"
                                             )
                                     )
                             )

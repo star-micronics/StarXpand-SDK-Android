@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -51,7 +51,7 @@ class LabelSample12_For203dpi_FoodSafetyInfo_Template {
                                             .styleHorizontalPositionBy(1.0)
                                             .styleUnderLine(true)
                                             .actionPrintText(
-                                                "\${item_name}\n",
+                                                $$"${item_name}\n",
                                                 TextParameter()
                                                     .setWidth(24)
                                             )
@@ -63,7 +63,7 @@ class LabelSample12_For203dpi_FoodSafetyInfo_Template {
                                             .styleHorizontalPositionBy(1.0)
                                             .styleUnderLine(true)
                                             .actionPrintText(
-                                                "\${prepared_date}\n",
+                                                $$"${prepared_date}\n",
                                                 TextParameter()
                                                     .setWidth(15)
                                             )
@@ -75,7 +75,7 @@ class LabelSample12_For203dpi_FoodSafetyInfo_Template {
                                             .styleHorizontalPositionBy(1.0)
                                             .styleUnderLine(true)
                                             .actionPrintText(
-                                                "\${use_by_date}\n",
+                                                $$"${use_by_date}\n",
                                                 TextParameter()
                                                     .setWidth(17)
                                             )

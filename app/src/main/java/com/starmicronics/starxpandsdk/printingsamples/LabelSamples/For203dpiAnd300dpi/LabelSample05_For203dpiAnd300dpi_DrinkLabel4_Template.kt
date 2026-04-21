@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.MagnificationParameter
@@ -34,12 +34,12 @@ class LabelSample05_For203dpiAnd300dpi_DrinkLabel4_Template {
                                 PrinterBuilder()
                                     .styleMagnification(MagnificationParameter(1, 2))
                                     .actionPrintText(
-                                        "\${order_types}"
+                                        $$"${order_types}"
                                     )
                             )
                             .styleHorizontalPositionTo(0.0)
                             .actionPrintText(
-                                "\${datetime}\n",
+                                $$"${datetime}\n",
                                 TextParameter()
                                     .setWidth(
                                         48,
@@ -56,13 +56,13 @@ class LabelSample05_For203dpiAnd300dpi_DrinkLabel4_Template {
                                     .styleInvert(true)
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${order_number}",
+                                        $$"${order_number}",
                                         TextParameter()
                                             .setWidth(4)
                                     )
                             )
                             .actionPrintText(
-                                "(\${item_number}/\${number_of_items})",
+                                $$"(${item_number}/${number_of_items})",
                                 TextParameter()
                                     .setWidth(6)
                             )
@@ -70,7 +70,7 @@ class LabelSample05_For203dpiAnd300dpi_DrinkLabel4_Template {
                                 PrinterBuilder()
                                     .styleMagnification(MagnificationParameter(2, 2))
                                     .actionPrintText(
-                                        "\${time}\n",
+                                        $$"${time}\n",
                                         TextParameter()
                                             .setWidth(
                                                 17,
@@ -88,7 +88,7 @@ class LabelSample05_For203dpiAnd300dpi_DrinkLabel4_Template {
                                     .styleBold(true)
                                     .styleMagnification(MagnificationParameter(1, 2))
                                     .actionPrintText(
-                                        "\${product_name}\n"
+                                        $$"${product_name}\n"
                                     )
                             )
                             .add(
@@ -101,7 +101,7 @@ class LabelSample05_For203dpiAnd300dpi_DrinkLabel4_Template {
                                 )
                                     .styleHorizontalPositionTo(1.0)
                                     .actionPrintText(
-                                        "\${item_list.detail}\n"
+                                        $$"${item_list.detail}\n"
                                     )
                             )
                             .actionPrintRuledLine(
@@ -109,7 +109,7 @@ class LabelSample05_For203dpiAnd300dpi_DrinkLabel4_Template {
                                     .setThickness(0.1)
                             )
                             .actionPrintText(
-                                "\${note}\n"
+                                $$"${note}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

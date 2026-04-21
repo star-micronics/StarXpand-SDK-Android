@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -36,7 +36,7 @@ class LabelSample05_For203dpi_ShippingLabel2_Template {
                                             )
                                             .styleVerticalPositionTo(4.0)
                                             .actionPrintText(
-                                                "\${business_name}\n"
+                                                $$"${business_name}\n"
                                             )
                                     )
                                     .addPageMode(
@@ -46,7 +46,7 @@ class LabelSample05_For203dpi_ShippingLabel2_Template {
                                         PageModeBuilder()
                                             .styleLineSpace(0.0)
                                             .actionPrintText(
-                                                "\${address}\n"
+                                                $$"${address}\n"
                                             )
                                     )
                                     .addPageMode(
@@ -55,7 +55,7 @@ class LabelSample05_For203dpi_ShippingLabel2_Template {
                                             .setY(24.0),
                                         PageModeBuilder()
                                             .actionPrintText(
-                                                "\${telephone_number}\n"
+                                                $$"${telephone_number}\n"
                                             )
                                     )
                                     .actionPrintRuledLine(
@@ -90,11 +90,11 @@ class LabelSample05_For203dpi_ShippingLabel2_Template {
                                             .styleBold(false)
                                             .styleVerticalPositionBy(7.0)
                                             .actionPrintText(
-                                                "\${name_to}\n"
+                                                $$"${name_to}\n"
                                             )
                                             .styleVerticalPositionBy(3.0)
                                             .actionPrintText(
-                                                "\${address_to}\n"
+                                                $$"${address_to}\n"
                                             )
                                     )
                             )

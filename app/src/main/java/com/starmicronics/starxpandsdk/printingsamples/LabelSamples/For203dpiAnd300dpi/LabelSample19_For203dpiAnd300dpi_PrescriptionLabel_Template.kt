@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpiAnd300dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -23,7 +23,7 @@ class LabelSample19_For203dpiAnd300dpi_PrescriptionLabel_Template {
                     .addPrinter(
                         PrinterBuilder()
                             .actionPrintText(
-                                "\${contents}\n"
+                                $$"${contents}\n"
                             )
                             .add(
                                 PrinterBuilder()
@@ -33,7 +33,7 @@ class LabelSample19_For203dpiAnd300dpi_PrescriptionLabel_Template {
                                     )
                                     .styleBold(true)
                                     .actionPrintText(
-                                        "\${number_of_tablet}"
+                                        $$"${number_of_tablet}"
                                     )
                                     .styleBold(false)
                                     .actionPrintText(
@@ -41,11 +41,11 @@ class LabelSample19_For203dpiAnd300dpi_PrescriptionLabel_Template {
                                     )
                                     .styleBold(true)
                                     .actionPrintText(
-                                        "\${number_of_times}"
+                                        $$"${number_of_times}"
                                     )
                                     .styleBold(false)
                                     .actionPrintText(
-                                        " times \${dose_interval}"
+                                        $$" times ${dose_interval}"
                                     )
                             )
                             .actionFeed(7.0)
@@ -55,18 +55,18 @@ class LabelSample19_For203dpiAnd300dpi_PrescriptionLabel_Template {
                             )
                             .styleBold(false)
                             .actionPrintText(
-                                "\${warning1}\n" +
-                                        "\${warning2}\n" +
-                                        "\${warning3}\n"
+                                $$"${warning1}\n" +
+                                        $$"${warning2}\n" +
+                                        $$"${warning3}\n"
                             )
                             .styleBold(true)
                             .actionPrintText(
-                                "\${name}"
+                                $$"${name}"
                             )
                             .styleBold(false)
                             .styleHorizontalPositionTo(0.0)
                             .actionPrintText(
-                                "\${date}\n",
+                                $$"${date}\n",
                                 TextParameter()
                                     .setWidth(
                                         42,
@@ -80,9 +80,9 @@ class LabelSample19_For203dpiAnd300dpi_PrescriptionLabel_Template {
                             )
                             .styleLineSpace(3.0)
                             .actionPrintText(
-                                "For Advice \${for_advice}\n" +
+                                $$"For Advice ${for_advice}\n" +
                                         "Keep out of sight and reach of children\n" +
-                                        "\${address}\n"
+                                        $$"${address}\n"
                             )
                             .actionCut(CutType.Partial)
                     )

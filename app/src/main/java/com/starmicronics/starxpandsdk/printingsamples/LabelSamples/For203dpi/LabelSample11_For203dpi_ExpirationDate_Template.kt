@@ -1,4 +1,4 @@
-package com.starmicronics.starxpandsdk.printingsamples
+package com.starmicronics.starxpandsdk.printingsamples.labelSamples.for203dpi
 
 import com.starmicronics.stario10.starxpandcommand.DocumentBuilder
 import com.starmicronics.stario10.starxpandcommand.PrinterBuilder
@@ -34,7 +34,7 @@ class LabelSample11_For203dpi_ExpirationDate_Template {
                                     .styleVerticalPositionBy(10.0)
                                     .styleUnderLine(true)
                                     .actionPrintText(
-                                        "\${expiration_date}\n",
+                                        $$"${expiration_date}\n",
                                         TextParameter()
                                             .setWidth(
                                                 15,
