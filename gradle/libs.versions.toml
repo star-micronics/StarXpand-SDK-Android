@@ -1,5 +1,5 @@
 [versions]
-stario10Version = "1.12.0"
+stario10Version = "1.12.1"
 agp = "8.13.0"
 kotlin = "2.2.10"
 kotlin_coroutines = "1.10.2"
