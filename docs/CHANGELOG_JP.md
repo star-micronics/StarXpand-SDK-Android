@@ -2,6 +2,20 @@
 
 # 変更履歴
 
+## 1.13.0 (2026/7/10)
+
+#### 追加
+
+* Bluetooth LE通信用情報取得API (`StarPrinterInformationBluetoothLE`) に`rssi`プロパティを追加
+* デバイス検索用API (`StarDeviceDiscoveryManager`) に、同じデバイスに対する発見通知 (`onPrinterFound`) を繰り返し行えるようにするプロパティ`isEnabledFindSameDevice`を追加
+
+#### 変更
+
+* Android 17に対応
+* `ACCESS_LOCAL_NETWORK`権限がないときのLAN通信にて、以下のAPIが適切な例外を出力するように変更
+  * `StarDeviceDiscoveryManager.startDiscovery()`
+  * `StarPrinter.openAsync()`
+
 ## 1.12.1 (2026/05/22)
 
 #### 追加

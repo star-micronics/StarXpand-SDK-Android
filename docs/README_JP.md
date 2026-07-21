@@ -27,12 +27,13 @@ StarIO10ライブラリが提供するAPIの一部は、実行時にユーザー
 
 ## 動作環境
 
-| Language | StarIO10 Kotlin Version | Platform | OS Version[*](#OsVersion) | Arch | Test Environment[*](#TestEnvironment) |
+| Language | StarIO10 Kotlin Version | Platform | OS Version[*1](#AndroidBle) [*2](#OsVersion) | Arch | Test Environment[*3](#TestEnvironment) |
 | --- | --- | --- | --- | --- | --- |
-| Kotlin | 1.7.21 | Android | Android 11.0 以降 | arm64-v8a, armeabi-v7a, x86, x86_64 | Gradle 8.11.1, AGP 8.9.1 |
+| Kotlin | 1.8.22 | Android | Android 8.0 以降 | arm64-v8a, armeabi-v7a, x86, x86_64 | Gradle 9.4.1, AGP 9.2.1 |
 
-<a id="OsVersion"></a>*Bluetooth Low Enegryインターフェースは、Android 12.0以降でのみサポートしています。<br>
-<a id="TestEnvironment"></a>*SDK同梱のサンプルアプリをビルドして動作することを確認しています。
+<a id="AndroidBle"></a>*1 Bluetooth Low Energyインターフェースは、Android 12.0以降でのみサポートしています。<br>
+<a id="OsVersion"></a>*2 動作確認は Android 11 以降で実施しています。Android 8 ~ 10 については、設計上動作可能です。<br>
+<a id="TestEnvironment"></a>*3 SDK同梱のサンプルアプリをビルドして動作することを確認しています。
 
 ## 導入
 
@@ -55,17 +56,34 @@ https://developer.android.com/studio/build/dependencies
 
 ### 2. プロジェクトに設定を追加する
 
-#### 2.1. Bluetooth(Classic)インターフェイスを使用する場合
+#### 2.1 LANインターフェースを利用する場合
+
+targetSdkVersion 37以降を指定したアプリケーションをAndroid 17以降の端末で利用する場合、以下の設定が必要です。
+
+#### 2.1.1 AndroidManifest.xmlに設定を追加する
+
+AndroidManifest.xmlに下記の `<uses-permission>` 要素を追加してください。  
+
+```xml
+    <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK"
+        android:minSdkVersion="37" />
+```
+
+#### 2.1.2 実行時に権限を要求する
+
+[サンプルコード](../app/src/main/java/com/starmicronics/starxpandsdk/ContentView.kt)を参考にして、LAN通信を開始する前に、ACCESS_LOCAL_NETWORK権限を取得してください。
+
+#### 2.2. Bluetooth(Classic)インターフェイスを使用する場合
 
 [サンプルコード](../app/src/main/java/com/starmicronics/starxpandsdk/ContentView.kt)を参考にして、Bluetooth(Classic)通信を開始する前に、BLUETOOTH_CONNECTとBLUETOOTHパーミッションを取得してください。また、AndroidデバイスのBluetooth設定画面でBluetoothを有効にしてください。
 
-#### 2.2. USBケーブル挿抜の度に接続許可ダイアログを表示させないようにしたい場合
+#### 2.3. USBケーブル挿抜の度に接続許可ダイアログを表示させないようにしたい場合
 
 USBプリンターと通信を行うとき、接続許可を求めるダイアログが表示されます。この接続許可は、USBケーブルを挿抜する（プリンターの電源オンオフも含む）とリセットされます。
 
 USBケーブル挿抜の度に接続許可ダイアログを表示させないようにしたい場合、次の設定を行ってください。また、この設定を行うことで、USBケーブルを挿入したときにアプリケーションが自動で起動するようになります。
 
-##### 2.2.1. AndroidManifest.xmlに設定を追加する
+##### 2.3.1. AndroidManifest.xmlに設定を追加する
 
 AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素を追加してください。
 
@@ -79,7 +97,7 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
 <meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" android:resource="@xml/accessory_filter" />
 ```
 
-##### 2.2.2. リソースファイルを追加する
+##### 2.3.2. リソースファイルを追加する
 
 下記のリソースファイルを `res/xml` 以下に `device_filter.xml`、`accessory_filter.xml` という名前で保存してください。
 
@@ -125,11 +143,11 @@ AndroidManifest.xmlに下記の `<intent-filter>` 要素と `<meta-data>` 要素
 </resources>
 ```
 
-#### 2.3. Bluetooth Low Energyインターフェイスを使用する場合
+#### 2.4. Bluetooth Low Energyインターフェイスを使用する場合
 
-Bluetooth Low Enegryインターフェースは、Android 12.0以降でのみサポートしています。
+Bluetooth Low Energyインターフェースは、Android 12.0以降でのみサポートしています。
 
-##### 2.3.1. AndroidManifest.xmlに設定を追加する
+##### 2.4.1. AndroidManifest.xmlに設定を追加する
 
 AndroidManifest.xmlに下記の `<uses-permission>` 要素を追加してください。  
 
@@ -140,11 +158,11 @@ AndroidManifest.xmlに下記の `<uses-permission>` 要素を追加してくだ�
         android:usesPermissionFlags="neverForLocation" />
 ```
 
-##### 2.3.2. Bluetooth機能を有効化する
+##### 2.4.2. Bluetooth機能を有効化する
 
 [サンプルコード](../app/src/main/java/com/starmicronics/starxpandsdk/ContentView.kt)を参考にして、Bluetooth Low Energy通信を開始する前に必要なパーミッションを取得してください。また、AndroidデバイスのBluetooth設定画面でBluetoothを有効にしてください。
 
-##### 2.3.3. ペアリングを行う
+##### 2.4.3. ペアリングを行う
 
 Bluetooth Low Energy通信を行う場合、ペアリングを行う必要があります。  
 ペアリングの手順については、[こちら](https://star-m.jp/products/s_print/sdk/starxpand/manual/ja/pairing.html)を参照ください。

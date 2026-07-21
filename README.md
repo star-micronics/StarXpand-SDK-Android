@@ -27,12 +27,13 @@ Please refer [here](DIAG_INFO.md) for details.
 
 ## Requirements
 
-| Language | StarIO10 Kotlin Version | Platform | Version[*](#OsVersion) | Arch | Test Environment[*](#TestEnvironment) |
+| Language | StarIO10 Kotlin Version | Platform | Version[*1](#AndroidBle) [*2](#OsVersion) | Arch | Test Environment[*3](#TestEnvironment) |
 | --- | --- | --- | --- | --- | --- |
-| Kotlin | 1.7.21 | Android | Android 11.0 or later | arm64-v8a, armeabi-v7a, x86, x86_64 | Gradle 8.11.1, AGP 8.9.1 |
+| Kotlin | 1.8.22 | Android | Android 8.0 or later | arm64-v8a, armeabi-v7a, x86, x86_64 | Gradle 9.4.1, AGP 9.2.1 |
 
-<a id="OsVersion"></a>*The Bluetooth Low Energy interface is only supported on Android 12.0 and later.<br>
-<a id="TestEnvironment"></a>*The sample app included with this SDK is being built, and its operation is being confirmed.
+<a id="AndroidBle"></a>*1 The Bluetooth Low Energy interface is only supported on Android 12.0 and later.<br>
+<a id="OsVersion"></a>*2 Testing has been performed on Android 11 or later. For Android 8.0 to 10, operation is expected to be possible on the design.<br>
+<a id="TestEnvironment"></a>*3 The sample app included with this SDK is being built, and its operation is being confirmed.
 
 ## Installation
 
@@ -55,17 +56,34 @@ https://developer.android.com/studio/build/dependencies
 
 ### 2. Add settings to your project
 
-#### 2.1. When using a Bluetooth interface
+#### 2.1. When using a LAN interface
+
+If an application targets targetSdkVersion 37 or later and runs on a device with Android 17 or later, the following settings are required.
+
+#### 2.1.1 Add settings to AndroidManifest.xml
+
+Add the following <uses-permission> elements to AndroidManifest.xml.
+
+```xml
+    <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK"
+        android:minSdkVersion="37" />
+```
+
+#### 2.1.2 Request Permissions at Runtime
+
+Refer to [sample code](app/src/main/java/com/starmicronics/starxpandsdk/ContentView.kt) and obtain the ACCESS_LOCAL_NETWORK permission before starting LAN communication.
+
+#### 2.2. When using a Bluetooth interface
 
 Refer to [sample code](app/src/main/java/com/starmicronics/starxpandsdk/ContentView.kt) and obtain BLUETOOTH_CONNECT and BLUETOOTH permission before starting Bluetooth(Classic) communication. Also, enable Bluetooth in the Android device's Bluetooth settings screen.
 
-#### 2.2. To prevent the connection permission dialog from being displayed every time the USB cable is plugged in or unplugged
+#### 2.3. To prevent the connection permission dialog from being displayed every time the USB cable is plugged in or unplugged
 
 When communicating with a USB printer, a dialog box will appear asking for connection permission. This permission is reset when the USB cable is plugged in or unplugged (including when the printer is turned on or off).
 
 If you do not want to display the connection permission dialog every time the USB cable is plugged in or unplugged, configure the following settings. This setting will also allow the application to start automatically when the USB cable is plugged.
 
-##### 2.2.1. Add settings to AndroidManifest.xml
+##### 2.3.1. Add settings to AndroidManifest.xml
 
 Add the following `<intent-filter>` and `<meta-data>` elements to AndroidManifest.xml.
 
@@ -79,7 +97,7 @@ Add the following `<intent-filter>` and `<meta-data>` elements to AndroidManifes
 <meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" android:resource="@xml/accessory_filter" />
 ```
 
-##### 2.2.2. Add a resource file
+##### 2.3.2. Add a resource file
 
 Store the following resource files under `res/xml` with the names `device_filter.xml` and `accessory_filter.xml`.
 
@@ -125,11 +143,11 @@ Store the following resource files under `res/xml` with the names `device_filter
 </resources>
 ```
 
-#### 2.3. When using the Bluetooth Low Energy interface
+#### 2.4. When using the Bluetooth Low Energy interface
 
 The Bluetooth Low Energy interface is only supported on Android 12.0 and later.
 
-##### 2.3.1. Add settings to AndroidManifest.xml
+##### 2.4.1. Add settings to AndroidManifest.xml
 
 Add the following `<uses-permission>` elements to AndroidManifest.xml.  
 
@@ -140,11 +158,11 @@ Add the following `<uses-permission>` elements to AndroidManifest.xml.
         android:usesPermissionFlags="neverForLocation" />
 ```
 
-##### 2.3.2. Bluetooth enablement
+##### 2.4.2. Bluetooth enablement
 
 Refer to the [sample code](app/src/main/java/com/starmicronics/starxpandsdk/ContentView.kt) and obtain the necessary permissions before starting Bluetooth Low Energy communication. Also, enable Bluetooth in the Android device's Bluetooth settings screen.
 
-##### 2.3.3. Perform pairing
+##### 2.4.3. Perform pairing
 
 When using Bluetooth Low Energy communication, pairing is required.  
 For pairing instructions, please refer to [here](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/pairing.html).

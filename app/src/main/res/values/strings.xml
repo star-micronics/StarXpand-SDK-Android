@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">StarXpandSDK</string>
 
+    <string name="lan_printer_notice">If you are using a LAN printer or device on Android 17 or later, you must request local network permissions.</string>
     <string name="bluetooth_classic_printer_notice">If you are using a Bluetooth (Classic) printer or device on Android 12 or later, you must request Bluetooth permissions.</string>
     <string name="bluetooth_low_energy_printer_notice">If you are using a Bluetooth (Low Energy) printer or device, you must request the Bluetooth permissions.</string>
-    <string name="request_bluetooth_permission">Request bluetooth permission</string>
-    <string name="bluetooth_permission_granted">Bluetooth permission granted</string>
+    <string name="request_permissions">Request permissions</string>
+    <string name="permissions_granted">Permissions granted</string>
 
     <string name="discovery_title">Discovery</string>
     <string name="printing_title">Printing</string>

@@ -1,19 +1,18 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace 'com.starmicronics.starxpandsdk'
+    compileSdk = 37
 
     defaultConfig {
         applicationId "com.starmicronics.starxpandsdk"
-        compileSdkVersion 36
         minSdkVersion 30
-        targetSdkVersion 36
+        targetSdkVersion 37
         versionCode 1
-        versionName "1.12.1"
+        versionName "1.13.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,7 +27,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions.jvmTarget = "1.8"
 
     buildFeatures {
         compose true
@@ -37,7 +35,6 @@ android {
 
 dependencies {
     implementation libs.starmicronics.stario10
-    implementation libs.kotlin.stdlib
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.androidx.constraintlayout

@@ -1,7 +1,7 @@
 [versions]
-stario10Version = "1.12.1"
-agp = "8.13.0"
-kotlin = "2.2.10"
+stario10Version = "1.13.0"
+agp = "9.2.1"
+kotlin = "2.2.10" # for compose
 kotlin_coroutines = "1.10.2"
 coreKtx = "1.17.0"
 appcompat = "1.7.1"
@@ -15,7 +15,6 @@ espressoCore = "3.7.0"
 
 [libraries]
 starmicronics-stario10 = { module = "com.starmicronics:stario10", version.ref = "stario10Version" }
-kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin_coroutines" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin_coroutines" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,5 +35,4 @@ androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", vers
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

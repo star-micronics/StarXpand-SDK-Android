@@ -265,7 +265,13 @@ fun MenuScreen(
             ) {
                 val context = LocalContext.current
                 val permissionsToRequest =
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN) {
+                        arrayOf(
+                            Manifest.permission.ACCESS_LOCAL_NETWORK, // for LAN
+                            Manifest.permission.BLUETOOTH_CONNECT, // for Bluetooth(Classic/LE)
+                            Manifest.permission.BLUETOOTH_SCAN, // for Bluetooth LE
+                        )
+                    } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                         arrayOf(
                             Manifest.permission.BLUETOOTH_CONNECT, // for Bluetooth(Classic/LE)
                             Manifest.permission.BLUETOOTH_SCAN, // for Bluetooth LE
@@ -279,6 +285,11 @@ fun MenuScreen(
                     }
                 val permissionState = remember { mutableStateOf(false) }
 
+                // https://developer.android.com/privacy-and-security/local-network-permission
+                Text(stringResource(id = R.string.lan_printer_notice) ,
+                    modifier = Modifier.padding(8.dp),
+                    color = Color.Red,
+                )
                 // https://developer.android.com/about/versions/12/features/bluetooth-permissions
                 Text(stringResource(id = R.string.bluetooth_classic_printer_notice) ,
                     modifier = Modifier.padding(8.dp),
@@ -365,9 +376,9 @@ fun PermissionScreen(
         Button(onClick = {
             launcher.launch(permissionsToRequest)
         }) {
-            Text(stringResource(id = R.string.request_bluetooth_permission))
+            Text(stringResource(id = R.string.request_permissions))
         }
     } else {
-        Text(stringResource(id = R.string.bluetooth_permission_granted))
+        Text(stringResource(id = R.string.permissions_granted))
     }
 }
