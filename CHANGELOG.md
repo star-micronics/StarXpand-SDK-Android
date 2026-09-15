@@ -2,6 +2,15 @@
 
 # Change Log
 
+## 1.14.0 (2026/9/15)
+
+#### Added
+
+* Added API to retrieve and reset the maintenance information of the printer.
+  * `maintenance` property of `StarPrinterSetting`
+  * `StarPrinterSettingMaintenance`
+  * `MaintenanceInformationType`
+
 ## 1.13.0 (2026/7/10)
 
 #### Added

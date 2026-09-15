@@ -1,5 +1,5 @@
 [versions]
-stario10Version = "1.13.0"
+stario10Version = "1.14.0"
 agp = "9.2.1"
 kotlin = "2.2.10" # for compose
 kotlin_coroutines = "1.10.2"

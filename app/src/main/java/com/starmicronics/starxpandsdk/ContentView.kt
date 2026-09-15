@@ -67,6 +67,7 @@ fun ContentView(modifier: Modifier = Modifier) {
             MenuItem("Monitor", stringResource(id = R.string.monitor_title)),
             MenuItem("Status", stringResource(id = R.string.status_title)),
             MenuItem("FirmwareUpdate", stringResource(id = R.string.firmwareUpdate_title)),
+            MenuItem("Maintenance", stringResource(id = R.string.maintenance_title)),
         )
     // Create a NavController to manage navigation between screens
     val navController = rememberNavController()
@@ -80,6 +81,7 @@ fun ContentView(modifier: Modifier = Modifier) {
     val monitorViewModel: MonitorViewModel = viewModel()
     val statusViewModel: StatusViewModel = viewModel()
     val firmwareUpdateViewModel: FirmwareUpdateViewModel = viewModel()
+    val maintenanceViewModel: MaintenanceViewModel = viewModel()
 
     val discoveryProcessing by discoveryViewModel.isProcessing.collectAsState()
     val printingProcessing by printingViewModel.isProcessing.collectAsState()
@@ -88,6 +90,7 @@ fun ContentView(modifier: Modifier = Modifier) {
     val monitorProcessing by monitorViewModel.isProcessing.collectAsState()
     val statusProcessing by statusViewModel.isProcessing.collectAsState()
     val firmwareProcessing by firmwareUpdateViewModel.isProcessing.collectAsState()
+    val maintenanceProcessing by maintenanceViewModel.isProcessing.collectAsState()
 
     LaunchedEffect(
         discoveryProcessing,
@@ -96,7 +99,8 @@ fun ContentView(modifier: Modifier = Modifier) {
         templateProcessing,
         monitorProcessing,
         statusProcessing,
-        firmwareProcessing
+        firmwareProcessing,
+        maintenanceProcessing
     ) {
         isProcessing = discoveryProcessing ||
                 printingProcessing ||
@@ -104,7 +108,8 @@ fun ContentView(modifier: Modifier = Modifier) {
                 templateProcessing ||
                 monitorProcessing ||
                 statusProcessing ||
-                firmwareProcessing
+                firmwareProcessing ||
+                maintenanceProcessing
     }
 
     // Set up the navigation host with the start destination
@@ -201,6 +206,19 @@ fun ContentView(modifier: Modifier = Modifier) {
                     FirmwareUpdateView(
                         paddingValues,
                         firmwareUpdateViewModel,
+                        )
+                },
+            )()
+        }
+        composable("Maintenance") {
+            createScreen(
+                stringResource(id = R.string.maintenance_title),
+                onBackClick = { if (!isProcessing) navController.popBackStack() },
+                subScreen = true,
+                content = { paddingValues ->
+                    MaintenanceView(
+                        paddingValues,
+                        maintenanceViewModel,
                         )
                 },
             )()

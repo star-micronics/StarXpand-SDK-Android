@@ -196,6 +196,8 @@ The sample code and printed result images are also [available here](app/src/main
 
 #### 8. [Update printer firmware](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/fw-update.html)
 
+#### 9. [Get maintenance information](#Maintenance)
+
 <a id="GetPrinterStatus"></a>
 
 ### Get printer status
@@ -293,6 +295,45 @@ fun monitor() {
     }
 }
 ```
+
+<a id="Maintenance"></a>
+
+### Get maintenance information
+
+```kotlin
+fun getMaintenanceInformation() {
+    // Specify your printer connection settings.
+    val settings = StarConnectionSettings(interfaceType.Lan, "00:11:62:00:00:00")
+    val printer = StarPrinter(settings, applicationContext)
+
+    val job = SupervisorJob()
+    val scope = CoroutineScope(Dispatchers.Default + job)
+
+    scope.launch {
+        try {
+            // Connect to the printer.
+            printer.openAsync().await()
+
+            // Get maintenance information.
+            // Information not supported by the printer is omitted from the returned data.
+            printer.setting?.maintenance?.let { maintenance ->
+                val information = maintenance.getInformationAsync().await()
+                for ((type, value) in information) {
+                    Log.d("Maintenance", "${type}: ${value}")
+                }
+            }
+        } catch (e: Exception) {
+            // Exception.
+            Log.d("Maintenance", "${e.message}")
+        } finally {
+            // Disconnect from the printer.
+            printer.closeAsync().await()
+        }
+    }
+}
+```
+
+Resettable maintenance information values can be reset by the `resetInformationAsync()` method. Please refer to the [sample code](app/src/main/java/com/starmicronics/starxpandsdk/MaintenanceView.kt) and the [API reference](https://star-m.jp/products/s_print/sdk/starxpand/manual/en/android-kotlin-api-reference/stario10/star-printer-setting-maintenance/index.html) for the usage.
 
 ## Copyright
 

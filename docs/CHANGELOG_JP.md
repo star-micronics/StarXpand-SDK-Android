@@ -2,6 +2,15 @@
 
 # 変更履歴
 
+## 1.14.0 (2026/9/15)
+
+#### 追加
+
+* プリンターのメンテナンス情報を取得・リセットするAPIを追加
+  * `StarPrinterSetting`の`maintenance`プロパティ
+  * `StarPrinterSettingMaintenance`
+  * `MaintenanceInformationType`
+
 ## 1.13.0 (2026/7/10)
 
 #### 追加

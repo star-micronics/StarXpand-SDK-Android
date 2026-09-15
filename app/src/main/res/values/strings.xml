@@ -14,6 +14,7 @@
     <string name="printingSpooler_title">Printing -Spooler-</string>
     <string name="templatePrint_title">Template Print</string>
     <string name="firmwareUpdate_title">Firmware Update</string>
+    <string name="maintenance_title">Maintenance</string>
 
     <string name="identifier">Identifier</string>
     <string name="interface_type">Interface</string>
@@ -29,6 +30,10 @@
 
     <string name="template">Template</string>
     <string name="fieldData">Field Data</string>
+
+    <string name="get_information">Get Information</string>
+    <string name="reset_information">Reset Information</string>
+    <string name="reset_information_types">Reset target</string>
 
     <string name="check_versions">Check Versions</string>
     <string name="update">Update</string>
